@@ -79,6 +79,7 @@
     <script src="assets/vendor/scripts.js" defer></script>
     <script src="assets/vendor/hero-slides-data.js" defer></script>
     <script src="assets/vendor/hero-slideshow.js" defer></script>
+    <script src="assets/vendor/cymatics.js" defer></script>
 
     <!-- Styles -->
     <link rel="stylesheet" href="assets/vendor/dist.css">
@@ -208,6 +209,160 @@
         .hero-slide-layer:not(.is-zooming) img {
             transform: scale(1.0);
         }
+
+        /* Linear Organic Cymatics & Audio Spectrum Wavefield (Black & White) */
+        #cymatics-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding-top: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (min-width: 1024px) {
+            #cymatics-wrapper {
+                flex: 1 1 0%;
+                width: auto;
+                max-width: 720px;
+                margin-left: auto;
+                padding-top: 0;
+                padding-left: 2rem;
+                padding-right: 0.5rem;
+            }
+        }
+
+        .cymatics-linear-stage {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            border-radius: 1.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: linear-gradient(180deg, rgba(18, 18, 20, 0.75) 0%, rgba(4, 4, 5, 0.95) 100%);
+            box-shadow: 0 16px 48px -12px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            overflow: hidden;
+            position: relative;
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .cymatics-linear-stage:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 56px -10px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 0 40px -10px rgba(255, 255, 255, 0.08);
+        }
+
+        .cymatics-marquee-box {
+            display: flex;
+            overflow: hidden;
+            white-space: nowrap;
+            user-select: none;
+            padding: 0.85rem 0;
+            background: rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+        }
+
+        .cymatics-marquee-secondary {
+            border-bottom: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.09);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .cymatics-marquee-track {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            will-change: transform;
+        }
+
+        .cymatics-marquee-left {
+            animation: cymatics-scroll-left 26s linear infinite;
+        }
+
+        .cymatics-marquee-right {
+            animation: cymatics-scroll-right 30s linear infinite;
+        }
+
+        .cymatics-linear-stage:hover .cymatics-marquee-left {
+            animation-duration: 18s;
+        }
+
+        .cymatics-linear-stage:hover .cymatics-marquee-right {
+            animation-duration: 20s;
+        }
+
+        @keyframes cymatics-scroll-left {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes cymatics-scroll-right {
+            from {
+                transform: translateX(-50%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        .cymatics-text-group {
+            display: inline-flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding-right: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .cymatics-text-item {
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #ffffff;
+            white-space: nowrap;
+        }
+
+        .cymatics-marquee-secondary .cymatics-text-item {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            color: rgba(255, 255, 255, 0.55);
+        }
+
+        .cymatics-dot {
+            font-size: 0.75rem;
+            color: #ffffff;
+            opacity: 0.85;
+            text-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+        }
+
+        #cymatics-container {
+            position: relative;
+            width: 100%;
+            height: 190px;
+            min-height: 170px;
+            cursor: crosshair;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (min-width: 1024px) {
+            #cymatics-container {
+                height: 210px;
+            }
+        }
+
+        #cymatics-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100% !important;
+            height: 100% !important;
+            display: block;
+        }
     </style>
 </head>
 
@@ -235,14 +390,14 @@
                         <a href="curriculo/index.html"
                             class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10"
                             data-barba-prevent="self">
-                            <span>sobre</span>
+                            <span>currículo</span>
                         </a>
                     </li>
                     <li class="w-full min-w-0">
                         <a href="portfolio/index.html"
                             class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10"
                             data-barba-prevent="self">
-                            <span>projetos</span>
+                            <span>portfólio</span>
                         </a>
                     </li>
                     <li class="w-full min-w-0">
@@ -517,13 +672,6 @@
                         <div class="flex flex-col leading-[2.2] lg:first:pr-16" data-st="fade-object">
                             <ul class="flex flex-col text-neutral-300">
                                 <li>
-                                    <a href="mailto:coimbra.lucas.art@gmail.com"
-                                        class="flex gap-2 max-w-max transition hover:text-white"
-                                        data-barba-prevent="self">
-                                        coimbra.lucas.art@gmail.com
-                                    </a>
-                                </li>
-                                <li>
                                     <a href="https://wa.me/5511940456685" target="_blank"
                                         class="flex gap-2 max-w-max transition hover:text-white"
                                         data-barba-prevent="self">
@@ -563,15 +711,6 @@
                         </div>
                         <div data-st="fade-object">
                             <p>
-                                <a href="index.html"
-                                    class="flex gap-2 max-w-max text-xs py-2 text-neutral-400 opacity-70 transition hover:opacity-100 hover:text-white"
-                                    data-barba-prevent="self">
-                                    Ver Currículo Completo
-                                </a>
-                            </p>
-                        </div>
-                        <div data-st="fade-object">
-                            <p>
                                 <span class="flex text-xs py-2 text-neutral-400 opacity-70">
                                     Lucas Coimbra ‧ Portfólio 2026
                                 </span>
@@ -579,32 +718,65 @@
                         </div>
                     </div>
                 </div>
-                <div class="hidden lg:flex w-full pt-14 overflow-hidden" data-st="fade">
-                    <svg class="shrink-0 ml-auto" xmlns="http://www.w3.org/2000/svg" width="778" height="310"
-                        fill="none" viewBox="0 0 778 310">
-                        <path id="text-path" stroke="#26262a" stroke-miterlimit="10" stroke-width="40"
-                            d="M-195.054 21.157c128.957 0 194.736 266.48 97.364 266.48-97.364 0-31.592-266.48 97.372-266.48 128.958 0 194.737 266.48 97.365 266.48-97.365 0-31.593-266.48 97.364-266.48 128.958 0 194.737 266.48 97.365 266.48-97.365 0-31.593-266.48 97.364-266.48 128.958 0 194.737 266.48 97.365 266.48-97.365 0-31.593-266.48 97.364-266.48 128.958 0 194.737 266.48 97.365 266.48-97.365 0-31.593-266.48 97.364-266.48 128.958 0 194.737 266.48 97.365 266.48-97.365 0-31.593-266.48 97.364-266.48" />
-                        <text style="fill:currentColor; font-size:18px; font-weight: bold;">
-                            <textPath href="#text-path" startOffset="0" data-st="text-scrub-object">
-                                <tspan alignment-baseline="middle" style="fill:#ffffff;">Design Gráfico de Alta
-                                    Performance. Direção de Arte Estratégica. </tspan>
-                                <tspan alignment-baseline="middle" style="fill:#737373;">Design Gráfico de Alta
-                                    Performance. Direção de Arte Estratégica. </tspan>
-                                <tspan alignment-baseline="middle" style="fill:#ffffff;">Design Gráfico de Alta
-                                    Performance. Direção de Arte Estratégica. </tspan>
-                                <tspan alignment-baseline="middle" style="fill:#737373;">Design Gráfico de Alta
-                                    Performance. Direção de Arte Estratégica. </tspan>
-                                <tspan alignment-baseline="middle" style="fill:#ffffff;">Design Gráfico de Alta
-                                    Performance. Direção de Arte Estratégica. </tspan>
-                                <tspan alignment-baseline="middle" style="fill:#737373;">Design Gráfico de Alta
-                                    Performance. Direção de Arte Estratégica. </tspan>
-                                <tspan alignment-baseline="middle" style="fill:#ffffff;">Design Gráfico de Alta
-                                    Performance. Direção de Arte Estratégica. </tspan>
-                                <tspan alignment-baseline="middle" style="fill:#737373;">Design Gráfico de Alta
-                                    Performance. Direção de Arte Estratégica. </tspan>
-                            </textPath>
-                        </text>
-                    </svg>
+                <div id="cymatics-wrapper">
+                    <div class="cymatics-linear-stage">
+                        <!-- Top Linear Text Stream (Moving Left, Pure White, Crisp & High Legibility) -->
+                        <div class="cymatics-marquee-box">
+                            <div class="cymatics-marquee-track cymatics-marquee-left">
+                                <div class="cymatics-text-group">
+                                    <span class="cymatics-text-item">DIREÇÃO DE ARTE ESTRATÉGICA</span>
+                                    <span class="cymatics-dot">✦</span>
+                                    <span class="cymatics-text-item">DESIGN GRÁFICO DE ALTA PERFORMANCE</span>
+                                    <span class="cymatics-dot">✦</span>
+                                    <span class="cymatics-text-item">DIREÇÃO DE ARTE ESTRATÉGICA</span>
+                                    <span class="cymatics-dot">✦</span>
+                                    <span class="cymatics-text-item">DESIGN GRÁFICO DE ALTA PERFORMANCE</span>
+                                    <span class="cymatics-dot">✦</span>
+                                </div>
+                                <div class="cymatics-text-group" aria-hidden="true">
+                                    <span class="cymatics-text-item">DIREÇÃO DE ARTE ESTRATÉGICA</span>
+                                    <span class="cymatics-dot">✦</span>
+                                    <span class="cymatics-text-item">DESIGN GRÁFICO DE ALTA PERFORMANCE</span>
+                                    <span class="cymatics-dot">✦</span>
+                                    <span class="cymatics-text-item">DIREÇÃO DE ARTE ESTRATÉGICA</span>
+                                    <span class="cymatics-dot">✦</span>
+                                    <span class="cymatics-text-item">DESIGN GRÁFICO DE ALTA PERFORMANCE</span>
+                                    <span class="cymatics-dot">✦</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Central Linear Wavefield & Spectrum Canvas (Black & White) -->
+                        <div id="cymatics-container" title="Espectro Sonoro & Ressonância Harmônica">
+                            <canvas id="cymatics-canvas"></canvas>
+                        </div>
+
+                        <!-- Bottom Linear Text Stream (Moving Right, Subtle Silver Counter-Flow) -->
+                        <div class="cymatics-marquee-box cymatics-marquee-secondary">
+                            <div class="cymatics-marquee-track cymatics-marquee-right">
+                                <div class="cymatics-text-group">
+                                    <span class="cymatics-text-item">DESIGN GRÁFICO DE ALTA PERFORMANCE</span>
+                                    <span class="cymatics-dot">✦</span>
+                                    <span class="cymatics-text-item">DIREÇÃO DE ARTE ESTRATÉGICA</span>
+                                    <span class="cymatics-dot">✦</span>
+                                    <span class="cymatics-text-item">DESIGN GRÁFICO DE ALTA PERFORMANCE</span>
+                                    <span class="cymatics-dot">✦</span>
+                                    <span class="cymatics-text-item">DIREÇÃO DE ARTE ESTRATÉGICA</span>
+                                    <span class="cymatics-dot">✦</span>
+                                </div>
+                                <div class="cymatics-text-group" aria-hidden="true">
+                                    <span class="cymatics-text-item">DESIGN GRÁFICO DE ALTA PERFORMANCE</span>
+                                    <span class="cymatics-dot">✦</span>
+                                    <span class="cymatics-text-item">DIREÇÃO DE ARTE ESTRATÉGICA</span>
+                                    <span class="cymatics-dot">✦</span>
+                                    <span class="cymatics-text-item">DESIGN GRÁFICO DE ALTA PERFORMANCE</span>
+                                    <span class="cymatics-dot">✦</span>
+                                    <span class="cymatics-text-item">DIREÇÃO DE ARTE ESTRATÉGICA</span>
+                                    <span class="cymatics-dot">✦</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </footer>
