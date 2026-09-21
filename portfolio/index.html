@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Portfólio — Lucas Coimbra</title>
+  <meta name="description" content="Portfólio de Lucas Coimbra: Sobral 2026 e Edição de vídeos Vinci."/>
+  <meta name="author" content="Lucas Pereira Coimbra da Silva"/>
+  <meta name="theme-color" content="#131314"/>
+
+  <!-- Favicon SVG -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%232a2a2b'/%3E%3Ctext x='50' y='65' font-family='sans-serif' font-weight='800' font-size='50' fill='%23aac7ff' text-anchor='middle'%3ELC%3C/text%3E%3C/svg%3E"/>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-surface-variant": "#c0c6d6",
+            "primary": "#3e90ff",
+            "primary-light": "#aac7ff",
+            "surface-bright": "#3a393a",
+            "surface-container-high": "#2a2a2b",
+            "surface-container-low": "#1c1b1c",
+            "surface-container-lowest": "#0e0e0f",
+            "secondary": "#c2c1ff",
+            "background": "#131314",
+            "tertiary": "#47e266",
+            "outline-variant": "#414754",
+            "outline": "#8b91a0",
+            "on-background": "#e5e2e3",
+            "surface": "#131314",
+            "surface-container-highest": "#353436",
+            "surface-container": "#201f20",
+            "on-surface": "#e5e2e3"
+          },
+          fontFamily: {
+            "display": ["Hanken Grotesk", "sans-serif"],
+            "mono": ["JetBrains Mono", "monospace"],
+            "body": ["Hanken Grotesk", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Hero Video Container, Masks & Overlay 50% */
+    .hero-video-container {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background-color: #000000;
+    }
+    @media (min-width: 640px) {
+      .hero-video-container {
+        height: 380px;
+      }
+    }
+    @media (min-width: 1024px) {
+      .hero-video-container {
+        height: 440px;
+      }
+    }
+    .hero-youtube-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100vw;
+      height: 56.25vw;
+      min-height: 100%;
+      min-width: 177.78vh;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-youtube-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      pointer-events: none;
+    }
+    .hero-video-element {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-overlay-dark {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 2;
+      pointer-events: none;
+    }
+    .hero-bottom-fade {
+      position: absolute;
+      inset-inline: 0;
+      bottom: 0;
+      height: 40%;
+      min-height: 100px;
+      background: linear-gradient(to top, rgba(19, 19, 20, 0.95) 0%, rgba(19, 19, 20, 0.6) 50%, rgba(0, 0, 0, 0) 100%);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .hero-top-vignette {
+      position: absolute;
+      inset-inline: 0;
+      top: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .hero-title-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 0 1.5rem;
+      pointer-events: none;
+    }
+
+    /* Card Transition */
+    .clean-card {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .clean-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+    .aspect-4-5 {
+      aspect-ratio: 4 / 5;
+    }
+    .aspect-1-1 {
+      aspect-ratio: 1 / 1;
+    }
+  </style>
+</head>
+
+<body class="bg-background text-on-surface font-body antialiased min-h-screen flex flex-col selection:bg-primary selection:text-white">
+
+  <!-- HEADER NAVEGAÇÃO -->
+  <header class="sticky top-0 z-40 backdrop-blur-xl bg-surface-container-lowest/85 border-b border-outline-variant/30 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-center">
+      
+      <!-- Nav Pill Menu Central -->
+      <nav class="flex items-center">
+        <ul class="flex items-center rounded-full bg-neutral-900/85 border border-white/15 text-sm lowercase p-1.5 backdrop-blur-xl shadow-2xl">
+          <li class="min-w-0">
+            <a href="../index.html" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10">
+              <span>início</span>
+            </a>
+          </li>
+          <li class="min-w-0">
+            <a href="../curriculo/index.html" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10">
+              <span>sobre</span>
+            </a>
+          </li>
+          <li class="min-w-0">
+            <a href="index.html" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition bg-white text-black font-semibold">
+              <span>projetos</span>
+            </a>
+          </li>
+          <li class="min-w-0">
+            <a href="https://wa.me/5511940456685?text=Ol%C3%A1%20Lucas,%20vi%20seu%20portfolio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10">
+              <span>contato</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 flex flex-col gap-10">
+
+    <!-- HERO COM VÍDEO & OVERLAY PRETO 50% -->
+    <section class="relative w-full rounded-3xl overflow-hidden bg-black border border-outline-variant/30 shadow-2xl">
+      <div class="hero-video-container" id="hero-media-box">
+        <!-- Embed YouTube Full HD com referrerpolicy obrigatório -->
+        <div class="hero-youtube-wrapper" id="hero-yt-wrapper">
+          <iframe id="hero-yt-player"
+            src="https://www.youtube-nocookie.com/embed/JXEI_OlVOPg?autoplay=1&mute=1&loop=1&playlist=JXEI_OlVOPg&controls=0&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&modestbranding=1&playsinline=1"
+            title="Lucas Coimbra Hero Video" referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            tabindex="-1" aria-hidden="true" loading="eager">
+          </iframe>
+        </div>
+        <!-- Fallback automático em Full HD para visualização local sem erro 153 do YouTube -->
+        <video id="hero-local-video" class="hero-video-element hidden" autoplay muted loop playsinline
+          preload="auto" tabindex="-1" aria-hidden="true">
+          <source src="../1 upscale.mp4" type="video/mp4">
+        </video>
+        <!-- Overlay preto de 50% -->
+        <div class="hero-overlay-dark"></div>
+        <!-- Vinhetas e Fade Suave -->
+        <div class="hero-top-vignette"></div>
+        <div class="hero-bottom-fade"></div>
+        <!-- Nome do Projeto em Cima -->
+        <div class="hero-title-content">
+          <h1 class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white uppercase drop-shadow-2xl">
+            Portfólio
+          </h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRID DE PROJETOS CLEAN (3 COLUNAS PADRONIZADAS) -->
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+
+      <!-- CARD 1: SOBRAL 2026 -->
+      <article class="clean-card rounded-3xl bg-surface-container-low border border-outline-variant/30 overflow-hidden flex flex-col group">
+        <!-- Preview Visual -->
+        <a href="sobral/index.html" class="block relative aspect-4-5 w-full bg-surface-container-highest overflow-hidden">
+          <img src="sobral/carrossel%20ainda%20nao%20comprou/sobral---carrossel-ainda-nao-comprou_01.webp" alt="Sobral 2026 - Dia dos Pais" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"/>
+        </a>
+
+        <!-- Rodapé do Card: Nome e Botão Clean -->
+        <div class="p-6 flex items-center justify-between gap-4 mt-auto">
+          <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-on-surface">
+            sobral 2026
+          </h3>
+
+          <a href="sobral/index.html" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/40 text-on-surface hover:text-white font-mono text-xs font-semibold transition-all duration-200 group/btn shrink-0">
+            <span>Ver mais</span>
+            <span class="material-symbols-outlined text-[15px] transition-transform duration-300 group-hover/btn:translate-x-0.5">arrow_forward</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- CARD 2: SOBRAL 2025 -->
+      <article class="clean-card rounded-3xl bg-surface-container-low border border-outline-variant/30 overflow-hidden flex flex-col group">
+        <!-- Preview Visual -->
+        <a href="sobral 2025/index.html" class="block relative aspect-4-5 w-full bg-surface-container-highest overflow-hidden">
+          <img src="sobral%202025/post%20desconto%20pix/sobral---post-desconto-pix.webp" alt="Sobral 2025 - 10% OFF" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"/>
+        </a>
+
+        <!-- Rodapé do Card: Nome e Botão Clean -->
+        <div class="p-6 flex items-center justify-between gap-4 mt-auto">
+          <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-on-surface">
+            sobral 2025
+          </h3>
+
+          <a href="sobral 2025/index.html" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/40 text-on-surface hover:text-white font-mono text-xs font-semibold transition-all duration-200 group/btn shrink-0">
+            <span>Ver mais</span>
+            <span class="material-symbols-outlined text-[15px] transition-transform duration-300 group-hover/btn:translate-x-0.5">arrow_forward</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- CARD 3: SOBRAL 2024 -->
+      <article class="clean-card rounded-3xl bg-surface-container-low border border-outline-variant/30 overflow-hidden flex flex-col group">
+        <!-- Preview Visual -->
+        <a href="sobral 2024/index.html" class="block relative aspect-4-5 w-full bg-surface-container-highest overflow-hidden">
+          <img src="sobral%202024/indireta/ESSE%20POST%20%C3%89%20UMA.webp" alt="Sobral 2024 - Indireta" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"/>
+        </a>
+
+        <!-- Rodapé do Card: Nome e Botão Clean -->
+        <div class="p-6 flex items-center justify-between gap-4 mt-auto">
+          <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-on-surface">
+            sobral 2024
+          </h3>
+
+          <a href="sobral 2024/index.html" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/40 text-on-surface hover:text-white font-mono text-xs font-semibold transition-all duration-200 group/btn shrink-0">
+            <span>Ver mais</span>
+            <span class="material-symbols-outlined text-[15px] transition-transform duration-300 group-hover/btn:translate-x-0.5">arrow_forward</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- CARD 4: CASAPATRI -->
+      <article class="clean-card rounded-3xl bg-surface-container-low border border-outline-variant/30 overflow-hidden flex flex-col group">
+        <!-- Preview Visual -->
+        <a href="Casapatri/index.html" class="block relative aspect-4-5 w-full bg-surface-container-highest overflow-hidden">
+          <img src="Casapatri/30zin/carrossel%20estatico%2030%20por%20cento.webp" alt="Casapatri - Imóvel no Recreio" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"/>
+        </a>
+
+        <!-- Rodapé do Card: Nome e Botão Clean -->
+        <div class="p-6 flex items-center justify-between gap-4 mt-auto">
+          <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-on-surface">
+            Casapatri
+          </h3>
+
+          <a href="Casapatri/index.html" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/40 text-on-surface hover:text-white font-mono text-xs font-semibold transition-all duration-200 group/btn shrink-0">
+            <span>Ver mais</span>
+            <span class="material-symbols-outlined text-[15px] transition-transform duration-300 group-hover/btn:translate-x-0.5">arrow_forward</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- CARD 5: EDIÇÃO DE VÍDEOS VINCI -->
+      <article class="clean-card rounded-3xl bg-surface-container-low border border-outline-variant/30 overflow-hidden flex flex-col group">
+        <!-- Preview Visual -->
+        <a href="vinci/videos.html" class="block relative aspect-4-5 w-full bg-surface-container-highest overflow-hidden">
+          <img src="vinci/capa%20vinciiiiiiiii.png" alt="Edição de vídeos Vinci - Dia Mundial da Fisioterapia" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"/>
+        </a>
+
+        <!-- Rodapé do Card: Nome e Botão Clean -->
+        <div class="p-6 flex items-center justify-between gap-4 mt-auto">
+          <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-on-surface">
+            Edição de vídeos Vinci
+          </h3>
+
+          <a href="vinci/videos.html" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/40 text-on-surface hover:text-white font-mono text-xs font-semibold transition-all duration-200 group/btn shrink-0">
+            <span>Ver mais</span>
+            <span class="material-symbols-outlined text-[15px] transition-transform duration-300 group-hover/btn:translate-x-0.5">arrow_forward</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- CARD 6: KINGSTON -->
+      <article class="clean-card rounded-3xl bg-surface-container-low border border-outline-variant/30 overflow-hidden flex flex-col group">
+        <!-- Preview Visual: 4:5 alinhado com ambient glow para não cortar arte quadrada -->
+        <a href="kingston/index.html" class="block relative aspect-4-5 w-full bg-[#08000f] overflow-hidden flex items-center justify-center">
+          <img src="kingston/5.jpg" alt="" class="absolute inset-0 w-full h-full object-cover blur-xl scale-125 opacity-70 pointer-events-none" aria-hidden="true"/>
+          <img src="kingston/5.jpg" alt="Kingston Technology - Extremas" class="relative z-10 w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"/>
+        </a>
+
+        <!-- Rodapé do Card: Nome e Botão Clean -->
+        <div class="p-6 flex items-center justify-between gap-4 mt-auto">
+          <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-on-surface">
+            Kingston
+          </h3>
+
+          <a href="kingston/index.html" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/40 text-on-surface hover:text-white font-mono text-xs font-semibold transition-all duration-200 group/btn shrink-0">
+            <span>Ver mais</span>
+            <span class="material-symbols-outlined text-[15px] transition-transform duration-300 group-hover/btn:translate-x-0.5">arrow_forward</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- CARD 7: CUKKA POWER -->
+      <article class="clean-card rounded-3xl bg-surface-container-low border border-outline-variant/30 overflow-hidden flex flex-col group">
+        <!-- Preview Visual: 4:5 alinhado com ambient glow para não cortar arte quadrada -->
+        <a href="cukka%20power/index.html" class="block relative aspect-4-5 w-full bg-[#f7b733] overflow-hidden flex items-center justify-center">
+          <img src="cukka%20power/1.jpg" alt="" class="absolute inset-0 w-full h-full object-cover blur-xl scale-125 opacity-60 pointer-events-none" aria-hidden="true"/>
+          <img src="cukka%20power/1.jpg" alt="Cukka Power" class="relative z-10 w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"/>
+        </a>
+
+        <!-- Rodapé do Card: Nome e Botão Clean -->
+        <div class="p-6 flex items-center justify-between gap-4 mt-auto">
+          <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-on-surface">
+            Cukka Power
+          </h3>
+
+          <a href="cukka%20power/index.html" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/40 text-on-surface hover:text-white font-mono text-xs font-semibold transition-all duration-200 group/btn shrink-0">
+            <span>Ver mais</span>
+            <span class="material-symbols-outlined text-[15px] transition-transform duration-300 group-hover/btn:translate-x-0.5">arrow_forward</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- CARD 8: PÔSTERES VARIADOS -->
+      <article class="clean-card rounded-3xl bg-surface-container-low border border-outline-variant/30 overflow-hidden flex flex-col group">
+        <!-- Preview Visual -->
+        <a href="posters%20variados/index.html" class="block relative aspect-4-5 w-full bg-surface-container-highest overflow-hidden">
+          <img src="posters%20variados/1.jpg" alt="Pôsteres Variados" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"/>
+        </a>
+
+        <!-- Rodapé do Card: Nome e Botão Clean -->
+        <div class="p-6 flex items-center justify-between gap-4 mt-auto">
+          <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-on-surface">
+            Pôsteres Variados
+          </h3>
+
+          <a href="posters%20variados/index.html" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/40 text-on-surface hover:text-white font-mono text-xs font-semibold transition-all duration-200 group/btn shrink-0">
+            <span>Ver mais</span>
+            <span class="material-symbols-outlined text-[15px] transition-transform duration-300 group-hover/btn:translate-x-0.5">arrow_forward</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- CARD 9: INSERIR -->
+      <article class="clean-card rounded-3xl bg-surface-container-low border border-outline-variant/30 overflow-hidden flex flex-col group">
+        <!-- Preview Visual -->
+        <a href="inserir/index.html" class="block relative aspect-4-5 w-full bg-surface-container-highest overflow-hidden">
+          <img src="inserir/capa%20inseerir.png" alt="inserir - Psicologia x Psicopedagogia" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"/>
+        </a>
+
+        <!-- Rodapé do Card: Nome e Botão Clean -->
+        <div class="p-6 flex items-center justify-between gap-4 mt-auto">
+          <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-on-surface">
+            inserir
+          </h3>
+
+          <a href="inserir/index.html" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/40 text-on-surface hover:text-white font-mono text-xs font-semibold transition-all duration-200 group/btn shrink-0">
+            <span>Ver mais</span>
+            <span class="material-symbols-outlined text-[15px] transition-transform duration-300 group-hover/btn:translate-x-0.5">arrow_forward</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- CARD 10: DHEKA -->
+      <article class="clean-card rounded-3xl bg-surface-container-low border border-outline-variant/30 overflow-hidden flex flex-col group">
+        <!-- Preview Visual: 4:5 alinhado com ambient glow para não cortar arte quadrada -->
+        <a href="Dheka/index.html" class="block relative aspect-4-5 w-full bg-black overflow-hidden flex items-center justify-center">
+          <img src="Dheka/175%20De%20Processos%20a%20Sorrisos%20podcast.png" alt="" class="absolute inset-0 w-full h-full object-cover blur-xl scale-125 opacity-50 pointer-events-none" aria-hidden="true"/>
+          <img src="Dheka/175%20De%20Processos%20a%20Sorrisos%20podcast.png" alt="dheka" class="relative z-10 w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"/>
+        </a>
+
+        <!-- Rodapé do Card: Nome e Botão Clean -->
+        <div class="p-6 flex items-center justify-between gap-4 mt-auto">
+          <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-on-surface">
+            dheka
+          </h3>
+
+          <a href="Dheka/index.html" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/40 text-on-surface hover:text-white font-mono text-xs font-semibold transition-all duration-200 group/btn shrink-0">
+            <span>Ver mais</span>
+            <span class="material-symbols-outlined text-[15px] transition-transform duration-300 group-hover/btn:translate-x-0.5">arrow_forward</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- CARD 11: EVOLUGAIN -->
+      <article class="clean-card rounded-3xl bg-surface-container-low border border-outline-variant/30 overflow-hidden flex flex-col group">
+        <!-- Preview Visual: 4:5 com ambient glow e arte centralizada -->
+        <a href="evolugain/index.html" class="block relative aspect-4-5 w-full bg-[#111014] overflow-hidden flex items-center justify-center">
+          <img src="evolugain/1.jpg" alt="" class="absolute inset-0 w-full h-full object-cover blur-xl scale-125 opacity-40 pointer-events-none" aria-hidden="true"/>
+          <img src="evolugain/1.jpg" alt="Evolugain - Transformação Já!" class="relative z-10 w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"/>
+        </a>
+
+        <!-- Rodapé do Card: Nome e Botão Clean -->
+        <div class="p-6 flex items-center justify-between gap-4 mt-auto">
+          <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-on-surface">
+            Evolugain
+          </h3>
+
+          <a href="evolugain/index.html" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/40 text-on-surface hover:text-white font-mono text-xs font-semibold transition-all duration-200 group/btn shrink-0">
+            <span>Ver mais</span>
+            <span class="material-symbols-outlined text-[15px] transition-transform duration-300 group-hover/btn:translate-x-0.5">arrow_forward</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- CARD 12: THUMBNAILS VARIADAS -->
+      <article class="clean-card rounded-3xl bg-surface-container-low border border-outline-variant/30 overflow-hidden flex flex-col group">
+        <!-- Preview Visual: 4:5 com ambient glow e arte 16:9 centralizada -->
+        <a href="thumbnails%20variadas/index.html" class="block relative aspect-4-5 w-full bg-[#0d0f18] overflow-hidden flex items-center justify-center">
+          <img src="thumbnails%20variadas/1.jpg" alt="" class="absolute inset-0 w-full h-full object-cover blur-xl scale-125 opacity-40 pointer-events-none" aria-hidden="true"/>
+          <img src="thumbnails%20variadas/1.jpg" alt="Thumbnails Variadas - Mestre do Tempo" class="relative z-10 w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"/>
+        </a>
+
+        <!-- Rodapé do Card: Nome e Botão Clean -->
+        <div class="p-6 flex items-center justify-between gap-4 mt-auto">
+          <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-on-surface">
+            Thumbnails Variadas
+          </h3>
+
+          <a href="thumbnails%20variadas/index.html" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/40 text-on-surface hover:text-white font-mono text-xs font-semibold transition-all duration-200 group/btn shrink-0">
+            <span>Ver mais</span>
+            <span class="material-symbols-outlined text-[15px] transition-transform duration-300 group-hover/btn:translate-x-0.5">arrow_forward</span>
+          </a>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ CLEAN -->
+  <footer class="w-full border-t border-outline-variant/20 bg-surface-container-lowest/80 py-5 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-on-surface-variant">
+      <div>
+        <span>Lucas Coimbra © 2026</span>
+      </div>
+      <div class="flex items-center gap-4 flex-wrap">
+        <a href="../index.html" class="hover:text-primary-light transition-colors">Currículo</a>
+        <span>•</span>
+        <a href="sobral/index.html" class="hover:text-primary-light transition-colors">sobral 2026</a>
+        <span>•</span>
+        <a href="sobral 2025/index.html" class="hover:text-primary-light transition-colors">sobral 2025</a>
+        <span>•</span>
+        <a href="sobral 2024/index.html" class="hover:text-primary-light transition-colors">sobral 2024</a>
+        <span>•</span>
+        <a href="Casapatri/index.html" class="hover:text-primary-light transition-colors">Casapatri</a>
+        <span>•</span>
+        <a href="vinci/videos.html" class="hover:text-primary-light transition-colors">Edição de vídeos Vinci</a>
+        <span>•</span>
+        <a href="kingston/index.html" class="hover:text-primary-light transition-colors">Kingston</a>
+        <span>•</span>
+        <a href="cukka%20power/index.html" class="hover:text-primary-light transition-colors">Cukka Power</a>
+        <span>•</span>
+        <a href="evolugain/index.html" class="hover:text-primary-light transition-colors">Evolugain</a>
+        <span>•</span>
+        <a href="thumbnails%20variadas/index.html" class="hover:text-primary-light text-[#60a5fa] transition-colors">Thumbnails</a>
+        <span>•</span>
+        <a href="posters%20variados/index.html" class="hover:text-primary-light transition-colors">Pôsteres Variados</a>
+        <span>•</span>
+        <a href="inserir/index.html" class="hover:text-primary-light transition-colors">inserir</a>
+        <span>•</span>
+        <a href="Dheka/index.html" class="hover:text-primary-light transition-colors">dheka</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Gerenciador de Reprodução do Vídeo Hero (YouTube Embed + Fallback Local Full HD) -->
+  <script>
+    (function () {
+      var isFile = window.location.protocol === 'file:';
+      var ytWrapper = document.getElementById('hero-yt-wrapper');
+      var localVideo = document.getElementById('hero-local-video');
+
+      function activateLocalFallback() {
+        if (localVideo && ytWrapper) {
+          ytWrapper.style.display = 'none';
+          localVideo.classList.remove('hidden');
+          localVideo.play().catch(function () { });
+        }
+      }
+
+      if (isFile) {
+        activateLocalFallback();
+      } else {
+        window.onYouTubeIframeAPIReady = function () {
+          try {
+            new YT.Player('hero-yt-player', {
+              events: {
+                'onReady': function (event) {
+                  event.target.mute();
+                  event.target.playVideo();
+                  if (typeof event.target.setPlaybackQuality === 'function') {
+                    event.target.setPlaybackQuality('hd1080');
+                  }
+                },
+                'onError': function () {
+                  activateLocalFallback();
+                }
+              }
+            });
+          } catch (e) {
+            activateLocalFallback();
+          }
+        };
+      }
+    })();
+  </script>
+  <script src="https://www.youtube.com/iframe_api" async defer></script>
+</body>
+</html>

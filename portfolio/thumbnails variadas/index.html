@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Thumbnails Variadas — Portfólio Criativo | Lucas Coimbra</title>
+  <meta name="description" content="Thumbnails de alta conversão para YouTube sobre produtividade, gestão de tempo e alta performance desenvolvidas por Lucas Coimbra."/>
+  <meta name="author" content="Lucas Pereira Coimbra da Silva"/>
+  <meta name="theme-color" content="#0d0f18"/>
+
+  <!-- Favicon SVG -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23161a29'/%3E%3Ctext x='50' y='66' font-family='sans-serif' font-weight='900' font-size='50' fill='%233b82f6' text-anchor='middle'%3ETH%3C/text%3E%3C/svg%3E"/>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-surface-variant": "#94a3b8",
+            "primary": "#3b82f6",
+            "primary-light": "#93c5fd",
+            "brand-blue": "#2563eb",
+            "brand-accent": "#60a5fa",
+            "surface-bright": "#232838",
+            "surface-container-high": "#191d2c",
+            "surface-container-low": "#111420",
+            "surface-container-lowest": "#0a0c14",
+            "secondary": "#818cf8",
+            "background": "#0d0f18",
+            "tertiary": "#22c55e",
+            "outline-variant": "#334155",
+            "outline": "#475569",
+            "on-background": "#f8fafc",
+            "surface": "#121522",
+            "surface-container-highest": "#242a3e",
+            "surface-container": "#151927",
+            "on-surface": "#f8fafc"
+          },
+          fontFamily: {
+            "display": ["Hanken Grotesk", "sans-serif"],
+            "mono": ["JetBrains Mono", "monospace"],
+            "body": ["Hanken Grotesk", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Hero Video Container, Masks & Overlay 50% */
+    .hero-video-container {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background-color: #000000;
+    }
+    @media (min-width: 640px) {
+      .hero-video-container {
+        height: 380px;
+      }
+    }
+    @media (min-width: 1024px) {
+      .hero-video-container {
+        height: 440px;
+      }
+    }
+    .hero-youtube-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100vw;
+      height: 56.25vw;
+      min-height: 100%;
+      min-width: 177.78vh;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-youtube-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      pointer-events: none;
+    }
+    .hero-video-element {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-overlay-dark {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 2;
+      pointer-events: none;
+    }
+    .hero-bottom-fade {
+      position: absolute;
+      inset-inline: 0;
+      bottom: 0;
+      height: 40%;
+      min-height: 100px;
+      background: linear-gradient(to top, rgba(19, 19, 20, 0.95) 0%, rgba(19, 19, 20, 0.6) 50%, rgba(0, 0, 0, 0) 100%);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .hero-top-vignette {
+      position: absolute;
+      inset-inline: 0;
+      top: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .hero-title-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 0 1.5rem;
+      pointer-events: none;
+    }
+
+    /* Ocultar barra de rolagem nativa */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Cards e Efeitos */
+    .thumb-card {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+      will-change: transform;
+    }
+    .thumb-card:hover {
+      transform: translateY(-6px) scale(1.012);
+      box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.85), 0 0 35px rgba(59, 130, 246, 0.22);
+      border-color: rgba(59, 130, 246, 0.5);
+    }
+
+    /* Modal Lightbox */
+    #lightbox-modal {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+    #lightbox-modal.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+    #lightbox-dialog {
+      transform: scale(0.96);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #lightbox-modal.is-open #lightbox-dialog {
+      transform: scale(1);
+    }
+
+    /* Radial Glow Tech / YouTube */
+    .glow-radial-blue {
+      background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.15) 0%, rgba(13, 15, 24, 0) 70%);
+    }
+  </style>
+</head>
+
+<body class="bg-background text-on-surface font-body antialiased min-h-screen flex flex-col selection:bg-brand-blue selection:text-white relative">
+
+  <!-- HEADER NAVEGAÇÃO -->
+  <header class="sticky top-0 z-40 backdrop-blur-xl bg-surface-container-lowest/90 border-b border-outline-variant/30 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-center">
+      
+      <!-- Nav Pill Menu Central -->
+      <nav class="flex items-center">
+        <ul class="flex items-center rounded-full bg-neutral-900/85 border border-white/15 text-sm lowercase p-1.5 backdrop-blur-xl shadow-2xl">
+          <li class="min-w-0">
+            <a href="../../index.html" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10">
+              <span>início</span>
+            </a>
+          </li>
+          <li class="min-w-0">
+            <a href="../../curriculo/index.html" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10">
+              <span>sobre</span>
+            </a>
+          </li>
+          <li class="min-w-0">
+            <a href="../index.html" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition bg-white text-black font-semibold">
+              <span>projetos</span>
+            </a>
+          </li>
+          <li class="min-w-0">
+            <a href="https://wa.me/5511940456685?text=Ol%C3%A1%20Lucas,%20vi%20seu%20portfolio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10">
+              <span>contato</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- HERO COM VÍDEO & OVERLAY PRETO 50% -->
+  <section class="relative w-full bg-black overflow-hidden border-b border-outline-variant/20 shadow-2xl">
+    <div class="hero-video-container" id="hero-media-box">
+      <!-- Embed YouTube Full HD com referrerpolicy obrigatório -->
+      <div class="hero-youtube-wrapper" id="hero-yt-wrapper">
+        <iframe id="hero-yt-player"
+          src="https://www.youtube-nocookie.com/embed/JXEI_OlVOPg?autoplay=1&mute=1&loop=1&playlist=JXEI_OlVOPg&controls=0&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&modestbranding=1&playsinline=1"
+          title="Lucas Coimbra Hero Video" referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          tabindex="-1" aria-hidden="true" loading="eager">
+        </iframe>
+      </div>
+      <!-- Fallback automático em Full HD para visualização local sem erro 153 do YouTube -->
+      <video id="hero-local-video" class="hero-video-element hidden" autoplay muted loop playsinline
+        preload="auto" tabindex="-1" aria-hidden="true">
+        <source src="../../1 upscale.mp4" type="video/mp4">
+      </video>
+      <!-- Overlay preto de 50% -->
+      <div class="hero-overlay-dark"></div>
+      <!-- Vinhetas e Fade Suave -->
+      <div class="hero-top-vignette"></div>
+      <div class="hero-bottom-fade"></div>
+      <!-- Nome do Projeto em Cima -->
+      <div class="hero-title-content">
+        <h1 class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white uppercase drop-shadow-2xl">
+          Thumbnails Variadas
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA PRINCIPAL — 3 IMAGENS POR LINHA -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full flex-1">
+    
+    <!-- GRID DE 3 POR LINHA -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" id="thumbnails-grid">
+      <!-- Injetado dinamicamente via JavaScript -->
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="w-full border-t border-outline-variant/20 bg-surface-container-lowest/90 py-8 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
+      
+      <!-- Assinatura -->
+      <div class="flex items-center gap-2.5">
+        <div class="w-6 h-6 rounded-lg bg-surface-container-high border border-outline-variant/40 flex items-center justify-center text-primary-light font-black text-[11px]">
+          LC
+        </div>
+        <span>Lucas Coimbra © 2026 • Thumbnails Variadas</span>
+      </div>
+
+      <!-- Links de navegação cruzada -->
+      <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+        <a href="../../index.html" class="hover:text-primary-light transition-colors">Currículo</a>
+        <span>•</span>
+        <a href="../index.html" class="hover:text-primary-light transition-colors">Portfólio Hub</a>
+        <span>•</span>
+        <a href="../evolugain/index.html" class="hover:text-primary-light transition-colors">Evolugain</a>
+        <span>•</span>
+        <a href="../kingston/index.html" class="hover:text-primary-light transition-colors">Kingston</a>
+        <span>•</span>
+        <a href="../cukka%20power/index.html" class="hover:text-primary-light transition-colors">Cukka Power</a>
+        <span>•</span>
+        <a href="../sobral/index.html" class="hover:text-primary-light transition-colors">Sobral 2026</a>
+        <span>•</span>
+        <a href="../Casapatri/index.html" class="hover:text-primary-light transition-colors">Casapatri</a>
+        <span>•</span>
+        <a href="../vinci/videos.html" class="hover:text-primary-light transition-colors">Vídeos</a>
+      </div>
+
+      <!-- WhatsApp Action -->
+      <div>
+        <a href="https://wa.me/5511940456685?text=Ol%C3%A1%20Lucas,%20vi%20seu%20portfolio%20de%20Thumbnails%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-primary-light hover:text-white transition-colors">
+          <span class="material-symbols-outlined text-sm">chat</span>
+          <span>Fale comigo no WhatsApp</span>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ======================================================== -->
+  <!-- MODAL LIGHTBOX EXPANSÍVEL: SOMENTE IMAGEM E UM X PRA FECHAR -->
+  <!-- ======================================================== -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-2 sm:p-4" role="dialog" aria-modal="true" aria-label="Visualizador de Imagem">
+    
+    <!-- Botão Fechar (X) -->
+    <button id="lightbox-close-btn" class="absolute top-4 right-4 sm:top-6 sm:right-6 z-50 w-12 h-12 rounded-full bg-surface-container-high/90 hover:bg-primary hover:text-white border border-outline-variant/40 flex items-center justify-center text-white transition-colors cursor-pointer shadow-2xl" title="Fechar (Esc)" aria-label="Fechar">
+      <span class="material-symbols-outlined text-2xl">close</span>
+    </button>
+
+    <!-- Botão Anterior -->
+    <button id="lightbox-prev-btn" class="absolute left-3 sm:left-6 z-40 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-surface-container-high/90 hover:bg-primary hover:text-white text-white border border-white/20 flex items-center justify-center transition-all duration-200 active:scale-95 shadow-2xl cursor-pointer" title="Anterior (Seta Esquerda)" aria-label="Imagem anterior">
+      <span class="material-symbols-outlined text-2xl">chevron_left</span>
+    </button>
+
+    <!-- Imagem Principal Expandida -->
+    <div id="lightbox-dialog" class="relative w-full h-full max-w-[96vw] max-h-[92vh] flex items-center justify-center select-none p-1">
+      <img id="lightbox-img" src="" alt="" class="max-h-[92vh] max-w-[94vw] w-auto h-auto object-contain rounded-2xl shadow-2xl border border-white/10 select-none"/>
+    </div>
+
+    <!-- Botão Próximo -->
+    <button id="lightbox-next-btn" class="absolute right-3 sm:right-6 z-40 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-surface-container-high/90 hover:bg-primary hover:text-white text-white border border-white/20 flex items-center justify-center transition-all duration-200 active:scale-95 shadow-2xl cursor-pointer" title="Próximo (Seta Direita)" aria-label="Próxima imagem">
+      <span class="material-symbols-outlined text-2xl">chevron_right</span>
+    </button>
+
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- JAVASCRIPT: DADOS E INTERAÇÕES                           -->
+  <!-- ======================================================== -->
+  <script>
+    (function () {
+      "use strict";
+
+      // 6 thumbnails presentes na pasta
+      const THUMBNAILS_DATA = [
+        { id: 1, src: "1.jpg", title: "Mestre do Tempo" },
+        { id: 2, src: "2.jpg", title: "Produtividade Sem Stress!" },
+        { id: 3, src: "3.jpg", title: "Não Surte Produza!" },
+        { id: 4, src: "4.jpg", title: "Fim da Sobrecarga!" },
+        { id: 5, src: "5.jpg", title: "Rotina Matinal Eficiente!" },
+        { id: 6, src: "6.jpg", title: "Técnicas Produtivas Desvendadas" }
+      ];
+
+      const gridContainer = document.getElementById("thumbnails-grid");
+
+      // RENDERIZAR GRID COM 3 POR LINHA — SOMENTE AS IMAGENS
+      THUMBNAILS_DATA.forEach((item, index) => {
+        const card = document.createElement("article");
+        card.className = "thumb-card rounded-3xl bg-surface-container-low border border-outline-variant/30 overflow-hidden group cursor-pointer shadow-lg";
+        card.setAttribute("data-index", index);
+
+        card.innerHTML = `
+          <!-- Preview da Imagem com Aspect Ratio Adaptado -->
+          <div class="relative w-full aspect-[4/3] bg-surface-container-highest overflow-hidden flex items-center justify-center p-2 sm:p-2.5">
+            <img 
+              src="${item.src}" 
+              alt="${item.title}" 
+              loading="lazy" 
+              class="w-full h-full object-contain rounded-2xl transition-transform duration-500 group-hover:scale-[1.03]"
+            />
+            
+            <!-- Overlay com Botão de Zoom -->
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-2xl pointer-events-none">
+              <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center shadow-xl transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                <span class="material-symbols-outlined text-2xl font-bold">zoom_in</span>
+              </div>
+            </div>
+          </div>
+        `;
+
+        card.addEventListener("click", () => {
+          openLightbox(index);
+        });
+
+        gridContainer.appendChild(card);
+      });
+
+      // ==========================================
+      // LIGHTBOX MODAL (SOMENTE IMAGEM E FECHAR)
+      // ==========================================
+      let activeIndex = 0;
+      const modal = document.getElementById("lightbox-modal");
+      const modalImg = document.getElementById("lightbox-img");
+      const closeBtn = document.getElementById("lightbox-close-btn");
+      const prevBtn = document.getElementById("lightbox-prev-btn");
+      const nextBtn = document.getElementById("lightbox-next-btn");
+
+      function openLightbox(index) {
+        activeIndex = index;
+        showSlide(activeIndex);
+        modal.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        modal.classList.remove("is-open");
+        document.body.style.overflow = "";
+      }
+
+      function showSlide(index) {
+        activeIndex = (index + THUMBNAILS_DATA.length) % THUMBNAILS_DATA.length;
+        const item = THUMBNAILS_DATA[activeIndex];
+        modalImg.src = item.src;
+        modalImg.alt = item.title;
+      }
+
+      // Eventos dos botões do Lightbox
+      closeBtn.addEventListener("click", closeLightbox);
+      prevBtn.addEventListener("click", () => showSlide(activeIndex - 1));
+      nextBtn.addEventListener("click", () => showSlide(activeIndex + 1));
+
+      // Fechar ao clicar no backdrop
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal || e.target.id === "lightbox-dialog") {
+          closeLightbox();
+        }
+      });
+
+      // Navegação por teclado (Esc, Setas)
+      document.addEventListener("keydown", (e) => {
+        if (!modal.classList.contains("is-open")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowLeft") showSlide(activeIndex - 1);
+        if (e.key === "ArrowRight") showSlide(activeIndex + 1);
+      });
+
+    })();
+  </script>
+
+  <!-- Gerenciador de Reprodução do Vídeo Hero (YouTube Embed + Fallback Local Full HD) -->
+  <script>
+    (function () {
+      var isFile = window.location.protocol === 'file:';
+      var ytWrapper = document.getElementById('hero-yt-wrapper');
+      var localVideo = document.getElementById('hero-local-video');
+
+      function activateLocalFallback() {
+        if (localVideo && ytWrapper) {
+          ytWrapper.style.display = 'none';
+          localVideo.classList.remove('hidden');
+          localVideo.play().catch(function () { });
+        }
+      }
+
+      if (isFile) {
+        activateLocalFallback();
+      } else {
+        window.onYouTubeIframeAPIReady = function () {
+          try {
+            new YT.Player('hero-yt-player', {
+              events: {
+                'onReady': function (event) {
+                  event.target.mute();
+                  event.target.playVideo();
+                  if (typeof event.target.setPlaybackQuality === 'function') {
+                    event.target.setPlaybackQuality('hd1080');
+                  }
+                },
+                'onError': function () {
+                  activateLocalFallback();
+                }
+              }
+            });
+          } catch (e) {
+            activateLocalFallback();
+          }
+        };
+      }
+    })();
+  </script>
+  <script src="https://www.youtube.com/iframe_api" async defer></script>
+</body>
+</html>

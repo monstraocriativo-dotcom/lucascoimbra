@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Evolugain — Portfólio Criativo | Lucas Coimbra</title>
+  <meta name="description" content="Peças publicitárias, criativos digitais e carrossel estratégico de alta performance desenvolvidos para Evolugain por Lucas Coimbra."/>
+  <meta name="author" content="Lucas Pereira Coimbra da Silva"/>
+  <meta name="theme-color" content="#0e0e10"/>
+
+  <!-- Favicon SVG -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%231a1a1c'/%3E%3Ctext x='50' y='66' font-family='sans-serif' font-weight='900' font-size='52' fill='%23f59e0b' text-anchor='middle'%3EEG%3C/text%3E%3C/svg%3E"/>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-surface-variant": "#9ca3af",
+            "primary": "#f59e0b",
+            "primary-light": "#fde68a",
+            "brand-gold": "#fbbf24",
+            "brand-accent": "#f59e0b",
+            "surface-bright": "#2e2d30",
+            "surface-container-high": "#201f22",
+            "surface-container-low": "#151417",
+            "surface-container-lowest": "#0b0a0d",
+            "secondary": "#fbbf24",
+            "background": "#0e0e10",
+            "tertiary": "#22c55e",
+            "outline-variant": "#374151",
+            "outline": "#4b5563",
+            "on-background": "#f3f4f6",
+            "surface": "#131315",
+            "surface-container-highest": "#2c2b30",
+            "surface-container": "#19181b",
+            "on-surface": "#f3f4f6"
+          },
+          fontFamily: {
+            "display": ["Hanken Grotesk", "sans-serif"],
+            "mono": ["JetBrains Mono", "monospace"],
+            "body": ["Hanken Grotesk", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Ocultar barra de rolagem nativa */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Cards e Efeitos */
+    .piece-card {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+      will-change: transform;
+    }
+    .piece-card:hover {
+      transform: translateY(-6px) scale(1.012);
+      box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.85), 0 0 35px rgba(245, 158, 11, 0.2);
+      border-color: rgba(245, 158, 11, 0.5);
+    }
+
+    /* Slider de Slides do Carrossel Card */
+    .carousel-slider-container {
+      position: relative;
+      touch-action: pan-y;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .carousel-slide-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+    }
+    .carousel-slide-item {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    /* Modal Lightbox */
+    #lightbox-modal {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+    #lightbox-modal.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+    #lightbox-dialog {
+      transform: scale(0.96);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #lightbox-modal.is-open #lightbox-dialog {
+      transform: scale(1);
+    }
+
+    /* Hero Video Container, Masks & Overlay 50% */
+    .hero-video-container {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background-color: #000000;
+    }
+    @media (min-width: 640px) {
+      .hero-video-container {
+        height: 380px;
+      }
+    }
+    @media (min-width: 1024px) {
+      .hero-video-container {
+        height: 440px;
+      }
+    }
+    .hero-youtube-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100vw;
+      height: 56.25vw;
+      min-height: 100%;
+      min-width: 177.78vh;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-youtube-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      pointer-events: none;
+    }
+    .hero-video-element {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-overlay-dark {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 2;
+      pointer-events: none;
+    }
+    .hero-bottom-fade {
+      position: absolute;
+      inset-inline: 0;
+      bottom: 0;
+      height: 40%;
+      min-height: 100px;
+      background: linear-gradient(to top, rgba(19, 19, 20, 0.95) 0%, rgba(19, 19, 20, 0.6) 50%, rgba(0, 0, 0, 0) 100%);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .hero-top-vignette {
+      position: absolute;
+      inset-inline: 0;
+      top: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .hero-title-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 0 1.5rem;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body class="bg-background text-on-surface font-body antialiased min-h-screen flex flex-col selection:bg-brand-gold selection:text-black relative">
+
+  <!-- HEADER NAVEGAÇÃO -->
+  <header class="sticky top-0 z-40 backdrop-blur-xl bg-surface-container-lowest/90 border-b border-outline-variant/30 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-center">
+      
+      <!-- Nav Pill Menu Central -->
+      <nav class="flex items-center">
+        <ul class="flex items-center rounded-full bg-neutral-900/85 border border-white/15 text-sm lowercase p-1.5 backdrop-blur-xl shadow-2xl">
+          <li class="min-w-0">
+            <a href="../../index.html" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10">
+              <span>início</span>
+            </a>
+          </li>
+          <li class="min-w-0">
+            <a href="../../curriculo/index.html" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10">
+              <span>sobre</span>
+            </a>
+          </li>
+          <li class="min-w-0">
+            <a href="../index.html" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition bg-white text-black font-semibold">
+              <span>projetos</span>
+            </a>
+          </li>
+          <li class="min-w-0">
+            <a href="https://wa.me/5511940456685?text=Ol%C3%A1%20Lucas,%20vi%20seu%20portfolio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10">
+              <span>contato</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- HERO COM VÍDEO & OVERLAY PRETO 50% -->
+  <section class="relative w-full bg-black overflow-hidden border-b border-outline-variant/20 shadow-2xl">
+    <div class="hero-video-container" id="hero-media-box">
+      <!-- Embed YouTube Full HD com referrerpolicy obrigatório -->
+      <div class="hero-youtube-wrapper" id="hero-yt-wrapper">
+        <iframe id="hero-yt-player"
+          src="https://www.youtube-nocookie.com/embed/JXEI_OlVOPg?autoplay=1&mute=1&loop=1&playlist=JXEI_OlVOPg&controls=0&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&modestbranding=1&playsinline=1"
+          title="Lucas Coimbra Hero Video" referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          tabindex="-1" aria-hidden="true" loading="eager">
+        </iframe>
+      </div>
+      <!-- Fallback automático em Full HD para visualização local sem erro 153 do YouTube -->
+      <video id="hero-local-video" class="hero-video-element hidden" autoplay muted loop playsinline
+        preload="auto" tabindex="-1" aria-hidden="true">
+        <source src="../../1 upscale.mp4" type="video/mp4">
+      </video>
+      <!-- Overlay preto de 50% -->
+      <div class="hero-overlay-dark"></div>
+      <!-- Vinhetas e Fade Suave -->
+      <div class="hero-top-vignette"></div>
+      <div class="hero-bottom-fade"></div>
+      <!-- Nome do Projeto em Cima -->
+      <div class="hero-title-content">
+        <h1 class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white uppercase drop-shadow-2xl">
+          Evolugain
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA COMPLETA (3 POR LINHA COM CARROSSEL INCLUSO) -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full flex-1">
+    
+    <!-- GRID 3 POR LINHA COM TODOS OS ITENS JUNTOS -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" id="unified-gallery-grid">
+      <!-- Injetado dinamicamente via JavaScript -->
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="w-full border-t border-outline-variant/20 bg-surface-container-lowest/90 py-8 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-gray-400">
+      
+      <!-- Assinatura -->
+      <div class="flex items-center gap-2.5">
+        <div class="w-6 h-6 rounded-lg bg-surface-container-high border border-outline-variant/40 flex items-center justify-center text-brand-gold font-black text-[11px]">
+          LC
+        </div>
+        <span>Lucas Coimbra © 2026 • Portfólio Evolugain</span>
+      </div>
+
+      <!-- Links de navegação cruzada -->
+      <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+        <a href="../../index.html" class="hover:text-brand-gold transition-colors">Currículo</a>
+        <span>•</span>
+        <a href="../index.html" class="hover:text-brand-gold transition-colors">Portfólio Hub</a>
+        <span>•</span>
+        <a href="../kingston/index.html" class="hover:text-brand-gold transition-colors">Kingston</a>
+        <span>•</span>
+        <a href="../cukka%20power/index.html" class="hover:text-brand-gold transition-colors">Cukka Power</a>
+        <span>•</span>
+        <a href="../sobral/index.html" class="hover:text-brand-gold transition-colors">Sobral 2026</a>
+        <span>•</span>
+        <a href="../Casapatri/index.html" class="hover:text-brand-gold transition-colors">Casapatri</a>
+        <span>•</span>
+        <a href="../thumbnails%20variadas/index.html" class="hover:text-brand-gold transition-colors">Thumbnails</a>
+        <span>•</span>
+        <a href="../vinci/videos.html" class="hover:text-brand-gold transition-colors">Vídeos</a>
+      </div>
+
+      <!-- WhatsApp Action -->
+      <div>
+        <a href="https://wa.me/5511940456685?text=Ol%C3%A1%20Lucas,%20vi%20seu%20portfolio%20da%20Evolugain%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-brand-gold hover:text-white transition-colors">
+          <span class="material-symbols-outlined text-sm">chat</span>
+          <span>Fale comigo no WhatsApp</span>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ======================================================== -->
+  <!-- MODAL LIGHTBOX EXPANSÍVEL: SOMENTE IMAGEM E UM X PRA FECHAR -->
+  <!-- ======================================================== -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-2 sm:p-4" role="dialog" aria-modal="true" aria-label="Visualizador de Imagem">
+    
+    <!-- Botão Fechar (X) -->
+    <button id="lightbox-close-btn" class="absolute top-4 right-4 sm:top-6 sm:right-6 z-50 w-12 h-12 rounded-full bg-surface-container-high/90 hover:bg-brand-gold hover:text-black border border-outline-variant/40 flex items-center justify-center text-white transition-colors cursor-pointer shadow-2xl" title="Fechar (Esc)" aria-label="Fechar">
+      <span class="material-symbols-outlined text-2xl">close</span>
+    </button>
+
+    <!-- Botão Anterior -->
+    <button id="lightbox-prev-btn" class="absolute left-3 sm:left-6 z-40 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-surface-container-high/90 hover:bg-brand-gold hover:text-black text-white border border-white/20 flex items-center justify-center transition-all duration-200 active:scale-95 shadow-2xl cursor-pointer" title="Anterior (Seta Esquerda)" aria-label="Imagem anterior">
+      <span class="material-symbols-outlined text-2xl">chevron_left</span>
+    </button>
+
+    <!-- Imagem Principal Expandida -->
+    <div id="lightbox-dialog" class="relative w-full h-full max-w-[96vw] max-h-[92vh] flex items-center justify-center select-none p-1">
+      <img id="lightbox-img" src="" alt="" class="max-h-[92vh] max-w-[94vw] w-auto h-auto object-contain rounded-2xl shadow-2xl border border-white/10 select-none"/>
+    </div>
+
+    <!-- Botão Próximo -->
+    <button id="lightbox-next-btn" class="absolute right-3 sm:right-6 z-40 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-surface-container-high/90 hover:bg-brand-gold hover:text-black text-white border border-white/20 flex items-center justify-center transition-all duration-200 active:scale-95 shadow-2xl cursor-pointer" title="Próximo (Seta Direita)" aria-label="Próxima imagem">
+      <span class="material-symbols-outlined text-2xl">chevron_right</span>
+    </button>
+
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- JAVASCRIPT: RENDERIZAÇÃO DO GRID UNIFICADO               -->
+  <!-- ======================================================== -->
+  <script>
+    (function () {
+      "use strict";
+
+      // 1. Dados do Carrossel (10 lâminas da pasta carrossel/)
+      const CAROUSEL_DATA = {
+        type: "carousel",
+        id: "carousel-card",
+        title: "Carrossel Instagram",
+        items: [
+          { src: "carrossel/1.jpg", title: "Carrossel — Capa" },
+          { src: "carrossel/2.jpg", title: "Carrossel — Lâmina 02" },
+          { src: "carrossel/3.jpg", title: "Carrossel — Lâmina 03" },
+          { src: "carrossel/4.jpg", title: "Carrossel — Lâmina 04" },
+          { src: "carrossel/5.jpg", title: "Carrossel — Lâmina 05" },
+          { src: "carrossel/6.jpg", title: "Carrossel — Lâmina 06" },
+          { src: "carrossel/7.jpg", title: "Carrossel — Lâmina 07" },
+          { src: "carrossel/8.jpg", title: "Carrossel — Lâmina 08" },
+          { src: "carrossel/9.jpg", title: "Carrossel — Lâmina 09" },
+          { src: "carrossel/10.jpg", title: "Carrossel — Lâmina 10" }
+        ]
+      };
+
+      // 2. Dados das 8 Peças Únicas
+      const SINGLE_POSTS = [
+        { id: 1, src: "1.jpg", title: "Post Feed 01" },
+        { id: 2, src: "2.jpg", title: "Post Feed 02" },
+        { id: 3, src: "3.jpg", title: "Post Feed 03" },
+        { id: 4, src: "4.jpg", title: "Post Feed 04" },
+        { id: 5, src: "5.jpg", title: "Post Feed 05" },
+        { id: 6, src: "6.jpg", title: "Post Feed 06" },
+        { id: 7, src: "7.jpg", title: "Post Feed 07" },
+        { id: 8, src: "8.jpg", title: "Post Feed 08" }
+      ];
+
+      const galleryGrid = document.getElementById("unified-gallery-grid");
+      let carouselCurrentIndex = 0;
+      const totalCarouselSlides = CAROUSEL_DATA.items.length;
+
+      // ==========================================
+      // CRIAÇÃO DO CARD DO CARROSSEL
+      // ==========================================
+      function createCarouselCard(data) {
+        const article = document.createElement("article");
+        article.className = "piece-card rounded-3xl bg-surface-container-low border border-brand-gold/40 overflow-hidden group shadow-xl relative";
+        article.id = "grid-carousel-card";
+
+        article.innerHTML = `
+          <!-- Preview do Slider com Proporção 4:5 e Arrows -->
+          <div class="carousel-slider-container relative w-full aspect-[4/5] bg-surface-container-lowest overflow-hidden">
+            
+            <!-- Track das Lâminas Deslizantes -->
+            <div id="card-carousel-track" class="carousel-slide-track">
+              ${data.items.map((item, idx) => `
+                <div class="carousel-slide-item cursor-pointer">
+                  <img 
+                    src="${item.src}" 
+                    alt="${item.title}" 
+                    loading="${idx === 0 ? 'eager' : 'lazy'}" 
+                    class="w-full h-full object-cover select-none"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none"></div>
+                </div>
+              `).join('')}
+            </div>
+
+            <!-- ARROW ESQUERDA (DESLIZAR ANTERIOR) -->
+            <button 
+              id="card-arrow-prev" 
+              class="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/75 hover:bg-brand-gold hover:text-black text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all duration-200 active:scale-90 shadow-2xl cursor-pointer" 
+              title="Lâmina anterior"
+              aria-label="Lâmina anterior"
+            >
+              <span class="material-symbols-outlined text-2xl">chevron_left</span>
+            </button>
+
+            <!-- ARROW DIREITA (DESLIZAR PRÓXIMO) -->
+            <button 
+              id="card-arrow-next" 
+              class="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/75 hover:bg-brand-gold hover:text-black text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all duration-200 active:scale-90 shadow-2xl cursor-pointer" 
+              title="Próxima lâmina"
+              aria-label="Próxima lâmina"
+            >
+              <span class="material-symbols-outlined text-2xl">chevron_right</span>
+            </button>
+
+            <!-- INDICADORES (DOTS) NA BASE DO PREVIEW -->
+            <div class="absolute bottom-3 left-0 right-0 z-10 flex items-center justify-center gap-1.5 px-4 pointer-events-none">
+              <div id="card-carousel-dots" class="flex items-center gap-1 bg-black/60 px-2.5 py-1 rounded-full backdrop-blur-sm pointer-events-auto">
+                ${data.items.map((_, idx) => `
+                  <button 
+                    class="carousel-dot w-2 h-2 rounded-full transition-all duration-200 ${idx === 0 ? 'bg-brand-gold w-5' : 'bg-white/40 hover:bg-white/80'}" 
+                    data-dot-index="${idx}"
+                    aria-label="Ir para o slide ${idx + 1}"
+                  ></button>
+                `).join('')}
+              </div>
+            </div>
+
+          </div>
+        `;
+
+        // Elementos internos do slider do carrossel
+        const track = article.querySelector("#card-carousel-track");
+        const prevBtn = article.querySelector("#card-arrow-prev");
+        const nextBtn = article.querySelector("#card-arrow-next");
+        const dots = article.querySelectorAll(".carousel-dot");
+
+        function updateSlide(newIdx) {
+          carouselCurrentIndex = (newIdx + totalCarouselSlides) % totalCarouselSlides;
+          track.style.transform = `translateX(-${carouselCurrentIndex * 100}%)`;
+
+          dots.forEach((dot, idx) => {
+            if (idx === carouselCurrentIndex) {
+              dot.className = "carousel-dot w-5 h-2 rounded-full bg-brand-gold transition-all duration-200";
+            } else {
+              dot.className = "carousel-dot w-2 h-2 rounded-full bg-white/40 hover:bg-white/80 transition-all duration-200";
+            }
+          });
+        }
+
+        // Eventos das arrows
+        prevBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          updateSlide(carouselCurrentIndex - 1);
+        });
+
+        nextBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          updateSlide(carouselCurrentIndex + 1);
+        });
+
+        // Eventos dos dots
+        dots.forEach((dot, idx) => {
+          dot.addEventListener("click", (e) => {
+            e.stopPropagation();
+            updateSlide(idx);
+          });
+        });
+
+        // Clique no track das imagens abre o lightbox
+        track.addEventListener("click", () => {
+          openLightbox(data.items, carouselCurrentIndex);
+        });
+
+        return article;
+      }
+
+      // ==========================================
+      // CRIAÇÃO DOS CARDS DE POSTS ÚNICOS
+      // ==========================================
+      function createSinglePostCard(post, indexInSingles) {
+        const article = document.createElement("article");
+        article.className = "piece-card rounded-3xl bg-surface-container-low border border-outline-variant/30 overflow-hidden group cursor-pointer shadow-lg";
+
+        article.innerHTML = `
+          <!-- Preview com Proporção 4:5 Idêntica — SOMENTE A IMAGEM -->
+          <div class="relative w-full aspect-[4/5] bg-surface-container-highest overflow-hidden flex items-center justify-center p-2.5 sm:p-3">
+            <img 
+              src="${post.src}" 
+              alt="${post.title}" 
+              loading="lazy" 
+              class="w-full h-full object-contain rounded-2xl transition-transform duration-500 group-hover:scale-[1.03]"
+            />
+            <!-- Overlay com Botão de Zoom -->
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-2xl pointer-events-none">
+              <div class="w-12 h-12 rounded-full bg-brand-gold text-black flex items-center justify-center shadow-xl transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                <span class="material-symbols-outlined text-2xl font-bold">zoom_in</span>
+              </div>
+            </div>
+          </div>
+        `;
+
+        article.addEventListener("click", () => {
+          openLightbox(SINGLE_POSTS, indexInSingles);
+        });
+
+        return article;
+      }
+
+      // ==========================================
+      // RENDERIZAR TODOS NO MESMO GRID (3 POR LINHA)
+      // ==========================================
+      function renderUnifiedGrid() {
+        galleryGrid.innerHTML = "";
+
+        // 1. Carrossel
+        const carouselCard = createCarouselCard(CAROUSEL_DATA);
+        galleryGrid.appendChild(carouselCard);
+
+        // 2. Posts únicos
+        SINGLE_POSTS.forEach((post, idx) => {
+          const card = createSinglePostCard(post, idx);
+          galleryGrid.appendChild(card);
+        });
+      }
+
+      renderUnifiedGrid();
+
+      // ==========================================
+      // LIGHTBOX MODAL UNIVERSAL (SOMENTE IMAGEM E FECHAR)
+      // ==========================================
+      let activeList = [];
+      let activeIndex = 0;
+
+      const modal = document.getElementById("lightbox-modal");
+      const modalImg = document.getElementById("lightbox-img");
+      const closeBtn = document.getElementById("lightbox-close-btn");
+      const prevBtn = document.getElementById("lightbox-prev-btn");
+      const nextBtn = document.getElementById("lightbox-next-btn");
+
+      function openLightbox(list, index) {
+        activeList = list;
+        activeIndex = index;
+        showModalSlide(activeIndex);
+        modal.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        modal.classList.remove("is-open");
+        document.body.style.overflow = "";
+      }
+
+      function showModalSlide(index) {
+        if (!activeList || activeList.length === 0) return;
+        activeIndex = (index + activeList.length) % activeList.length;
+        const item = activeList[activeIndex];
+        modalImg.src = item.src;
+        modalImg.alt = item.title;
+      }
+
+      // Controles do Lightbox
+      closeBtn.addEventListener("click", closeLightbox);
+      prevBtn.addEventListener("click", () => showModalSlide(activeIndex - 1));
+      nextBtn.addEventListener("click", () => showModalSlide(activeIndex + 1));
+
+      // Fechar clicando no backdrop
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal || e.target.id === "lightbox-dialog") {
+          closeLightbox();
+        }
+      });
+
+      // Teclas do Teclado (Esc, Setas)
+      document.addEventListener("keydown", (e) => {
+        if (!modal.classList.contains("is-open")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowLeft") showModalSlide(activeIndex - 1);
+        if (e.key === "ArrowRight") showModalSlide(activeIndex + 1);
+      });
+
+    })();
+  </script>
+
+  <!-- Gerenciador de Reprodução do Vídeo Hero (YouTube Embed + Fallback Local Full HD) -->
+  <script>
+    (function () {
+      var isFile = window.location.protocol === 'file:';
+      var ytWrapper = document.getElementById('hero-yt-wrapper');
+      var localVideo = document.getElementById('hero-local-video');
+
+      function activateLocalFallback() {
+        if (localVideo && ytWrapper) {
+          ytWrapper.style.display = 'none';
+          localVideo.classList.remove('hidden');
+          localVideo.play().catch(function () { });
+        }
+      }
+
+      if (isFile) {
+        activateLocalFallback();
+      } else {
+        window.onYouTubeIframeAPIReady = function () {
+          try {
+            new YT.Player('hero-yt-player', {
+              events: {
+                'onReady': function (event) {
+                  event.target.mute();
+                  event.target.playVideo();
+                  if (typeof event.target.setPlaybackQuality === 'function') {
+                    event.target.setPlaybackQuality('hd1080');
+                  }
+                },
+                'onError': function () {
+                  activateLocalFallback();
+                }
+              }
+            });
+          } catch (e) {
+            activateLocalFallback();
+          }
+        };
+      }
+    })();
+  </script>
+  <script src="https://www.youtube.com/iframe_api" async defer></script>
+</body>
+</html>

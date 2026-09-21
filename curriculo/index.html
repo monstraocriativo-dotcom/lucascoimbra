@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Lucas Coimbra | Designer Gráfico — Identidade Visual, Web e Embalagens</title>
+  <meta name="description" content="Currículo e portfólio de Lucas Pereira Coimbra da Silva. Designer Gráfico Sênior com mais de 7 anos de experiência em Identidade Visual, Web Design, Embalagens e Motion."/>
+  <meta name="author" content="Lucas Pereira Coimbra da Silva"/>
+  <meta name="theme-color" content="#131314"/>
+
+  <!-- Open Graph / Meta Social -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Lucas Coimbra | Designer Gráfico"/>
+  <meta property="og:description" content="7+ anos de experiência. Criação de identidades visuais, web design, embalagens e projetos para marcas como Xbox, Kingston, Bauducco e Tang."/>
+  <meta property="og:locale" content="pt_BR"/>
+
+  <!-- Favicon SVG -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%232a2a2b'/%3E%3Ctext x='50' y='65' font-family='sans-serif' font-weight='800' font-size='50' fill='%23aac7ff' text-anchor='middle'%3ELC%3C/text%3E%3C/svg%3E"/>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-fixed": "#e2dfff",
+            "on-error": "#690005",
+            "on-primary": "#003064",
+            "on-surface-variant": "#c0c6d6",
+            "primary": "#aac7ff",
+            "on-primary-container": "#002957",
+            "inverse-on-surface": "#313031",
+            "surface-bright": "#3a393a",
+            "secondary-container": "#3630bf",
+            "error-container": "#93000a",
+            "on-secondary": "#1800a7",
+            "inverse-primary": "#005db8",
+            "surface-container-high": "#2a2a2b",
+            "surface-container-low": "#1c1b1c",
+            "on-primary-fixed-variant": "#00468d",
+            "on-secondary-container": "#b1b1ff",
+            "on-primary-fixed": "#001b3e",
+            "tertiary-container": "#00a73e",
+            "on-secondary-fixed": "#0c006b",
+            "surface-container-lowest": "#0e0e0f",
+            "secondary": "#c2c1ff",
+            "background": "#131314",
+            "tertiary": "#47e266",
+            "on-error-container": "#ffdad6",
+            "outline-variant": "#414754",
+            "surface-variant": "#353436",
+            "outline": "#8b91a0",
+            "on-background": "#e5e2e3",
+            "surface": "#131314",
+            "secondary-fixed-dim": "#c2c1ff",
+            "tertiary-fixed": "#6cff82",
+            "on-tertiary": "#003910",
+            "surface-container-highest": "#353436",
+            "surface-dim": "#131314",
+            "surface-container": "#201f20",
+            "on-tertiary-container": "#00320d",
+            "on-tertiary-fixed-variant": "#00531a",
+            "on-tertiary-fixed": "#002106",
+            "error": "#ffb4ab",
+            "on-surface": "#e5e2e3",
+            "inverse-surface": "#e5e2e3",
+            "tertiary-fixed-dim": "#47e266",
+            "primary-fixed": "#d6e3ff",
+            "on-secondary-fixed-variant": "#332dbc",
+            "primary-fixed-dim": "#aac7ff",
+            "surface-tint": "#aac7ff",
+            "primary-container": "#3e90ff"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+          spacing: {
+            "gutter-desktop": "2rem",
+            "space-5xl": "9rem",
+            "space-4xl": "6rem",
+            "space-2xs": "0.25rem",
+            "space-md": "1rem",
+            "space-2xl": "3rem",
+            "max-content-width": "1200px",
+            "space-xs": "0.5rem",
+            "space-3xl": "4.5rem",
+            "space-sm": "0.75rem",
+            "space-lg": "1.5rem",
+            "gutter-mobile": "1rem",
+            "space-xl": "2rem"
+          },
+          fontFamily: {
+            "display-hero": ["Hanken Grotesk", "sans-serif"],
+            "headline-md": ["Hanken Grotesk", "sans-serif"],
+            "headline-xl": ["Hanken Grotesk", "sans-serif"],
+            "headline-xl-mobile": ["Hanken Grotesk", "sans-serif"],
+            "label-caps": ["Hanken Grotesk", "sans-serif"],
+            "headline-lg": ["Hanken Grotesk", "sans-serif"],
+            "metric-numeral": ["Hanken Grotesk", "sans-serif"],
+            "label-code": ["JetBrains Mono", "monospace"],
+            "body-md": ["Hanken Grotesk", "sans-serif"],
+            "body-sm": ["Hanken Grotesk", "sans-serif"],
+            "display-hero-mobile": ["Hanken Grotesk", "sans-serif"],
+            "body-lg": ["Hanken Grotesk", "sans-serif"]
+          },
+          fontSize: {
+            "display-hero": ["84px", { lineHeight: "92px", letterSpacing: "-0.04em", fontWeight: "700" }],
+            "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "headline-xl": ["56px", { lineHeight: "64px", letterSpacing: "-0.035em", fontWeight: "600" }],
+            "headline-xl-mobile": ["32px", { lineHeight: "38px", letterSpacing: "-0.025em", fontWeight: "600" }],
+            "label-caps": ["11px", { lineHeight: "14px", letterSpacing: "0.08em", fontWeight: "600" }],
+            "headline-lg": ["36px", { lineHeight: "44px", letterSpacing: "-0.025em", fontWeight: "600" }],
+            "metric-numeral": ["64px", { lineHeight: "68px", letterSpacing: "-0.04em", fontWeight: "700" }],
+            "label-code": ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "500" }],
+            "body-md": ["16px", { lineHeight: "26px", letterSpacing: "-0.005em", fontWeight: "400" }],
+            "body-sm": ["14px", { lineHeight: "22px", letterSpacing: "0em", fontWeight: "400" }],
+            "display-hero-mobile": ["44px", { lineHeight: "48px", letterSpacing: "-0.03em", fontWeight: "700" }],
+            "body-lg": ["19px", { lineHeight: "30px", letterSpacing: "-0.01em", fontWeight: "400" }]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+      main > :first-child {
+        margin-top: 0 !important;
+      }
+      main > :last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    /* Custom discreet scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #131314;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a2a2b;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #414754;
+    }
+
+    /* Scroll Margin Offset for Fixed Header */
+    section, [id] {
+      scroll-margin-top: 5.5rem;
+    }
+
+    /* Sophisticated Entrance and Reveal Animations */
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-item.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Glow / Spotlight effect on cards */
+    .spotlight-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .spotlight-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      background: radial-gradient(450px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(170, 199, 255, 0.12), transparent 45%);
+      border-radius: inherit;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 1;
+    }
+    .spotlight-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Hero Video Background Styles */
+    .hero-video-bg-box {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #000000;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-youtube-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100vw;
+      height: 56.25vw;
+      min-height: 100%;
+      min-width: 177.78vh;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-youtube-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      pointer-events: none;
+    }
+
+    .hero-video-element {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-overlay-dark {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.65);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .hero-bottom-fade {
+      position: absolute;
+      inset-inline: 0;
+      bottom: 0;
+      height: 50%;
+      min-height: 180px;
+      background: linear-gradient(to top, #131314 0%, rgba(19, 19, 20, 0.85) 50%, rgba(19, 19, 20, 0) 100%);
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .hero-top-vignette {
+      position: absolute;
+      inset-inline: 0;
+      top: 0;
+      height: 120px;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    /* Smooth Floating Animation for ambient orbs */
+    @keyframes float-slow {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(25px, -20px) scale(1.06); }
+    }
+    @keyframes float-reverse {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-30px, 20px) scale(0.95); }
+    }
+    .animate-float-1 {
+      animation: float-slow 14s ease-in-out infinite;
+    }
+    .animate-float-2 {
+      animation: float-reverse 18s ease-in-out infinite;
+    }
+
+    /* Custom Toast notification */
+    #copy-toast {
+      transform: translateY(120%);
+      opacity: 0;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    }
+    #copy-toast.toast-visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress {
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 0.1s ease-out;
+    }
+
+    /* Active nav pill style */
+    .nav-link.active-nav {
+      color: #e5e2e3;
+      background-color: #2a2a2b;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    /* PRINT STYLESHEET: Pristine, High-End Print/PDF Export */
+    @media print {
+      body {
+        background-color: #ffffff !important;
+        color: #111111 !important;
+        font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      }
+      header, #mobile-menu-btn, #mobile-menu, #copy-toast, #btn-back-to-top, .animate-ping, .\blur-\[140px\], .\blur-\[120px\], #copy-btn {
+        display: none !important;
+      }
+      main {
+        padding-top: 0 !important;
+        background: transparent !important;
+      }
+      .bg-background, .bg-surface-container-lowest, .bg-surface-container-low, .bg-surface-container-high, .bg-surface-container-highest, .bg-surface-container {
+        background-color: #ffffff !important;
+        border-color: #e2e8f0 !important;
+        box-shadow: none !important;
+        color: #111111 !important;
+      }
+      .text-on-surface, .text-on-surface-variant, .text-outline, .text-primary {
+        color: #111111 !important;
+      }
+      .text-primary, .border-primary {
+        color: #00468d !important;
+      }
+      .bg-clip-text {
+        -webkit-text-fill-color: #111111 !important;
+        background: none !important;
+      }
+      article, section {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      .shadow-lg, .shadow-xl, .shadow-2xl, .shadow-md, .shadow-sm {
+        box-shadow: none !important;
+        border: 1px solid #e2e8f0 !important;
+      }
+      a {
+        text-decoration: none !important;
+        color: #111111 !important;
+      }
+      a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.75rem;
+        color: #64748b;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-background font-body-md text-on-surface antialiased min-h-screen selection:bg-primary-container selection:text-on-primary-container relative">
+
+  <!-- Reading Progress Bar -->
+  <div class="fixed top-0 left-0 right-0 h-[2px] bg-primary z-[60]" id="reading-progress"></div>
+
+  <!-- HEADER -->
+  <header class="fixed top-0 inset-x-0 z-50 transition-all duration-300 backdrop-blur-md bg-surface-container-lowest/80 border-b border-outline-variant/30" id="main-header">
+    <div class="h-20 max-w-[1200px] mx-auto px-gutter-mobile lg:px-gutter-desktop flex items-center justify-center">
+      
+      <!-- Desktop Nav Pill -->
+      <nav class="flex items-center">
+        <ul class="flex items-center rounded-full bg-neutral-900/85 border border-white/15 text-sm lowercase p-1.5 backdrop-blur-xl shadow-2xl">
+          <li class="min-w-0">
+            <a href="../index.html" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10">
+              <span>início</span>
+            </a>
+          </li>
+          <li class="min-w-0">
+            <a href="index.html" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition bg-white text-black font-semibold">
+              <span>sobre</span>
+            </a>
+          </li>
+          <li class="min-w-0">
+            <a href="../portfolio/index.html" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10">
+              <span>projetos</span>
+            </a>
+          </li>
+          <li class="min-w-0">
+            <a href="https://wa.me/5511940456685?text=Ol%C3%A1%20Lucas,%20vi%20seu%20portfolio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10">
+              <span>contato</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="w-full pt-20 bg-background">
+    <div class="flex flex-col w-full" id="inicio">
+
+      <!-- Top Ambient Specular Glow & Hero Video Background -->
+      <div class="relative w-full overflow-hidden bg-black">
+        <!-- VÍDEO DA PRIMEIRA SESSÃO DA HOME (YouTube Embed Full HD + Fallback Local) -->
+        <div class="hero-video-bg-box" id="hero-media-box">
+          <div class="hero-youtube-wrapper" id="hero-yt-wrapper">
+            <iframe id="hero-yt-player"
+              src="https://www.youtube-nocookie.com/embed/JXEI_OlVOPg?autoplay=1&mute=1&loop=1&playlist=JXEI_OlVOPg&controls=0&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&modestbranding=1&playsinline=1"
+              title="Lucas Coimbra Hero Video" referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              tabindex="-1" aria-hidden="true" loading="eager">
+            </iframe>
+          </div>
+          <!-- Fallback automático em Full HD para visualização local sem erro 153 do YouTube -->
+          <video id="hero-local-video" class="hero-video-element hidden" autoplay muted loop playsinline
+            preload="auto" tabindex="-1" aria-hidden="true">
+            <source src="../1 upscale.mp4" type="video/mp4">
+          </video>
+          <!-- Overlay escuro e gradientes para contraste e legibilidade impecável -->
+          <div class="hero-overlay-dark"></div>
+          <div class="hero-top-vignette"></div>
+          <div class="hero-bottom-fade"></div>
+        </div>
+
+        <!-- Ambient Specular Glows -->
+        <div class="absolute -top-48 left-1/2 -translate-x-1/2 w-[900px] h-[360px] bg-gradient-to-b from-primary-container/20 via-primary/5 to-transparent blur-[140px] pointer-events-none z-[4] animate-float-1"></div>
+        <div class="absolute top-40 right-10 w-96 h-96 bg-tertiary/5 rounded-full blur-[120px] pointer-events-none z-[4] animate-float-2"></div>
+
+        <!-- HERO SECTION -->
+        <section class="relative z-10 max-w-[1200px] mx-auto px-gutter-mobile lg:px-gutter-desktop pt-space-xl pb-space-4xl">
+          <!-- Status Pill -->
+          <div class="flex items-center justify-center lg:justify-start reveal-item">
+            <div class="inline-flex items-center gap-2.5 px-space-md py-1.5 rounded-full bg-surface-container-low/90 backdrop-blur-md shadow-sm border border-outline-variant/30 hover:border-primary/40 transition-colors">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span>
+              </span>
+              <span class="font-label-code text-label-code text-on-surface tracking-wider uppercase">Disponível para novos projetos</span>
+            </div>
+          </div>
+
+          <!-- Typography -->
+          <div class="mt-space-lg flex flex-col items-center lg:items-start text-center lg:text-left">
+            <h1 class="font-display-hero text-headline-xl sm:text-[68px] lg:text-display-hero text-on-surface max-w-5xl tracking-tight leading-[1.08] drop-shadow-xl reveal-item" style="transition-delay: 100ms;">
+              LUCAS PEREIRA <br class="hidden sm:inline"/>
+              <span class="bg-gradient-to-r from-on-surface via-primary to-on-surface-variant bg-clip-text text-transparent">COIMBRA DA SILVA</span>
+            </h1>
+            <p class="mt-space-sm font-headline-md text-body-lg sm:text-headline-md text-on-surface-variant font-medium tracking-tight max-w-3xl drop-shadow-md reveal-item" style="transition-delay: 200ms;">
+              Designer Gráfico <span class="text-primary">•</span> Identidade Visual, Web e Embalagens
+            </p>
+
+            <!-- CTA Action Cluster -->
+            <div class="mt-space-xl flex flex-wrap items-center justify-center lg:justify-start gap-space-sm w-full reveal-item" style="transition-delay: 300ms;">
+              <a class="inline-flex items-center gap-2.5 px-space-xl py-3.5 rounded-full bg-primary text-on-primary font-body-md font-semibold hover:bg-primary-container hover:text-on-primary-container hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-xl group cursor-pointer" href="https://wa.me/5511940456685?text=Ol%C3%A1%20Lucas,%20vi%20seu%20portfolio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." rel="noopener noreferrer" target="_blank">
+                <span class="material-symbols-outlined text-[20px] transition-transform duration-300 group-hover:scale-110">chat</span>
+                <span>Conversar no WhatsApp</span>
+              </a>
+
+              <a class="inline-flex items-center gap-2 px-space-lg py-3.5 rounded-full bg-surface-container-high/90 backdrop-blur-md text-on-surface border border-outline-variant/40 font-body-md font-semibold hover:border-primary/60 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shadow-md group cursor-pointer" href="../portfolio/index.html">
+                <span class="material-symbols-outlined text-[20px] text-primary transition-transform duration-300 group-hover:scale-110">folder_open</span>
+                <span>Ver Portfólio</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Key Highlights Row -->
+          <div class="mt-space-3xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+            <!-- Highlight 1 -->
+            <div class="spotlight-card bg-surface-container-low p-space-xl rounded-xl shadow-lg flex flex-col justify-between group hover:bg-surface-container hover:-translate-y-1 transition-all duration-300 reveal-item border border-outline-variant/20 hover:border-outline-variant/50">
+              <div class="flex items-center justify-between">
+                <span class="font-label-code text-label-code text-primary uppercase tracking-widest">Experiência</span>
+                <span class="material-symbols-outlined text-primary text-[20px] transition-transform duration-300 group-hover:rotate-12">history_edu</span>
+              </div>
+              <div class="my-space-md">
+                <span class="font-headline-lg text-[28px] sm:text-headline-lg text-on-surface font-semibold tracking-tight block">7+ Anos de Estrada</span>
+              </div>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Vivência sólida em agências de comunicação e projetos para marcas de diversos segmentos.</p>
+            </div>
+
+            <!-- Highlight 2 -->
+            <div class="spotlight-card bg-surface-container-low p-space-xl rounded-xl shadow-lg flex flex-col justify-between group hover:bg-surface-container hover:-translate-y-1 transition-all duration-300 reveal-item border border-outline-variant/20 hover:border-outline-variant/50" style="transition-delay: 100ms;">
+              <div class="flex items-center justify-between">
+                <span class="font-label-code text-label-code text-primary uppercase tracking-widest">Clientes</span>
+                <span class="material-symbols-outlined text-primary text-[20px] transition-transform duration-300 group-hover:scale-110">verified</span>
+              </div>
+              <div class="my-space-md">
+                <span class="font-headline-lg text-[28px] sm:text-headline-lg text-on-surface font-semibold tracking-tight block">Marcas Reconhecidas</span>
+              </div>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Participação em projetos para marcas de peso como Xbox, Kingston, Bauducco, Tang e Bubbaloo.</p>
+            </div>
+
+            <!-- Highlight 3 -->
+            <div class="spotlight-card bg-surface-container-low p-space-xl rounded-xl shadow-lg flex flex-col justify-between group hover:bg-surface-container hover:-translate-y-1 transition-all duration-300 reveal-item border border-outline-variant/20 hover:border-outline-variant/50" style="transition-delay: 200ms;">
+              <div class="flex items-center justify-between">
+                <span class="font-label-code text-label-code text-primary uppercase tracking-widest">Atuação</span>
+                <span class="material-symbols-outlined text-primary text-[20px] transition-transform duration-300 group-hover:scale-110">layers</span>
+              </div>
+              <div class="my-space-md">
+                <span class="font-headline-lg text-[28px] sm:text-headline-lg text-on-surface font-semibold tracking-tight block">Do Conceito à Finalização</span>
+              </div>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Criação de identidades visuais completas, peças digitais, sites, embalagens e motion.</p>
+            </div>
+
+            <!-- Highlight 4 -->
+            <div class="spotlight-card bg-surface-container-low p-space-xl rounded-xl shadow-lg flex flex-col justify-between group hover:bg-surface-container hover:-translate-y-1 transition-all duration-300 reveal-item border border-outline-variant/20 hover:border-outline-variant/50" style="transition-delay: 300ms;">
+              <div class="flex items-center justify-between">
+                <span class="font-label-code text-label-code text-tertiary uppercase tracking-widest">Idiomas</span>
+                <span class="material-symbols-outlined text-tertiary text-[20px] transition-transform duration-300 group-hover:rotate-12">translate</span>
+              </div>
+              <div class="my-space-md">
+                <span class="font-headline-lg text-[28px] sm:text-headline-lg text-on-surface font-semibold tracking-tight block">Inglês Avançado</span>
+              </div>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Comunicação segura para alinhamentos, reuniões com clientes e equipes internacionais.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- SEÇÃO 01: SOBRE MIM -->
+      <section class="w-full bg-surface-container-lowest py-space-4xl shadow-inner border-y border-outline-variant/20" id="sobre">
+        <div class="max-w-[1200px] mx-auto px-gutter-mobile lg:px-gutter-desktop">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl items-center">
+            <!-- Left Side -->
+            <div class="lg:col-span-5 flex flex-col gap-space-sm reveal-item">
+              <span class="font-label-code text-label-code uppercase tracking-[0.2em] text-primary">01 / SOBRE MIM</span>
+              <h2 class="font-headline-xl text-[36px] sm:text-headline-xl text-on-surface font-semibold tracking-tight leading-tight">
+                Design feito com critério, estética e propósito.
+              </h2>
+              <div class="w-16 h-1 bg-primary rounded-full mt-space-xs"></div>
+              <p class="font-body-md text-body-md text-outline mt-space-md leading-relaxed">
+                Criação consistente com olhar atento aos detalhes visuais e ao impacto prático na comunicação do negócio.
+              </p>
+            </div>
+
+            <!-- Right Side -->
+            <div class="lg:col-span-7 flex flex-col gap-space-lg reveal-item" style="transition-delay: 150ms;">
+              <div class="spotlight-card relative bg-surface-container-low p-space-2xl rounded-xl shadow-xl border border-outline-variant/30 hover:border-outline-variant/60 transition-all">
+                <span class="material-symbols-outlined text-primary text-[48px] opacity-20 absolute top-space-lg right-space-lg select-none">format_quote</span>
+                <p class="font-body-lg text-body-lg text-on-surface font-normal leading-relaxed relative z-10">
+                  “Sou designer gráfico com mais de 7 anos de vivência no mercado criativo, trabalhando em agências e projetos independentes tanto presenciais quanto remotos. Meu foco é desenvolver identidades visuais consistentes, embalagens atraentes, páginas para web e peças digitais que valorizem o negócio e criem conexão real com o público. Tenho facilidade para transitar entre a criação visual pura e a execução técnica de cada projeto.”
+                </p>
+              </div>
+
+              <!-- Elegant Front Tags -->
+              <div class="flex flex-wrap items-center gap-space-xs pt-space-xs">
+                <span class="font-label-code text-label-code text-on-surface-variant mr-2 uppercase">Frentes de Atuação:</span>
+                <span class="px-space-md py-1.5 rounded-full bg-surface-container-high text-on-surface font-label-code text-label-code tracking-wide hover:bg-surface-container-highest transition-colors">
+                  Identidade Visual &amp; Branding
+                </span>
+                <span class="px-space-md py-1.5 rounded-full bg-surface-container-high text-on-surface font-label-code text-label-code tracking-wide hover:bg-surface-container-highest transition-colors">
+                  Web Design &amp; Landing Pages
+                </span>
+                <span class="px-space-md py-1.5 rounded-full bg-surface-container-high text-on-surface font-label-code text-label-code tracking-wide hover:bg-surface-container-highest transition-colors">
+                  Design de Embalagens
+                </span>
+                <span class="px-space-md py-1.5 rounded-full bg-surface-container-high text-on-surface font-label-code text-label-code tracking-wide hover:bg-surface-container-highest transition-colors">
+                  Criação para Redes Sociais
+                </span>
+                <span class="px-space-md py-1.5 rounded-full bg-primary/20 text-primary font-label-code text-label-code font-semibold tracking-wide border border-primary/30 hover:bg-primary/30 transition-colors">
+                  Animação &amp; Motion
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEÇÃO 02: EXPERIÊNCIA PROFISSIONAL -->
+      <section class="max-w-[1200px] mx-auto px-gutter-mobile lg:px-gutter-desktop py-space-5xl" id="experiencia">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-3xl reveal-item">
+          <div>
+            <span class="font-label-code text-label-code uppercase tracking-[0.2em] text-primary">02 / EXPERIÊNCIA</span>
+            <h2 class="font-headline-xl text-[36px] sm:text-headline-xl text-on-surface font-semibold tracking-tight mt-space-2xs">
+              Experiência Profissional
+            </h2>
+          </div>
+          <div class="flex items-center gap-space-xs text-on-surface-variant font-label-code text-label-code">
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            <span>Projetos e agências por onde passei</span>
+          </div>
+        </div>
+
+        <div class="space-y-space-xl">
+          <!-- Role 1: Tangerina -->
+          <article class="spotlight-card bg-surface-container-low p-space-2xl rounded-xl shadow-lg transition-all duration-300 hover:bg-surface-container hover:-translate-y-1 group border border-outline-variant/30 hover:border-outline-variant/60 reveal-item">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+              <div class="lg:col-span-4 flex flex-col justify-between">
+                <div>
+                  <span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-highest font-label-code text-label-code text-primary mb-space-sm uppercase">
+                    <span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-ping"></span>
+                    Atual
+                  </span>
+                  <h3 class="font-headline-lg text-[26px] sm:text-headline-lg text-on-surface font-semibold tracking-tight group-hover:text-primary transition-colors">
+                    Tangerina Comunicação Inteligente
+                  </h3>
+                  <p class="font-headline-md text-[18px] sm:text-headline-md text-on-surface-variant font-medium mt-1">
+                    Designer Gráfico Sênior
+                  </p>
+                </div>
+                <div class="mt-space-md pt-space-md">
+                  <span class="font-label-code text-label-code text-outline uppercase tracking-wider block">Modalidade</span>
+                  <span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Criação &amp; Direção de Arte</span>
+                </div>
+              </div>
+
+              <div class="lg:col-span-8 flex flex-col justify-center space-y-space-md bg-surface-container-lowest p-space-xl rounded-xl border border-outline-variant/20">
+                <div class="flex items-start gap-space-sm">
+                  <div class="w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 mt-1 text-primary">
+                    <span class="material-symbols-outlined text-[18px]">palette</span>
+                  </div>
+                  <p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                    Desenvolvimento completo de identidades visuais, layouts para sites e peças digitais para empresas de vários segmentos.
+                  </p>
+                </div>
+                <div class="flex items-start gap-space-sm">
+                  <div class="w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 mt-1 text-primary">
+                    <span class="material-symbols-outlined text-[18px]">check_circle</span>
+                  </div>
+                  <p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                    Acompanhamento de ponta a ponta dos materiais criativos, garantindo que o design converse com a proposta de cada cliente.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Role 2: Avengers Agency -->
+          <article class="spotlight-card bg-surface-container-low p-space-2xl rounded-xl shadow-lg transition-all duration-300 hover:bg-surface-container hover:-translate-y-1 group border border-outline-variant/30 hover:border-outline-variant/60 reveal-item" style="transition-delay: 100ms;">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+              <div class="lg:col-span-4 flex flex-col justify-between">
+                <div>
+                  <span class="inline-flex items-center px-space-sm py-1 rounded bg-surface-container-highest font-label-code text-label-code text-on-surface-variant mb-space-sm uppercase">
+                    Agência Digital
+                  </span>
+                  <h3 class="font-headline-lg text-[26px] sm:text-headline-lg text-on-surface font-semibold tracking-tight group-hover:text-primary transition-colors">
+                    Avengers Agency
+                  </h3>
+                  <p class="font-headline-md text-[18px] sm:text-headline-md text-on-surface-variant font-medium mt-1">
+                    Designer Gráfico Pleno
+                  </p>
+                </div>
+                <div class="mt-space-md pt-space-md">
+                  <span class="font-label-code text-label-code text-outline uppercase tracking-wider block">Foco</span>
+                  <span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Digital &amp; Lançamentos</span>
+                </div>
+              </div>
+
+              <div class="lg:col-span-8 flex flex-col justify-center space-y-space-md bg-surface-container-lowest p-space-xl rounded-xl border border-outline-variant/20">
+                <div class="flex items-start gap-space-sm">
+                  <div class="w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 mt-1 text-primary">
+                    <span class="material-symbols-outlined text-[18px]">web</span>
+                  </div>
+                  <p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                    Criação de páginas para web, sites institucionais e páginas de conversão.
+                  </p>
+                </div>
+                <div class="flex items-start gap-space-sm">
+                  <div class="w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 mt-1 text-primary">
+                    <span class="material-symbols-outlined text-[18px]">brush</span>
+                  </div>
+                  <p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                    Desenvolvimento de marcas, logotipos e materiais gráficos voltados para lançamentos e produtos no ambiente digital.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Role 3: GMD -->
+          <article class="spotlight-card bg-surface-container-low p-space-2xl rounded-xl shadow-xl transition-all duration-300 hover:bg-surface-container hover:-translate-y-1 relative group border border-outline-variant/30 hover:border-outline-variant/60 reveal-item" style="transition-delay: 200ms;">
+            <div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-lg mb-space-lg bg-surface-container-high p-space-md rounded-lg">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-[20px]">stars</span>
+                <span class="font-label-code text-label-code text-on-surface uppercase tracking-wider font-semibold">Marcas atendidas:</span>
+              </div>
+              <div class="flex items-center gap-space-sm">
+                <span class="px-space-md py-1 rounded-full bg-surface-container-lowest font-headline-md text-body-md font-bold text-on-surface tracking-tight shadow-sm hover:scale-105 transition-transform">
+                  Kingston
+                </span>
+                <span class="px-space-md py-1 rounded-full bg-surface-container-lowest font-headline-md text-body-md font-bold text-tertiary tracking-tight shadow-sm hover:scale-105 transition-transform">
+                  Xbox
+                </span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+              <div class="lg:col-span-4 flex flex-col justify-between">
+                <div>
+                  <span class="inline-flex items-center px-space-sm py-1 rounded bg-primary/10 text-primary font-label-code text-label-code mb-space-sm uppercase font-semibold">
+                    Games &amp; Tecnologia
+                  </span>
+                  <h3 class="font-headline-lg text-[26px] sm:text-headline-lg text-on-surface font-semibold tracking-tight group-hover:text-primary transition-colors">
+                    GMD
+                  </h3>
+                  <p class="font-headline-md text-[18px] sm:text-headline-md text-on-surface-variant font-medium mt-1">
+                    Designer Gráfico Pleno
+                  </p>
+                </div>
+                <div class="mt-space-md pt-space-md">
+                  <span class="font-label-code text-label-code text-outline uppercase tracking-wider block">Atuação</span>
+                  <span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Identidades &amp; Campanhas</span>
+                </div>
+              </div>
+
+              <div class="lg:col-span-8 flex flex-col justify-center space-y-space-md bg-surface-container-lowest p-space-xl rounded-xl border border-outline-variant/20">
+                <div class="flex items-start gap-space-sm">
+                  <div class="w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 mt-1 text-primary">
+                    <span class="material-symbols-outlined text-[18px]">fingerprint</span>
+                  </div>
+                  <p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                    Criação de identidades visuais, conceitos gráficos centrais e peças institucionais.
+                  </p>
+                </div>
+                <div class="flex items-start gap-space-sm">
+                  <div class="w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 mt-1 text-primary">
+                    <span class="material-symbols-outlined text-[18px]">co_present</span>
+                  </div>
+                  <p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                    Montagem de apresentações visuais de propostas para clientes e materiais para redes sociais.
+                  </p>
+                </div>
+                <div class="flex items-start gap-space-sm">
+                  <div class="w-7 h-7 rounded-lg bg-primary-container/20 flex items-center justify-center shrink-0 mt-1 text-primary">
+                    <span class="material-symbols-outlined text-[18px]">public</span>
+                  </div>
+                  <p class="font-body-md text-body-md text-on-surface leading-relaxed font-medium">
+                    Participação ativa na criação de peças e campanhas gráficas para marcas globais como Xbox e Kingston.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Role 4: Narita -->
+          <article class="spotlight-card bg-surface-container-low p-space-2xl rounded-xl shadow-lg transition-all duration-300 hover:bg-surface-container hover:-translate-y-1 group border border-outline-variant/30 hover:border-outline-variant/60 reveal-item" style="transition-delay: 300ms;">
+            <div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-lg mb-space-lg bg-surface-container-high p-space-md rounded-lg">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-[20px]">inventory_2</span>
+                <span class="font-label-code text-label-code text-on-surface uppercase tracking-wider font-semibold">Marcas atendidas:</span>
+              </div>
+              <div class="flex flex-wrap items-center gap-space-xs">
+                <span class="px-space-md py-1 rounded bg-surface-container-lowest font-headline-md text-body-sm font-semibold text-on-surface hover:scale-105 transition-transform">Bauducco</span>
+                <span class="px-space-md py-1 rounded bg-surface-container-lowest font-headline-md text-body-sm font-semibold text-on-surface hover:scale-105 transition-transform">Tang</span>
+                <span class="px-space-md py-1 rounded bg-surface-container-lowest font-headline-md text-body-sm font-semibold text-on-surface hover:scale-105 transition-transform">Condor</span>
+                <span class="px-space-md py-1 rounded bg-surface-container-lowest font-headline-md text-body-sm font-semibold text-on-surface hover:scale-105 transition-transform">Bubbaloo</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+              <div class="lg:col-span-4 flex flex-col justify-between">
+                <div>
+                  <span class="inline-flex items-center px-space-sm py-1 rounded bg-surface-container-highest font-label-code text-label-code text-on-surface-variant mb-space-sm uppercase">
+                    Design &amp; Embalagens
+                  </span>
+                  <h3 class="font-headline-lg text-[26px] sm:text-headline-lg text-on-surface font-semibold tracking-tight group-hover:text-primary transition-colors">
+                    Narita Agência de Design
+                  </h3>
+                  <p class="font-headline-md text-[18px] sm:text-headline-md text-on-surface-variant font-medium mt-1">
+                    Designer Gráfico Júnior
+                  </p>
+                </div>
+                <div class="mt-space-md pt-space-md">
+                  <span class="font-label-code text-label-code text-outline uppercase tracking-wider block">Foco</span>
+                  <span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Design de Embalagens e Produção</span>
+                </div>
+              </div>
+
+              <div class="lg:col-span-8 flex flex-col justify-center space-y-space-md bg-surface-container-lowest p-space-xl rounded-xl border border-outline-variant/20">
+                <div class="flex items-start gap-space-sm">
+                  <div class="w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 mt-1 text-primary">
+                    <span class="material-symbols-outlined text-[18px]">package_2</span>
+                  </div>
+                  <p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                    Desenvolvimento de design de embalagens, rótulos e identidades visuais.
+                  </p>
+                </div>
+                <div class="flex items-start gap-space-sm">
+                  <div class="w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 mt-1 text-primary">
+                    <span class="material-symbols-outlined text-[18px]">storefront</span>
+                  </div>
+                  <p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                    Atuação direta no processo criativo e finalização de embalagens para grandes marcas de consumo em massa.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SEÇÃO 03: FERRAMENTAS & HABILIDADES -->
+      <section class="w-full bg-surface-container-lowest py-space-5xl border-y border-outline-variant/20" id="habilidades">
+        <div class="max-w-[1200px] mx-auto px-gutter-mobile lg:px-gutter-desktop">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-3xl reveal-item">
+            <div>
+              <span class="font-label-code text-label-code uppercase tracking-[0.2em] text-primary">03 / FERRAMENTAS &amp; HABILIDADES</span>
+              <h2 class="font-headline-xl text-[36px] sm:text-headline-xl text-on-surface font-semibold tracking-tight mt-space-2xs">
+                O que uso no meu fluxo de trabalho diário
+              </h2>
+            </div>
+            <p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">
+              Ferramentas consolidadas e verticais de criação dominadas ao longo da carreira.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
+            <!-- Software List -->
+            <div class="lg:col-span-2 spotlight-card bg-surface-container-low p-space-2xl rounded-xl shadow-xl flex flex-col justify-between border border-outline-variant/30 hover:border-outline-variant/60 reveal-item">
+              <div>
+                <div class="flex items-center gap-space-sm mb-space-lg">
+                  <div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center shadow-md">
+                    <span class="material-symbols-outlined text-on-primary-container text-[20px]">palette</span>
+                  </div>
+                  <div>
+                    <h3 class="font-headline-md text-headline-md text-on-surface font-semibold">Softwares e Ferramentas</h3>
+                    <span class="font-label-code text-label-code text-on-surface-variant uppercase">Fluxo diário de produção</span>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md mt-space-md">
+                  <!-- Photoshop -->
+                  <div class="bg-surface-container-lowest p-space-md rounded-lg border border-outline-variant/20 hover:border-primary/40 hover:-translate-y-0.5 transition-all">
+                    <div class="flex items-center gap-2 mb-1">
+                      <span class="w-6 h-6 rounded bg-primary/15 text-primary flex items-center justify-center font-label-code text-xs font-bold">PS</span>
+                      <h4 class="font-headline-md text-body-md text-on-surface font-semibold">Adobe Photoshop</h4>
+                    </div>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">Tratamento avançado de imagens, manipulação e composição visual.</p>
+                  </div>
+
+                  <!-- Illustrator -->
+                  <div class="bg-surface-container-lowest p-space-md rounded-lg border border-outline-variant/20 hover:border-primary/40 hover:-translate-y-0.5 transition-all">
+                    <div class="flex items-center gap-2 mb-1">
+                      <span class="w-6 h-6 rounded bg-primary/15 text-primary flex items-center justify-center font-label-code text-xs font-bold">AI</span>
+                      <h4 class="font-headline-md text-body-md text-on-surface font-semibold">Adobe Illustrator</h4>
+                    </div>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">Criação vetorial, logotipos, identidades visuais e ilustrações.</p>
+                  </div>
+
+                  <!-- After Effects -->
+                  <div class="bg-surface-container-lowest p-space-md rounded-lg border border-outline-variant/20 hover:border-secondary/40 hover:-translate-y-0.5 transition-all">
+                    <div class="flex items-center gap-2 mb-1">
+                      <span class="w-6 h-6 rounded bg-secondary/15 text-secondary flex items-center justify-center font-label-code text-xs font-bold">AE</span>
+                      <h4 class="font-headline-md text-body-md text-on-surface font-semibold">Adobe After Effects</h4>
+                    </div>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">Animações gráficas, vinhetas e motion design para redes.</p>
+                  </div>
+
+                  <!-- Figma -->
+                  <div class="bg-surface-container-lowest p-space-md rounded-lg border border-outline-variant/20 hover:border-primary/40 hover:-translate-y-0.5 transition-all">
+                    <div class="flex items-center gap-2 mb-1">
+                      <span class="w-6 h-6 rounded bg-primary/15 text-primary flex items-center justify-center font-label-code text-xs font-bold">FG</span>
+                      <h4 class="font-headline-md text-body-md text-on-surface font-semibold">Figma</h4>
+                    </div>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">Estruturação de interfaces, protótipos e layout de páginas web.</p>
+                  </div>
+
+                  <!-- WordPress -->
+                  <div class="bg-surface-container-lowest p-space-md rounded-lg border border-outline-variant/20 sm:col-span-2 hover:border-tertiary/40 hover:-translate-y-0.5 transition-all">
+                    <div class="flex items-center gap-2 mb-1">
+                      <span class="w-6 h-6 rounded bg-tertiary/15 text-tertiary flex items-center justify-center font-label-code text-xs font-bold">WP</span>
+                      <h4 class="font-headline-md text-body-md text-on-surface font-semibold">WordPress</h4>
+                    </div>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">Estruturação de páginas, landing pages e sites institucionais.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Idiomas Card -->
+            <div class="spotlight-card bg-surface-container-low p-space-2xl rounded-xl shadow-xl flex flex-col justify-between border border-outline-variant/30 hover:border-outline-variant/60 reveal-item" style="transition-delay: 150ms;">
+              <div>
+                <div class="flex items-center justify-between mb-space-lg">
+                  <span class="font-label-code text-label-code text-tertiary uppercase tracking-wider">Idiomas</span>
+                  <span class="relative flex h-2.5 w-2.5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-tertiary"></span>
+                  </span>
+                </div>
+                <h3 class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight mb-space-xs">
+                  Inglês: Avançado
+                </h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-space-lg">
+                  Comunicação ágil e segura para o ambiente de trabalho contemporâneo.
+                </p>
+                <div class="bg-surface-container-lowest p-space-lg rounded-xl space-y-space-sm border border-outline-variant/20">
+                  <div class="flex items-start gap-space-sm">
+                    <span class="material-symbols-outlined text-tertiary text-[18px] mt-0.5 shrink-0">check_circle</span>
+                    <span class="font-body-sm text-body-sm text-on-surface">Conversação tranquila para reuniões, alinhamentos de briefing e apresentações.</span>
+                  </div>
+                  <div class="flex items-start gap-space-sm">
+                    <span class="material-symbols-outlined text-tertiary text-[18px] mt-0.5 shrink-0">check_circle</span>
+                    <span class="font-body-sm text-body-sm text-on-surface">Leitura e escrita confortáveis para documentações, referências técnicas e contato diário.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-space-lg pt-space-md border-t border-outline-variant/30 flex items-center justify-between">
+                <span class="font-label-code text-label-code text-outline uppercase tracking-wider">Português:</span>
+                <span class="font-label-code text-label-code text-on-surface font-semibold uppercase">Nativo</span>
+              </div>
+            </div>
+
+            <!-- Áreas de Domínio -->
+            <div class="lg:col-span-3 spotlight-card bg-surface-container-low p-space-2xl rounded-xl shadow-xl border border-outline-variant/30 hover:border-outline-variant/60 reveal-item" style="transition-delay: 200ms;">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mb-space-xl">
+                <div>
+                  <span class="font-label-code text-label-code text-primary uppercase tracking-widest">Especialidades</span>
+                  <h3 class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight mt-1">Áreas de Domínio</h3>
+                </div>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Prática direta no design do dia a dia</span>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-space-md">
+                <!-- Domain 1 -->
+                <div class="bg-surface-container-lowest p-space-lg rounded-xl hover:bg-surface-container-high transition-all duration-200 border border-outline-variant/20 hover:-translate-y-1 group">
+                  <div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-space-md group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined text-[24px]">fingerprint</span>
+                  </div>
+                  <h4 class="font-headline-md text-body-md text-on-surface font-semibold mb-1">Identidade Visual</h4>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">Marcas, manuais e guias de estilo consistentes.</p>
+                </div>
+
+                <!-- Domain 2 -->
+                <div class="bg-surface-container-lowest p-space-lg rounded-xl hover:bg-surface-container-high transition-all duration-200 border border-outline-variant/20 hover:-translate-y-1 group">
+                  <div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-space-md group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined text-[24px]">web</span>
+                  </div>
+                  <h4 class="font-headline-md text-body-md text-on-surface font-semibold mb-1">Web Design</h4>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">Sites modernos, landing pages e páginas de alta legibilidade.</p>
+                </div>
+
+                <!-- Domain 3 -->
+                <div class="bg-surface-container-lowest p-space-lg rounded-xl hover:bg-surface-container-high transition-all duration-200 border border-outline-variant/20 hover:-translate-y-1 group">
+                  <div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-secondary mb-space-md group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined text-[24px]">movie_filter</span>
+                  </div>
+                  <h4 class="font-headline-md text-body-md text-on-surface font-semibold mb-1">Edição &amp; Motion</h4>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">Vídeos dinâmicos e animações curtas com ritmo.</p>
+                </div>
+
+                <!-- Domain 4 -->
+                <div class="bg-surface-container-lowest p-space-lg rounded-xl hover:bg-surface-container-high transition-all duration-200 border border-outline-variant/20 hover:-translate-y-1 group">
+                  <div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-space-md group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined text-[24px]">share</span>
+                  </div>
+                  <h4 class="font-headline-md text-body-md text-on-surface font-semibold mb-1">Redes Sociais</h4>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">Peças criativas, posts e campanhas de impacto visual.</p>
+                </div>
+
+                <!-- Domain 5 -->
+                <div class="bg-surface-container-lowest p-space-lg rounded-xl hover:bg-surface-container-high transition-all duration-200 border border-outline-variant/20 hover:-translate-y-1 group">
+                  <div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-tertiary mb-space-md group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined text-[24px]">deployed_code</span>
+                  </div>
+                  <h4 class="font-headline-md text-body-md text-on-surface font-semibold mb-1">Embalagens</h4>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">Rótulos, caixas, mockups e facas de impressão.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEÇÃO 04: FORMAÇÃO -->
+      <section class="max-w-[1200px] mx-auto px-gutter-mobile lg:px-gutter-desktop py-space-5xl" id="formacao">
+        <div class="mb-space-3xl reveal-item">
+          <span class="font-label-code text-label-code uppercase tracking-[0.2em] text-primary">04 / FORMAÇÃO</span>
+          <h2 class="font-headline-xl text-[36px] sm:text-headline-xl text-on-surface font-semibold tracking-tight mt-space-2xs">
+            Formação Acadêmica
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-space-xl">
+          <!-- Card 1: FAAP -->
+          <div class="spotlight-card bg-surface-container-low p-space-2xl rounded-xl shadow-xl hover:bg-surface-container transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group border border-outline-variant/30 hover:border-outline-variant/60 reveal-item">
+            <div>
+              <div class="flex items-center justify-between mb-space-lg">
+                <span class="px-space-md py-1 rounded-full bg-primary/10 text-primary font-label-code text-label-code uppercase font-semibold border border-primary/20">
+                  Pós-graduação
+                </span>
+                <span class="material-symbols-outlined text-primary text-[24px] group-hover:scale-110 transition-transform">school</span>
+              </div>
+              <h3 class="font-headline-lg text-[26px] sm:text-headline-lg text-on-surface font-bold tracking-tight mb-space-xs group-hover:text-primary transition-colors">
+                Gestão Estratégica do Design
+              </h3>
+              <p class="font-headline-md text-[18px] sm:text-body-lg text-on-surface-variant font-medium">
+                Fundação Armando Alvares Penteado (FAAP)
+              </p>
+            </div>
+            <div class="mt-space-xl pt-space-md bg-surface-container-lowest p-space-md rounded-lg border border-outline-variant/20">
+              <p class="font-body-sm text-body-sm text-outline">
+                Aprofundamento em visão estratégica de marca, liderança criativa e gestão de projetos de design.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2: Cruzeiro do Sul -->
+          <div class="spotlight-card bg-surface-container-low p-space-2xl rounded-xl shadow-xl hover:bg-surface-container transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group border border-outline-variant/30 hover:border-outline-variant/60 reveal-item" style="transition-delay: 150ms;">
+            <div>
+              <div class="flex items-center justify-between mb-space-lg">
+                <span class="px-space-md py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-code text-label-code uppercase font-semibold">
+                  Graduação Tecnológica
+                </span>
+                <span class="material-symbols-outlined text-on-surface-variant text-[24px] group-hover:scale-110 transition-transform">history_edu</span>
+              </div>
+              <h3 class="font-headline-lg text-[26px] sm:text-headline-lg text-on-surface font-bold tracking-tight mb-space-xs group-hover:text-primary transition-colors">
+                Tecnólogo em Design Gráfico
+              </h3>
+              <p class="font-headline-md text-[18px] sm:text-body-lg text-on-surface-variant font-medium">
+                Universidade Cruzeiro do Sul
+              </p>
+            </div>
+            <div class="mt-space-xl pt-space-md bg-surface-container-lowest p-space-md rounded-lg border border-outline-variant/20">
+              <p class="font-body-sm text-body-sm text-outline">
+                Formação prática em tipografia, composição visual, teoria das cores e processos gráficos digitais e impressos.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEÇÃO 05: VAMOS CONVERSAR -->
+      <section class="w-full bg-surface-container-lowest py-space-5xl border-y border-outline-variant/20" id="contato">
+        <div class="max-w-[1200px] mx-auto px-gutter-mobile lg:px-gutter-desktop">
+          <div class="text-center max-w-2xl mx-auto mb-space-4xl reveal-item">
+            <span class="font-label-code text-label-code uppercase tracking-[0.2em] text-primary">05 / CONTATO</span>
+            <h2 class="font-headline-xl text-[36px] sm:text-headline-xl text-on-surface font-bold tracking-tight mt-space-2xs">
+              Vamos conversar sobre o seu próximo projeto?
+            </h2>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-space-sm">
+              Estou aberto a oportunidades para posições sênior, liderança de design ou projetos pontuais com alto padrão estético.
+            </p>
+          </div>
+
+          <!-- Action Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+            <!-- Contact Card 1: WhatsApp -->
+            <a class="spotlight-card bg-surface-container-low p-space-xl rounded-xl shadow-lg hover:bg-surface-container transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group border border-outline-variant/30 hover:border-outline-variant/60 reveal-item cursor-pointer" href="https://wa.me/5511940456685" rel="noopener noreferrer" target="_blank">
+              <div>
+                <div class="flex items-center justify-between mb-space-md">
+                  <span class="w-10 h-10 rounded-xl bg-tertiary/10 text-tertiary flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined text-[22px]">chat</span>
+                  </span>
+                  <span class="material-symbols-outlined text-outline group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-[20px]">arrow_outward</span>
+                </div>
+                <span class="font-label-code text-label-code text-outline uppercase tracking-wider block">WhatsApp</span>
+                <span class="font-headline-md text-body-lg text-on-surface font-semibold tracking-tight mt-1 block">
+                  11 9 4045-6685
+                </span>
+              </div>
+              <span class="mt-space-lg font-body-sm text-[12px] text-tertiary font-medium flex items-center gap-1">
+                Enviar mensagem <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+              </span>
+            </a>
+
+            <!-- Contact Card 2: E-mail -->
+            <a class="spotlight-card bg-surface-container-low p-space-xl rounded-xl shadow-lg hover:bg-surface-container transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group border border-outline-variant/30 hover:border-outline-variant/60 reveal-item cursor-pointer" style="transition-delay: 100ms;" href="mailto:lupcoimbra@gmail.com">
+              <div>
+                <div class="flex items-center justify-between mb-space-md">
+                  <span class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined text-[22px]">mail</span>
+                  </span>
+                  <span class="material-symbols-outlined text-outline group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-[20px]">arrow_outward</span>
+                </div>
+                <span class="font-label-code text-label-code text-outline uppercase tracking-wider block">E-mail</span>
+                <span class="font-headline-md text-body-md text-on-surface font-semibold tracking-tight mt-1 block truncate" title="lupcoimbra@gmail.com">
+                  lupcoimbra@gmail.com
+                </span>
+              </div>
+              <span class="mt-space-lg font-body-sm text-[12px] text-primary font-medium flex items-center gap-1">
+                Escrever e-mail <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+              </span>
+            </a>
+
+            <!-- Contact Card 3: LinkedIn -->
+            <a class="spotlight-card bg-surface-container-low p-space-xl rounded-xl shadow-lg hover:bg-surface-container transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group border border-outline-variant/30 hover:border-outline-variant/60 reveal-item cursor-pointer" style="transition-delay: 200ms;" href="https://linkedin.com/in/lucascoimbra" rel="noopener noreferrer" target="_blank">
+              <div>
+                <div class="flex items-center justify-between mb-space-md">
+                  <span class="w-10 h-10 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined text-[22px]">link</span>
+                  </span>
+                  <span class="material-symbols-outlined text-outline group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-[20px]">arrow_outward</span>
+                </div>
+                <span class="font-label-code text-label-code text-outline uppercase tracking-wider block">LinkedIn</span>
+                <span class="font-headline-md text-body-md text-on-surface font-semibold tracking-tight mt-1 block truncate">
+                  in/lucascoimbra
+                </span>
+              </div>
+              <span class="mt-space-lg font-body-sm text-[12px] text-secondary font-medium flex items-center gap-1">
+                Ver perfil completo <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+              </span>
+            </a>
+
+            <!-- Contact Card 4: Localização -->
+            <div class="spotlight-card bg-surface-container-low p-space-xl rounded-xl shadow-lg flex flex-col justify-between border border-outline-variant/30 reveal-item" style="transition-delay: 300ms;">
+              <div>
+                <div class="flex items-center justify-between mb-space-md">
+                  <span class="w-10 h-10 rounded-xl bg-surface-container-high text-on-surface-variant flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[22px]">location_on</span>
+                  </span>
+                  <span class="font-label-code text-[10px] text-tertiary uppercase font-bold px-2 py-0.5 rounded bg-tertiary/10 border border-tertiary/20">Brasil</span>
+                </div>
+                <span class="font-label-code text-label-code text-outline uppercase tracking-wider block">Localização</span>
+                <span class="font-body-md text-body-sm text-on-surface font-semibold mt-1 block leading-snug">
+                  Mairinque, SP — Brasil
+                </span>
+              </div>
+              <span class="mt-space-lg font-body-sm text-[12px] text-on-surface-variant">Disponível para atuação remota ou híbrida</span>
+            </div>
+          </div>
+
+          <!-- Copy to Clipboard Bar -->
+          <div class="mt-space-2xl p-space-lg rounded-xl bg-surface-container-low border border-outline-variant/30 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-space-md reveal-item">
+            <div class="flex items-center gap-space-sm text-center sm:text-left">
+              <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                <span class="material-symbols-outlined text-[24px]">content_copy</span>
+              </div>
+              <div>
+                <p class="font-headline-md text-body-md text-on-surface font-semibold">Quer salvar ou compartilhar estas informações?</p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Copie o resumo com todos os contatos em um clique.</p>
+              </div>
+            </div>
+            <button class="px-space-lg py-2.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-code text-label-code uppercase tracking-wider transition-all duration-200 active:scale-[0.98] flex items-center gap-2 cursor-pointer" id="copy-btn" onclick="copyContactSummary()">
+              <span class="material-symbols-outlined text-[18px]" id="copy-icon">content_copy</span>
+              <span id="copy-text">Copiar dados de contato</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30">
+    <div class="max-w-[1200px] mx-auto px-gutter-mobile lg:px-gutter-desktop py-space-2xl">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-space-lg">
+        <div class="flex flex-col items-center md:items-start gap-1">
+          <div class="flex items-center gap-2">
+            <span class="font-headline-md text-body-md text-on-surface font-semibold tracking-tight">Lucas Pereira Coimbra da Silva</span>
+            <span class="text-outline-variant">•</span>
+            <span class="font-label-code text-label-code text-on-surface-variant">Designer Gráfico</span>
+          </div>
+          <p class="font-body-sm text-body-sm text-outline">Mairinque, SP — Atendendo clientes e equipes no Brasil e no exterior.</p>
+        </div>
+        <div class="flex items-center gap-space-md">
+          <a class="font-label-code text-label-code text-on-surface-variant hover:text-primary transition-colors uppercase" href="https://wa.me/5511940456685" rel="noopener noreferrer" target="_blank">WhatsApp</a>
+          <a class="font-label-code text-label-code text-on-surface-variant hover:text-primary transition-colors uppercase" href="mailto:lupcoimbra@gmail.com">E-mail</a>
+          <a class="font-label-code text-label-code text-on-surface-variant hover:text-primary transition-colors uppercase" href="https://linkedin.com/in/lucascoimbra" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button id="btn-back-to-top" class="fixed bottom-6 right-6 w-11 h-11 rounded-full bg-surface-container-high/90 backdrop-blur-md border border-outline-variant/40 text-on-surface flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-primary hover:text-on-primary shadow-xl z-40" aria-label="Voltar ao topo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <span class="material-symbols-outlined text-[20px]">arrow_upward</span>
+  </button>
+
+  <!-- Interactive Floating Toast -->
+  <div id="copy-toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none">
+    <div class="flex items-center gap-3 px-space-lg py-3 rounded-full bg-surface-container-highest/95 border border-tertiary/40 backdrop-blur-xl shadow-2xl text-on-surface font-body-sm font-medium">
+      <span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+      <span>Dados de contato copiados para a área de transferência!</span>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT: Full Interactivity & Sophisticated Motion -->
+  <script>
+    // 1. Reading Progress Bar & Back to Top & Header Shadow
+    const progressBar = document.getElementById('reading-progress');
+    const backToTopBtn = document.getElementById('btn-back-to-top');
+    const mainHeader = document.getElementById('main-header');
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
+      
+      if (progressBar) {
+        progressBar.style.transform = `scaleX(${scrollPercent})`;
+      }
+
+      if (backToTopBtn) {
+        if (scrollTop > 450) {
+          backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+          backToTopBtn.classList.add('opacity-100');
+        } else {
+          backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+          backToTopBtn.classList.remove('opacity-100');
+        }
+      }
+
+      if (mainHeader) {
+        if (scrollTop > 20) {
+          mainHeader.classList.add('shadow-xl', 'bg-surface-container-lowest/90');
+        } else {
+          mainHeader.classList.remove('shadow-xl', 'bg-surface-container-lowest/90');
+        }
+      }
+    }, { passive: true });
+
+    // 2. Active Section Highlighting in Desktop Header
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('#desktop-nav .nav-link');
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('active-nav');
+            } else {
+              link.classList.remove('active-nav');
+            }
+          });
+        }
+      });
+    }, { threshold: 0.25, rootMargin: "-80px 0px -40% 0px" });
+
+    sections.forEach(sec => navObserver.observe(sec));
+
+    // 3. Scroll Reveal Observer with Staggering
+    const revealItems = document.querySelectorAll('.reveal-item');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+    revealItems.forEach(item => revealObserver.observe(item));
+
+    // 4. Spotlight Card Mouse Move Interaction (Dynamic Lighting)
+    const spotlightCards = document.querySelectorAll('.spotlight-card');
+    spotlightCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+
+    // 5. Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const isClosed = mobileMenu.classList.contains('hidden');
+        if (isClosed) {
+          mobileMenu.classList.remove('hidden');
+          menuIcon.textContent = 'close';
+        } else {
+          mobileMenu.classList.add('hidden');
+          menuIcon.textContent = 'menu';
+        }
+      });
+
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          menuIcon.textContent = 'menu';
+        });
+      });
+    }
+
+    // 6. Optimized Print Handler
+    function handlePrintCurriculo() {
+      // Ensure any open mobile menus close before printing
+      if (mobileMenu) {
+        mobileMenu.classList.add('hidden');
+        if (menuIcon) menuIcon.textContent = 'menu';
+      }
+      window.print();
+    }
+
+    // 7. Copy to Clipboard with Feedback & Toast
+    let toastTimeout;
+    function copyContactSummary() {
+      const summary = `Lucas Pereira Coimbra da Silva - Designer Gráfico
+WhatsApp: +55 11 9 4045-6685
+E-mail: lupcoimbra@gmail.com
+LinkedIn: https://linkedin.com/in/lucascoimbra
+Localização: Mairinque, SP — Brasil (Remoto ou Híbrido)`;
+
+      function showSuccessFeedback() {
+        const btn = document.getElementById('copy-btn');
+        const icon = document.getElementById('copy-icon');
+        const text = document.getElementById('copy-text');
+        const toast = document.getElementById('copy-toast');
+
+        if (btn && text) {
+          const originalText = text.innerText;
+          text.innerText = 'Dados Copiados!';
+          if (icon) icon.innerText = 'check';
+          btn.classList.add('bg-tertiary-container', 'text-on-tertiary-container');
+
+          if (toast) {
+            toast.classList.add('toast-visible');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+              toast.classList.remove('toast-visible');
+            }, 3500);
+          }
+
+          setTimeout(() => {
+            text.innerText = originalText;
+            if (icon) icon.innerText = 'content_copy';
+            btn.classList.remove('bg-tertiary-container', 'text-on-tertiary-container');
+          }, 3000);
+        }
+      }
+
+      function fallbackCopy() {
+        const textarea = document.createElement('textarea');
+        textarea.value = summary;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+          document.execCommand('copy');
+          showSuccessFeedback();
+        } catch (e) {
+          alert('Não foi possível copiar automaticamente. Por favor, copie manualmente.');
+        }
+        document.body.removeChild(textarea);
+      }
+
+      if (navigator.clipboard && window.isSecureContext && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(summary).then(() => {
+          showSuccessFeedback();
+        }).catch(() => {
+          fallbackCopy();
+        });
+      } else {
+        fallbackCopy();
+      }
+    }
+  </script>
+
+  <!-- Gerenciador de Reprodução do Vídeo Hero (YouTube Embed + Fallback Local Full HD) -->
+  <script>
+    (function () {
+      var isFile = window.location.protocol === 'file:';
+      var ytWrapper = document.getElementById('hero-yt-wrapper');
+      var localVideo = document.getElementById('hero-local-video');
+
+      function activateLocalFallback() {
+        if (localVideo && ytWrapper) {
+          ytWrapper.style.display = 'none';
+          localVideo.classList.remove('hidden');
+          localVideo.play().catch(function () { });
+        }
+      }
+
+      if (isFile) {
+        activateLocalFallback();
+      } else {
+        window.onYouTubeIframeAPIReady = function () {
+          try {
+            new YT.Player('hero-yt-player', {
+              events: {
+                'onReady': function (event) {
+                  event.target.mute();
+                  event.target.playVideo();
+                  if (typeof event.target.setPlaybackQuality === 'function') {
+                    event.target.setPlaybackQuality('hd1080');
+                  }
+                },
+                'onError': function () {
+                  activateLocalFallback();
+                }
+              }
+            });
+          } catch (e) {
+            activateLocalFallback();
+          }
+        };
+      }
+    })();
+  </script>
+  <script src="https://www.youtube.com/iframe_api" async defer></script>
+</body>
+</html>

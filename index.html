@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Coimbra | Identidade Visual Estratégica &amp; Direção de Arte</title>
+
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23111111'/%3E%3Ctext x='50' y='65' font-family='sans-serif' font-weight='900' font-size='48' fill='%23FFFFFF' text-anchor='middle'%3ELC%3C/text%3E%3C/svg%3E">
+
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="description"
+        content="Lucas Coimbra — Design Gráfico de Alta Performance, Identidade Visual Estratégica & Direção de Arte." />
+    <meta name="theme-color" content="#000000" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <style id="wp-img-auto-sizes-contain-inline-css">
+        img:is([sizes=auto i], [sizes^="auto," i]) {
+            contain-intrinsic-size: 3000px 1500px
+        }
+    </style>
+    <style id="wp-block-library-inline-css">
+        :root {
+            --wp-block-synced-color: #7a00df;
+            --wp-block-synced-color--rgb: 122, 0, 223;
+            --wp-bound-block-color: var(--wp-block-synced-color);
+            --wp-editor-canvas-background: #ddd;
+            --wp-admin-theme-color: #007cba;
+            --wp-admin-theme-color--rgb: 0, 124, 186;
+            --wp-admin-theme-color-darker-10: #006ba1;
+            --wp-admin-theme-color-darker-10--rgb: 0, 107, 160.5;
+            --wp-admin-theme-color-darker-20: #005a87;
+            --wp-admin-theme-color-darker-20--rgb: 0, 90, 135;
+            --wp-admin-border-width-focus: 2px
+        }
+    </style>
+
+    <!-- noscript -->
+    <noscript>
+        <style>
+            .c-loader {
+                display: none !important;
+            }
+
+            .c-nav {
+                position: absolute !important;
+            }
+        </style>
+    </noscript>
+
+    <!-- Lenis -->
+    <script src="assets/vendor/lenis.min.js" defer></script>
+
+    <!-- SplitType -->
+    <script src="assets/vendor/split-type-0.3.4.min.js" defer></script>
+
+    <!-- ScrollTrigger & GSAP -->
+    <script src="assets/vendor/gsap.min.js" defer></script>
+    <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+
+    <!-- Barba.js -->
+    <script src="assets/vendor/barba.umd.js" defer></script>
+
+    <!-- Maska -->
+    <script src="assets/vendor/maska.js" defer></script>
+
+    <!-- KeenSlider -->
+    <link rel="stylesheet" href="assets/vendor/keen-slider.min.css">
+    <script src="assets/vendor/keen-slider.js" defer></script>
+
+    <!-- PhotoSwipe -->
+    <link rel="stylesheet" href="assets/vendor/photoswipe.css">
+    <script src="assets/vendor/photoswipe.umd.min.js" defer></script>
+    <script src="assets/vendor/photoswipe-lightbox.umd.min.js" defer></script>
+
+    <!-- Scripts -->
+    <script src="assets/vendor/scripts.js" defer></script>
+    <script src="assets/vendor/hero-slides-data.js" defer></script>
+    <script src="assets/vendor/hero-slideshow.js" defer></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/vendor/dist.css">
+
+    <!-- Dark Theme & Monochrome Overrides -->
+    <style>
+        :root {
+            color-scheme: dark;
+        }
+
+        html,
+        body {
+            background-color: #000000 !important;
+            color: #ffffff !important;
+        }
+
+        .c-loader {
+            background-color: #000000 !important;
+        }
+
+        .c-loader__logo span {
+            color: #ffffff !important;
+        }
+
+        .c-button {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+            font-weight: 700 !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        }
+
+        .c-button:hover {
+            background-color: #e5e5e5 !important;
+            color: #000000 !important;
+        }
+
+        /* Hero Video Mask & Smooth Gradient Fade */
+        .hero-video-container {
+            position: relative;
+            width: 100%;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: #000000;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-video-container {
+                min-height: 92vh;
+            }
+        }
+
+        .hero-youtube-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 56.25vw;
+            min-height: 100%;
+            min-width: 177.78vh;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 1;
+            mask-image: linear-gradient(to bottom, #000000 55%, rgba(0, 0, 0, 0.85) 75%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, #000000 55%, rgba(0, 0, 0, 0.85) 75%, transparent 100%);
+        }
+
+        .hero-youtube-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            pointer-events: none;
+        }
+
+        .hero-video-element {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            pointer-events: none;
+            z-index: 1;
+            mask-image: linear-gradient(to bottom, #000000 55%, rgba(0, 0, 0, 0.85) 75%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, #000000 55%, rgba(0, 0, 0, 0.85) 75%, transparent 100%);
+        }
+
+        .hero-bottom-fade {
+            position: absolute;
+            inset-inline: 0;
+            bottom: 0;
+            height: 40%;
+            min-height: 160px;
+            background: linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0.85) 45%, rgba(0, 0, 0, 0) 100%);
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .hero-top-vignette {
+            position: absolute;
+            inset-inline: 0;
+            top: 0;
+            height: 140px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        /* Hero Slideshow Styles & Fast Dynamic Transition */
+        .hero-slide-layer {
+            transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity;
+        }
+
+        .hero-slide-layer img {
+            transition: transform 2.8s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: transform;
+            transform-origin: center center;
+        }
+
+        .hero-slide-layer.is-zooming img {
+            transform: scale(1.04);
+        }
+
+        .hero-slide-layer:not(.is-zooming) img {
+            transform: scale(1.0);
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white antialiased selection:bg-white selection:text-black" data-barba="wrapper">
+    <div class="c-loader">
+        <div class="c-loader__logo flex items-center justify-center">
+            <span class="text-3xl font-black tracking-tighter uppercase text-white font-sans">LC</span>
+        </div>
+    </div>
+
+    <div id="topo" data-barba="container" data-barba-namespace="inicio">
+        <header class="relative z-30">
+            <div
+                class="fixed bottom-0 sm:bottom-auto sm:top-0 left-1/2 flex justify-between items-center w-full sm:w-auto h-20 u-px-section -translate-x-1/2 z-50">
+                <ul
+                    class="flex w-full rounded-full bg-neutral-900/85 border border-white/15 text-sm lowercase p-2 backdrop-blur-xl shadow-2xl">
+                    <li class="w-full min-w-0">
+                        <a href="index.html"
+                            class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition bg-white text-black font-semibold js-smooth"
+                            data-target="#topo" data-barba-prevent="self">
+                            <span>início</span>
+                        </a>
+                    </li>
+                    <li class="w-full min-w-0">
+                        <a href="curriculo/index.html"
+                            class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10"
+                            data-barba-prevent="self">
+                            <span>sobre</span>
+                        </a>
+                    </li>
+                    <li class="w-full min-w-0">
+                        <a href="portfolio/index.html"
+                            class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10"
+                            data-barba-prevent="self">
+                            <span>projetos</span>
+                        </a>
+                    </li>
+                    <li class="w-full min-w-0">
+                        <a href="https://wa.me/5511940456685?text=Ol%C3%A1%20Lucas,%20vi%20seu%20portfolio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto."
+                            target="_blank"
+                            class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10"
+                            data-barba-prevent="self">
+                            <span>contato</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+
+        <main>
+            <!-- HERO SECTION COM VÍDEO DO YOUTUBE EMBEDADO EM FULL HD & FADE GRADIENTE -->
+            <section class="relative w-full bg-black overflow-hidden" data-st="parallax-container">
+                <div class="hero-video-container" id="hero-media-box">
+                    <!-- Embed YouTube Full HD com referrerpolicy obrigatório -->
+                    <div class="hero-youtube-wrapper" id="hero-yt-wrapper">
+                        <iframe id="hero-yt-player"
+                            src="https://www.youtube-nocookie.com/embed/JXEI_OlVOPg?autoplay=1&mute=1&loop=1&playlist=JXEI_OlVOPg&controls=0&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&modestbranding=1&playsinline=1"
+                            title="Lucas Coimbra Hero Video" referrerpolicy="strict-origin-when-cross-origin"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            tabindex="-1" aria-hidden="true" loading="eager">
+                        </iframe>
+                    </div>
+                    <!-- Fallback automático em Full HD para visualização local sem erro 153 do YouTube -->
+                    <video id="hero-local-video" class="hero-video-element hidden" autoplay muted loop playsinline
+                        preload="auto" tabindex="-1" aria-hidden="true">
+                        <source src="1 upscale.mp4" type="video/mp4">
+                    </video>
+                    <div class="hero-top-vignette"></div>
+                    <div class="hero-bottom-fade"></div>
+                </div>
+            </section>
+
+            <!-- SECTION SHOWREEL / SLIDESHOW DE PROJETOS -->
+            <section class="relative u-px-section pt-10" data-st="fade scale-scrub-container">
+                <h2 class="sr-only">Portfólio em Destaque &amp; Vídeo Reel</h2>
+                <div class="group relative rounded-3xl bg-neutral-900 border border-white/10 pt-[100%] lg:pt-[56.25%] overflow-hidden js-lightbox-container"
+                    data-st="scale-scrub-object">
+
+                    <!-- Slideshow Container -->
+                    <div id="hero-slideshow-container" class="absolute inset-0 size-full overflow-hidden select-none">
+                        <!-- Camada A (ativa inicialmente) -->
+                        <div id="hero-slide-layer-a"
+                            class="hero-slide-layer absolute inset-0 size-full opacity-100 is-zooming z-[1]">
+                            <img id="hero-slide-img-a" src="portfolio/covers/casapatri.png" alt="Lucas Coimbra • Capas"
+                                class="size-full object-cover object-center">
+                        </div>
+                        <!-- Camada B (crossfade) -->
+                        <div id="hero-slide-layer-b"
+                            class="hero-slide-layer absolute inset-0 size-full opacity-0 z-[1]">
+                            <img id="hero-slide-img-b" src="portfolio/covers/kingston.jpg" alt="Lucas Coimbra • Capas"
+                                class="size-full object-cover object-center">
+                        </div>
+
+                        <!-- Gradientes sutis para contraste de texto e profundidade cinematográfica -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/35 pointer-events-none z-[3]">
+                        </div>
+
+                        <!-- Barra de Progresso Superior Sutil -->
+                        <div
+                            class="absolute top-0 inset-x-0 h-1 bg-white/10 z-[10] overflow-hidden pointer-events-none">
+                            <div id="hero-slide-progress-bar"
+                                class="h-full bg-white transition-all duration-75 ease-linear" style="width: 0%;"></div>
+                        </div>
+
+                        <!-- Badge Informativo no Canto Inferior Esquerdo -->
+                        <div class="absolute bottom-6 left-6 z-[10] flex flex-col gap-1.5 pointer-events-none">
+                            <div
+                                class="flex items-center gap-2 px-3 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/15 text-xs text-white/90 shadow-xl w-fit">
+                                <span id="hero-slide-phase-dot"
+                                    class="size-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                <span id="hero-slide-phase-label"
+                                    class="font-bold uppercase tracking-wider text-[10px] text-neutral-300">Covers</span>
+                                <span class="text-neutral-500 text-[10px]">•</span>
+                                <span id="hero-slide-counter" class="font-mono text-[11px] text-white font-medium">1 /
+                                    10</span>
+                            </div>
+                            <div id="hero-slide-title"
+                                class="text-white font-bold text-lg sm:text-2xl drop-shadow-lg tracking-tight pl-1 capitalize">
+                                Casapatri
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botão de Showreel no Canto Inferior Direito (sem cobrir o centro da arte) -->
+                    <div class="absolute bottom-6 right-6 z-[12]">
+                        <a href="portfolio/reel.mp4" data-video-url="portfolio/reel.mp4" data-pswp-type="video"
+                            class="flex items-center gap-2 px-4 py-2 rounded-full bg-black/60 hover:bg-white hover:text-black text-white text-xs font-semibold backdrop-blur-md border border-white/20 transition-all duration-300 shadow-xl js-lightbox-object group"
+                            data-barba-prevent="self" title="Assistir Showreel">
+                            <svg class="size-3 fill-current transition group-hover:scale-110" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                            <span>Showreel</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PROJETOS RECENTES -->
+            <section class="relative flex flex-col gap-10 lg:gap-16 u-px-section my-28 [&:nth-child(2)]:mt-0">
+                <h2 class="text-2xl/tight lg:text-4xl/tight text-center text-balance tracking-tight lowercase font-bold text-white"
+                    data-st="fade">
+                    Projetos recentes
+                </h2>
+                <div class="grid lg:grid-cols-3 lg:auto-rows-fr gap-x-5 gap-y-10">
+
+                    <!-- CARD 1: CASAPATRI -->
+                    <div class="row-span-2">
+                        <article class="group relative flex flex-col h-full" data-st="fade">
+                            <figure
+                                class="relative h-full rounded-3xl bg-neutral-900 border border-white/10 pt-[112.5%] overflow-hidden">
+                                <img src="portfolio/covers/casapatri.png" alt="Casapatri" width="1024" height="1280"
+                                    class="absolute inset-0 size-full object-cover transition duration-1000 group-hover:scale-105">
+                            </figure>
+                            <a href="portfolio/Casapatri/index.html" class="absolute inset-0 block size-full"
+                                data-barba-prevent="self">
+                                <span class="sr-only">Ver projeto Casapatri</span>
+                            </a>
+                        </article>
+                    </div>
+
+                    <!-- CARD 2: KINGSTON -->
+                    <div class="row-span-1">
+                        <article class="group relative flex flex-col h-full" data-st="fade">
+                            <figure
+                                class="relative h-full rounded-3xl bg-neutral-900 border border-white/10 pt-[56.25%] overflow-hidden">
+                                <img src="portfolio/covers/kingston.jpg" alt="Kingston" width="1080" height="608"
+                                    class="absolute inset-0 size-full object-cover transition duration-1000 group-hover:scale-105">
+                            </figure>
+                            <a href="portfolio/kingston/index.html" class="absolute inset-0 block size-full"
+                                data-barba-prevent="self">
+                                <span class="sr-only">Ver projeto Kingston</span>
+                            </a>
+                        </article>
+                    </div>
+
+                    <!-- CARD 3: CUKKA POWER -->
+                    <div class="row-span-1">
+                        <article class="group relative flex flex-col h-full" data-st="fade">
+                            <figure
+                                class="relative h-full rounded-3xl bg-neutral-900 border border-white/10 pt-[56.25%] overflow-hidden">
+                                <img src="portfolio/covers/cukka-power.jpg" alt="Cukka Power" width="1080" height="720"
+                                    class="absolute inset-0 size-full object-cover transition duration-1000 group-hover:scale-105">
+                            </figure>
+                            <a href="portfolio/cukka power/index.html" class="absolute inset-0 block size-full"
+                                data-barba-prevent="self">
+                                <span class="sr-only">Ver projeto Cukka Power</span>
+                            </a>
+                        </article>
+                    </div>
+
+                    <!-- CARD 4: SOBRAL 2025 -->
+                    <div class="row-span-2">
+                        <article class="group relative flex flex-col h-full" data-st="fade">
+                            <figure
+                                class="relative h-full rounded-3xl bg-neutral-900 border border-white/10 pt-[112.5%] overflow-hidden">
+                                <img src="portfolio/covers/sobral-2025.png" alt="Sobral 2025" width="1080" height="608"
+                                    class="absolute inset-0 size-full object-cover transition duration-1000 group-hover:scale-105">
+                            </figure>
+                            <a href="portfolio/sobral 2025/index.html" class="absolute inset-0 block size-full"
+                                data-barba-prevent="self">
+                                <span class="sr-only">Ver projeto Sobral 2025</span>
+                            </a>
+                        </article>
+                    </div>
+
+                    <!-- CARD 5: SOBRAL 2026 -->
+                    <div class="row-span-1">
+                        <article class="group relative flex flex-col h-full" data-st="fade">
+                            <figure
+                                class="relative h-full rounded-3xl bg-neutral-900 border border-white/10 pt-[56.25%] overflow-hidden">
+                                <img src="portfolio/covers/sobral-2026.png" alt="Sobral 2026" width="1080" height="608"
+                                    class="absolute inset-0 size-full object-cover transition duration-1000 group-hover:scale-105">
+                            </figure>
+                            <a href="portfolio/sobral/index.html" class="absolute inset-0 block size-full"
+                                data-barba-prevent="self">
+                                <span class="sr-only">Ver projeto Sobral 2026</span>
+                            </a>
+                        </article>
+                    </div>
+
+                    <!-- CARD 6: SOBRAL 2024 -->
+                    <div class="row-span-2">
+                        <article class="group relative flex flex-col h-full" data-st="fade">
+                            <figure
+                                class="relative h-full rounded-3xl bg-neutral-900 border border-white/10 pt-[112.5%] overflow-hidden">
+                                <img src="portfolio/covers/sobral-2024.png" alt="Sobral 2024" width="750" height="422"
+                                    class="absolute inset-0 size-full object-cover transition duration-1000 group-hover:scale-105">
+                            </figure>
+                            <a href="portfolio/sobral 2024/index.html" class="absolute inset-0 block size-full"
+                                data-barba-prevent="self">
+                                <span class="sr-only">Ver projeto Sobral 2024</span>
+                            </a>
+                        </article>
+                    </div>
+
+                    <!-- CARD 7: POSTERS VARIADOS -->
+                    <div class="row-span-2">
+                        <article class="group relative flex flex-col h-full" data-st="fade">
+                            <figure
+                                class="relative h-full rounded-3xl bg-neutral-900 border border-white/10 pt-[112.5%] overflow-hidden">
+                                <img src="portfolio/covers/posters.jpg" alt="Pôsteres Variados" width="1080"
+                                    height="1349"
+                                    class="absolute inset-0 size-full object-cover transition duration-1000 group-hover:scale-105">
+                            </figure>
+                            <a href="portfolio/posters variados/index.html" class="absolute inset-0 block size-full"
+                                data-barba-prevent="self">
+                                <span class="sr-only">Ver projeto Pôsteres Variados</span>
+                            </a>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="flex flex-col lg:items-center" data-st="fade">
+                    <a href="portfolio/index.html" class="group js-magnetic-container" data-barba-prevent="self">
+                        <span
+                            class="c-button relative w-full max-w-none lg:max-w-max overflow-hidden transition-transform ease-[cubic-bezier(0.3,1,0.7,1)] pointer-events-none !bg-white !text-black shadow-lg">
+                            <span
+                                class="absolute inset-0 flex justify-center items-center size-full pointer-events-none opacity-0 transition group-hover:opacity-30">
+                                <span
+                                    class="block w-1/3 bg-white blur-xl pt-[100%] transition-transform ease-[cubic-bezier(0.3,1,0.7,1)] js-magnetic-object"
+                                    data-move="80"></span>
+                            </span>
+                            <span
+                                class="relative flex justify-center items-center gap-3 pointer-events-none transition-transform ease-[cubic-bezier(0.3,1,0.7,1)] !text-black">
+                                <span class="pb-0.5">Conheça todos os projetos</span>
+                                <svg class="w-[1.125rem]" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 18 13">
+                                    <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M.5 6.5h16.4M11 1l6 5.5-6 5.5" />
+                                    </g>
+                                </svg>
+                            </span>
+                        </span>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="relative rounded-t-3xl bg-neutral-950 text-white border-t border-white/10 overflow-hidden"
+            data-st="parallax-container text-scrub-container">
+            <div class="flex flex-col lg:flex-row justify-between pt-10 pb-20 lg:py-10" data-st="parallax-object"
+                data-st-min-w="true" data-st-dir="from" data-st-end="bottom bottom" data-st-y="-160"
+                data-st-fade="true">
+                <div class="shrink-0 flex flex-col items-start lg:gap-2 u-px-section" data-st="fade fade-container">
+                    <div class="py-10">
+                        <h2 class="text-4xl/tight lg:text-5xl/tight text-balance tracking-tight font-bold"
+                            data-st="fade-object">
+                            <a href="https://wa.me/5511940456685?text=Ol%C3%A1%20Lucas,%20vi%20seu%20portfolio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto."
+                                target="_blank" class="group flex items-center gap-5" data-barba-prevent="self">
+                                <span class="block text-white [&_*]:[clip-path:polygon(0_0,100%_0,100%_100%,0_100%)]"
+                                    data-st="type-chars">
+                                    Vamos transformar juntos?
+                                </span>
+                                <span
+                                    class="shrink-0 relative top-1 flex justify-center items-center size-16 rounded-full bg-white text-black transition group-hover:translate-x-1 shadow-lg">
+                                    <svg class="w-8 transition group-hover:translate-x-1"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 16">
+                                        <path fill="#000"
+                                            d="M2 7a1 1 0 0 0 0 2V7Zm29.2 1.7c.4-.4.4-1 0-1.4L24.8.9a1 1 0 1 0-1.4 1.4L29.1 8l-5.7 5.7a1 1 0 0 0 1.4 1.4l6.4-6.4ZM2 9h28.5V7H2v2Z" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </h2>
+                    </div>
+                    <div class="grid lg:grid-cols-2 gap-8 lg:gap-x-0 lg:gap-y-16 py-3">
+                        <div class="flex flex-col leading-[2.2] lg:first:pr-16" data-st="fade-object">
+                            <ul class="flex flex-col text-neutral-300">
+                                <li>
+                                    <a href="mailto:coimbra.lucas.art@gmail.com"
+                                        class="flex gap-2 max-w-max transition hover:text-white"
+                                        data-barba-prevent="self">
+                                        coimbra.lucas.art@gmail.com
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://wa.me/5511940456685" target="_blank"
+                                        class="flex gap-2 max-w-max transition hover:text-white"
+                                        data-barba-prevent="self">
+                                        +55 (11) 94045-6685
+                                        <svg class="shrink-0 w-4 text-white" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 16 16">
+                                            <path fill="currentColor" fill-rule="evenodd"
+                                                d="M16 7.8a7.8 7.8 0 0 1-11.7 6.8L0 16l1.4-4.2A7.8 7.8 0 0 1 8.1 0C12.5 0 16 3.5 16 7.8ZM8.1 1.2c-3.6 0-6.6 3-6.6 6.6 0 1.4.5 2.8 1.3 3.8L2 14.1l2.5-.8a6.6 6.6 0 0 0 10.2-5.5c0-3.6-3-6.6-6.6-6.6Zm4 8.4-.4-.2-1.3-.7-.4.1-.6.8c-.1.1-.2.1-.4 0-.2 0-.8-.3-1.6-1-.6-.4-1-1-1-1.2-.2-.2 0-.3 0-.4l.3-.4.2-.3V6l-.6-1.4c-.2-.4-.3-.4-.4-.4h-.3s-.4 0-.6.3c-.2.2-.7.6-.7 1.6 0 .9.7 1.8.8 2 .1 0 1.3 2 3.3 2.8 2 .8 2 .5 2.3.5.4 0 1.1-.5 1.3-.9.2-.5.2-.8.1-1Z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="flex flex-wrap gap-4 lowercase text-neutral-400">
+                                <li>
+                                    <a href="https://www.linkedin.com/in/lucas-coimbra/" target="_blank"
+                                        class="flex gap-2 max-w-max transition hover:text-white"
+                                        data-barba-prevent="self">
+                                        LinkedIn
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://wa.me/5511940456685" target="_blank"
+                                        class="flex gap-2 max-w-max transition hover:text-white"
+                                        data-barba-prevent="self">
+                                        WhatsApp
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-col leading-[2.2] lg:first:pr-16" data-st="fade-object">
+                            <p>
+                                <span class="flex gap-2 max-w-max font-medium text-neutral-300">
+                                    São Paulo ‧ SP ‧ Brasil
+                                </span>
+                            </p>
+                        </div>
+                        <div data-st="fade-object">
+                            <p>
+                                <a href="index.html"
+                                    class="flex gap-2 max-w-max text-xs py-2 text-neutral-400 opacity-70 transition hover:opacity-100 hover:text-white"
+                                    data-barba-prevent="self">
+                                    Ver Currículo Completo
+                                </a>
+                            </p>
+                        </div>
+                        <div data-st="fade-object">
+                            <p>
+                                <span class="flex text-xs py-2 text-neutral-400 opacity-70">
+                                    Lucas Coimbra ‧ Portfólio 2026
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden lg:flex w-full pt-14 overflow-hidden" data-st="fade">
+                    <svg class="shrink-0 ml-auto" xmlns="http://www.w3.org/2000/svg" width="778" height="310"
+                        fill="none" viewBox="0 0 778 310">
+                        <path id="text-path" stroke="#26262a" stroke-miterlimit="10" stroke-width="40"
+                            d="M-195.054 21.157c128.957 0 194.736 266.48 97.364 266.48-97.364 0-31.592-266.48 97.372-266.48 128.958 0 194.737 266.48 97.365 266.48-97.365 0-31.593-266.48 97.364-266.48 128.958 0 194.737 266.48 97.365 266.48-97.365 0-31.593-266.48 97.364-266.48 128.958 0 194.737 266.48 97.365 266.48-97.365 0-31.593-266.48 97.364-266.48 128.958 0 194.737 266.48 97.365 266.48-97.365 0-31.593-266.48 97.364-266.48 128.958 0 194.737 266.48 97.365 266.48-97.365 0-31.593-266.48 97.364-266.48" />
+                        <text style="fill:currentColor; font-size:18px; font-weight: bold;">
+                            <textPath href="#text-path" startOffset="0" data-st="text-scrub-object">
+                                <tspan alignment-baseline="middle" style="fill:#ffffff;">Design Gráfico de Alta
+                                    Performance. Direção de Arte Estratégica. </tspan>
+                                <tspan alignment-baseline="middle" style="fill:#737373;">Design Gráfico de Alta
+                                    Performance. Direção de Arte Estratégica. </tspan>
+                                <tspan alignment-baseline="middle" style="fill:#ffffff;">Design Gráfico de Alta
+                                    Performance. Direção de Arte Estratégica. </tspan>
+                                <tspan alignment-baseline="middle" style="fill:#737373;">Design Gráfico de Alta
+                                    Performance. Direção de Arte Estratégica. </tspan>
+                                <tspan alignment-baseline="middle" style="fill:#ffffff;">Design Gráfico de Alta
+                                    Performance. Direção de Arte Estratégica. </tspan>
+                                <tspan alignment-baseline="middle" style="fill:#737373;">Design Gráfico de Alta
+                                    Performance. Direção de Arte Estratégica. </tspan>
+                                <tspan alignment-baseline="middle" style="fill:#ffffff;">Design Gráfico de Alta
+                                    Performance. Direção de Arte Estratégica. </tspan>
+                                <tspan alignment-baseline="middle" style="fill:#737373;">Design Gráfico de Alta
+                                    Performance. Direção de Arte Estratégica. </tspan>
+                            </textPath>
+                        </text>
+                    </svg>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Gerenciador de Reprodução em Full HD (YouTube Embed + Fallback Seguro) -->
+    <script>
+        (function () {
+            var isFile = window.location.protocol === 'file:';
+            var ytWrapper = document.getElementById('hero-yt-wrapper');
+            var localVideo = document.getElementById('hero-local-video');
+
+            function activateLocalFallback() {
+                if (localVideo && ytWrapper) {
+                    ytWrapper.style.display = 'none';
+                    localVideo.classList.remove('hidden');
+                    localVideo.play().catch(function () { });
+                }
+            }
+
+            // O YouTube bloqueia requisições locais (file:///) por falta de Referrer com o 'Error 153'.
+            // Ao abrir localmente no Windows, ativa o arquivo '1 upscale.mp4' em Full HD nítido instantaneamente.
+            if (isFile) {
+                activateLocalFallback();
+            } else {
+                window.onYouTubeIframeAPIReady = function () {
+                    try {
+                        new YT.Player('hero-yt-player', {
+                            events: {
+                                'onReady': function (event) {
+                                    event.target.mute();
+                                    event.target.playVideo();
+                                    if (typeof event.target.setPlaybackQuality === 'function') {
+                                        event.target.setPlaybackQuality('hd1080');
+                                    }
+                                },
+                                'onError': function () {
+                                    activateLocalFallback();
+                                }
+                            }
+                        });
+                    } catch (e) {
+                        activateLocalFallback();
+                    }
+                };
+            }
+        })();
+    </script>
+    <script src="https://www.youtube.com/iframe_api" async defer></script>
+</body>
+
+</html>

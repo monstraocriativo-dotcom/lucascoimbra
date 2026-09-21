@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>dheka — Portfólio Criativo | Lucas Coimbra</title>
+  <meta name="description" content="Capas de podcasts, thumbs de YouTube e criativos de Business Process Management desenvolvidos para a dheka por Lucas Coimbra."/>
+  <meta name="author" content="Lucas Pereira Coimbra da Silva"/>
+  <meta name="theme-color" content="#131314"/>
+
+  <!-- Favicon SVG -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%232a2a2b'/%3E%3Ctext x='50' y='65' font-family='sans-serif' font-weight='800' font-size='50' fill='%2338bdf8' text-anchor='middle'%3ELC%3C/text%3E%3C/svg%3E"/>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-surface-variant": "#c0c6d6",
+            "primary": "#38bdf8",
+            "primary-light": "#bae6fd",
+            "brand-cyan": "#0284c7",
+            "surface-bright": "#3a393a",
+            "surface-container-high": "#2a2a2b",
+            "surface-container-low": "#1c1b1c",
+            "surface-container-lowest": "#0e0e0f",
+            "secondary": "#c2c1ff",
+            "background": "#131314",
+            "tertiary": "#47e266",
+            "outline-variant": "#414754",
+            "outline": "#8b91a0",
+            "on-background": "#e5e2e3",
+            "surface": "#131314",
+            "surface-container-highest": "#353436",
+            "surface-container": "#201f20",
+            "on-surface": "#e5e2e3"
+          },
+          fontFamily: {
+            "display": ["Hanken Grotesk", "sans-serif"],
+            "mono": ["JetBrains Mono", "monospace"],
+            "body": ["Hanken Grotesk", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Hero Video Container, Masks & Overlay 50% */
+    .hero-video-container {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background-color: #000000;
+    }
+    @media (min-width: 640px) {
+      .hero-video-container {
+        height: 380px;
+      }
+    }
+    @media (min-width: 1024px) {
+      .hero-video-container {
+        height: 440px;
+      }
+    }
+    .hero-youtube-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100vw;
+      height: 56.25vw;
+      min-height: 100%;
+      min-width: 177.78vh;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-youtube-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      pointer-events: none;
+    }
+    .hero-video-element {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-overlay-dark {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 2;
+      pointer-events: none;
+    }
+    .hero-bottom-fade {
+      position: absolute;
+      inset-inline: 0;
+      bottom: 0;
+      height: 40%;
+      min-height: 100px;
+      background: linear-gradient(to top, rgba(19, 19, 20, 0.95) 0%, rgba(19, 19, 20, 0.6) 50%, rgba(0, 0, 0, 0) 100%);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .hero-top-vignette {
+      position: absolute;
+      inset-inline: 0;
+      top: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .hero-title-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 0 1.5rem;
+      pointer-events: none;
+    }
+
+    /* Card Hover & Transições */
+    .grid-card {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+      will-change: transform;
+    }
+    .grid-card:hover {
+      transform: translateY(-5px) scale(1.01);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.9), 0 0 25px rgba(56, 189, 248, 0.2);
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+
+    /* Modal Lightbox */
+    #lightbox-modal {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+    #lightbox-modal.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+    #lightbox-dialog {
+      transform: scale(0.96);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #lightbox-modal.is-open #lightbox-dialog {
+      transform: scale(1);
+    }
+  </style>
+</head>
+
+<body class="bg-background text-on-surface font-body antialiased min-h-screen flex flex-col selection:bg-primary selection:text-black relative">
+
+  <!-- HEADER NAVEGAÇÃO -->
+  <header class="sticky top-0 z-40 backdrop-blur-xl bg-surface-container-lowest/85 border-b border-outline-variant/20 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-center">
+      
+      <!-- Nav Pill Menu Central -->
+      <nav class="flex items-center">
+        <ul class="flex items-center rounded-full bg-neutral-900/85 border border-white/15 text-sm lowercase p-1.5 backdrop-blur-xl shadow-2xl">
+          <li class="min-w-0">
+            <a href="../../index.html" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10">
+              <span>início</span>
+            </a>
+          </li>
+          <li class="min-w-0">
+            <a href="../../curriculo/index.html" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10">
+              <span>sobre</span>
+            </a>
+          </li>
+          <li class="min-w-0">
+            <a href="../index.html" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition bg-white text-black font-semibold">
+              <span>projetos</span>
+            </a>
+          </li>
+          <li class="min-w-0">
+            <a href="https://wa.me/5511940456685?text=Ol%C3%A1%20Lucas,%20vi%20seu%20portfolio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10">
+              <span>contato</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 flex flex-col gap-10">
+
+    <!-- HERO COM VÍDEO & OVERLAY PRETO 50% -->
+    <section class="relative w-full rounded-3xl overflow-hidden bg-black border border-outline-variant/30 shadow-2xl">
+      <div class="hero-video-container" id="hero-media-box">
+        <!-- Embed YouTube Full HD com referrerpolicy obrigatório -->
+        <div class="hero-youtube-wrapper" id="hero-yt-wrapper">
+          <iframe id="hero-yt-player"
+            src="https://www.youtube-nocookie.com/embed/JXEI_OlVOPg?autoplay=1&mute=1&loop=1&playlist=JXEI_OlVOPg&controls=0&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&modestbranding=1&playsinline=1"
+            title="Lucas Coimbra Hero Video" referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            tabindex="-1" aria-hidden="true" loading="eager">
+          </iframe>
+        </div>
+        <!-- Fallback automático em Full HD para visualização local sem erro 153 do YouTube -->
+        <video id="hero-local-video" class="hero-video-element hidden" autoplay muted loop playsinline
+          preload="auto" tabindex="-1" aria-hidden="true">
+          <source src="../../1 upscale.mp4" type="video/mp4">
+        </video>
+        <!-- Overlay preto de 50% -->
+        <div class="hero-overlay-dark"></div>
+        <!-- Vinhetas e Fade Suave -->
+        <div class="hero-top-vignette"></div>
+        <div class="hero-bottom-fade"></div>
+        <!-- Nome do Projeto em Cima -->
+        <div class="hero-title-content">
+          <h1 class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white uppercase drop-shadow-2xl">
+            dheka
+          </h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRID DE 3 IMAGENS POR LINHA (SOMENTE IMAGENS) -->
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" id="gallery-grid">
+      <!-- Injetado dinamicamente via JavaScript -->
+    </section>
+
+    <!-- FOOTER NAVEGAÇÃO -->
+    <div class="mt-8 pt-8 border-t border-outline-variant/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-on-surface-variant">
+      <div>
+        Lucas Coimbra • Portfólio 2026
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="../index.html" class="hover:text-primary transition-colors flex items-center gap-1">
+          <span class="material-symbols-outlined text-[15px]">arrow_back</span>
+          Voltar ao Portfólio Central
+        </a>
+        <span>•</span>
+        <a href="#top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="hover:text-primary transition-colors flex items-center gap-1">
+          <span class="material-symbols-outlined text-[15px]">arrow_upward</span>
+          Topo
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- MODAL LIGHTBOX MINIMALISTA (APENAS IMAGEM E BOTÃO X) -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex items-center justify-center p-2 sm:p-4" onclick="handleBackdropClick(event)" role="dialog" aria-modal="true">
+    <button onclick="closeLightbox()" class="absolute top-4 right-4 sm:top-6 sm:right-6 z-50 w-12 h-12 rounded-full bg-surface-container-high/90 hover:bg-primary text-white border border-outline-variant/40 flex items-center justify-center transition-colors shadow-2xl cursor-pointer" aria-label="Fechar">
+      <span class="material-symbols-outlined text-2xl">close</span>
+    </button>
+    <button onclick="prevImage(event)" class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-40 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-surface-container-high/80 hover:bg-primary text-white border border-outline-variant/30 flex items-center justify-center transition-all shadow-xl cursor-pointer" aria-label="Anterior">
+      <span class="material-symbols-outlined text-3xl">chevron_left</span>
+    </button>
+    <div id="lightbox-dialog" class="relative w-full h-full max-w-[96vw] max-h-[92vh] flex items-center justify-center select-none p-1">
+      <img id="modal-image" src="" alt="" class="max-h-[92vh] max-w-[94vw] w-auto h-auto object-contain rounded-2xl shadow-2xl transition-transform duration-200"/>
+    </div>
+    <button onclick="nextImage(event)" class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-40 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-surface-container-high/80 hover:bg-primary text-white border border-outline-variant/30 flex items-center justify-center transition-all shadow-xl cursor-pointer" aria-label="Próximo">
+      <span class="material-symbols-outlined text-3xl">chevron_right</span>
+    </button>
+  </div>
+
+  <script>
+    const itemsData = [{"id":1,"file":"[ dheka ] Podcast -  185#  Escritório de Processos não trabalha sozinho! - thumb 1080x1080.png","encodedFile":"%5B%20dheka%20%5D%20Podcast%20-%20%20185%23%20%20Escrit%C3%B3rio%20de%20Processos%20n%C3%A3o%20trabalha%20sozinho!%20-%20thumb%201080x1080.png","title":"Podcast - 185# Escritório de Processos não trabalha sozinho!","category":"Podcast & Dhekacast"},{"id":2,"file":"[ dheka ] Podcast - 165# Crise meia idade thumb.png","encodedFile":"%5B%20dheka%20%5D%20Podcast%20-%20165%23%20Crise%20meia%20idade%20thumb.png","title":"Podcast - 165# Crise meia idade","category":"Podcast & Dhekacast"},{"id":3,"file":"[ dheka ] Podcast - 167# Processos em Foco BPM através das Lentes da Fotografia - thumb.png","encodedFile":"%5B%20dheka%20%5D%20Podcast%20-%20167%23%20Processos%20em%20Foco%20BPM%20atrav%C3%A9s%20das%20Lentes%20da%20Fotografia%20-%20thumb.png","title":"Podcast - 167# Processos em Foco BPM através das Lentes da Fotografia","category":"Podcast & Dhekacast"},{"id":4,"file":"[ dheka ] Podcast - 168# 9 Mulheres Não Fazem um Bebê em 1 Mês podcast.png","encodedFile":"%5B%20dheka%20%5D%20Podcast%20-%20168%23%209%20Mulheres%20N%C3%A3o%20Fazem%20um%20Beb%C3%AA%20em%201%20M%C3%AAs%20podcast.png","title":"Podcast - 168# 9 Mulheres Não Fazem um Bebê em 1 Mês podcast","category":"Podcast & Dhekacast"},{"id":5,"file":"[ dheka ] Youtube - Levantamento de Processos Visual e Interativothumb.png","encodedFile":"%5B%20dheka%20%5D%20Youtube%20-%20Levantamento%20de%20Processos%20Visual%20e%20Interativothumb.png","title":"Youtube - Levantamento de Processos Visual e Interativo","category":"YouTube & Vídeo"},{"id":6,"file":"2.png","encodedFile":"2.png","title":"2","category":"Criativo Digital"},{"id":7,"file":"175 De Processos a Sorrisos podcast.png","encodedFile":"175%20De%20Processos%20a%20Sorrisos%20podcast.png","title":"175 De Processos a Sorrisos podcast","category":"Podcast & Dhekacast"},{"id":8,"file":"177 BPM e Olimpíadas A Ginástica dos Processospodcast.png","encodedFile":"177%20BPM%20e%20Olimp%C3%ADadas%20A%20Gin%C3%A1stica%20dos%20Processospodcast.png","title":"177 BPM e Olimpíadas A Ginástica dos Processospodcast","category":"Podcast & Dhekacast"},{"id":9,"file":"178# O que Tira o Sono dos Líderes de Processos podcast.png","encodedFile":"178%23%20O%20que%20Tira%20o%20Sono%20dos%20L%C3%ADderes%20de%20Processos%20podcast.png","title":"178# O que Tira o Sono dos Líderes de Processos podcast","category":"Podcast & Dhekacast"},{"id":10,"file":"183# BPM e Bem-Estar podcast.png","encodedFile":"183%23%20BPM%20e%20Bem-Estar%20podcast.png","title":"183# BPM e Bem-Estar podcast","category":"Podcast & Dhekacast"},{"id":11,"file":"187# dheka - Tudo que você não usa na notação BPMN thumb.png","encodedFile":"187%23%20dheka%20-%20Tudo%20que%20voc%C3%AA%20n%C3%A3o%20usa%20na%20nota%C3%A7%C3%A3o%20BPMN%20thumb.png","title":"187# dheka - Tudo que você não usa na notação BPMN","category":"Criativo Digital"},{"id":12,"file":"188# dheka - 188# Não venda Mineração de Processos podcast.png","encodedFile":"188%23%20dheka%20-%20188%23%20N%C3%A3o%20venda%20Minera%C3%A7%C3%A3o%20de%20Processos%20podcast.png","title":"188# dheka - 188# Não venda Mineração de Processos podcast","category":"Podcast & Dhekacast"},{"id":13,"file":"189# Um mar de conhecimento com um palmo de profundidade thumb.png","encodedFile":"189%23%20Um%20mar%20de%20conhecimento%20com%20um%20palmo%20de%20profundidade%20thumb.png","title":"189# Um mar de conhecimento com um palmo de profundidade","category":"Criativo Digital"},{"id":14,"file":"207# Diagnóstico não é Auditoria thumb.png","encodedFile":"207%23%20Diagn%C3%B3stico%20n%C3%A3o%20%C3%A9%20Auditoria%20thumb.png","title":"207# Diagnóstico não é Auditoria","category":"Criativo Digital"},{"id":15,"file":"bluee.png","encodedFile":"bluee.png","title":"bluee","category":"Criativo Digital"},{"id":16,"file":"dheka - 169# As pessoas certas na sala podcast.png","encodedFile":"dheka%20-%20169%23%20As%20pessoas%20certas%20na%20sala%20podcast.png","title":"169# As pessoas certas na sala podcast","category":"Podcast & Dhekacast"},{"id":17,"file":"dheka - 170# Processos é o novo normal podcast.png","encodedFile":"dheka%20-%20170%23%20Processos%20%C3%A9%20o%20novo%20normal%20podcast.png","title":"170# Processos é o novo normal podcast","category":"Podcast & Dhekacast"},{"id":18,"file":"dheka - 173# Acelera, BPM!  podcast.png","encodedFile":"dheka%20-%20173%23%20Acelera%2C%20BPM!%20%20podcast.png","title":"173# Acelera, BPM! podcast","category":"Podcast & Dhekacast"},{"id":19,"file":"dheka - 176# - qualidade importa podcast.png","encodedFile":"dheka%20-%20176%23%20-%20qualidade%20importa%20podcast.png","title":"176# - qualidade importa podcast","category":"Podcast & Dhekacast"},{"id":20,"file":"dheka - 186 Soft Skills do Profissional de Processos - thumb.png","encodedFile":"dheka%20-%20186%20Soft%20Skills%20do%20Profissional%20de%20Processos%20-%20thumb.png","title":"186 Soft Skills do Profissional de Processos","category":"Criativo Digital"},{"id":21,"file":"Dheka - BPM e Lean Manufacturing THUMB.png","encodedFile":"Dheka%20-%20BPM%20e%20Lean%20Manufacturing%20THUMB.png","title":"BPM e Lean Manufacturing","category":"Criativo Digital"},{"id":22,"file":"dheka - in god we trust - podcast.png","encodedFile":"dheka%20-%20in%20god%20we%20trust%20-%20podcast.png","title":"in god we trust - podcast","category":"Podcast & Dhekacast"},{"id":23,"file":"dheka - mentoria x consultoria - 1920x1080.png","encodedFile":"dheka%20-%20mentoria%20x%20consultoria%20-%201920x1080.png","title":"mentoria x consultoria -","category":"Criativo Digital"},{"id":24,"file":"dheka - Podcast - 166# Vai um TO-BE miojo thumb.png","encodedFile":"dheka%20-%20Podcast%20-%20166%23%20Vai%20um%20TO-BE%20miojo%20thumb.png","title":"Podcast - 166# Vai um TO-BE miojo","category":"Podcast & Dhekacast"},{"id":25,"file":"dheka - Process Championship Network podcast.png","encodedFile":"dheka%20-%20Process%20Championship%20Network%20podcast.png","title":"Process Championship Network podcast","category":"Podcast & Dhekacast"},{"id":26,"file":"Dheka - Série Os Processos da Sua Empresa - People Experience thumb.png","encodedFile":"Dheka%20-%20S%C3%A9rie%20Os%20Processos%20da%20Sua%20Empresa%20-%20People%20Experience%20thumb.png","title":"Série Os Processos da Sua Empresa - People Experience","category":"Série de Processos"},{"id":27,"file":"Dheka - Série Os Processos da Sua Empresa - processos comerciais thumb.png","encodedFile":"Dheka%20-%20S%C3%A9rie%20Os%20Processos%20da%20Sua%20Empresa%20-%20processos%20comerciais%20thumb.png","title":"Série Os Processos da Sua Empresa - processos comerciais","category":"Série de Processos"},{"id":28,"file":"Dheka - Série Os Processos da Sua Empresa - Processos Financeiros thumb.png","encodedFile":"Dheka%20-%20S%C3%A9rie%20Os%20Processos%20da%20Sua%20Empresa%20-%20Processos%20Financeiros%20thumb.png","title":"Série Os Processos da Sua Empresa - Processos Financeiros","category":"Série de Processos"},{"id":29,"file":"Dheka - Série Os Processos da Sua Empresa - Processos transversais thumb.png","encodedFile":"Dheka%20-%20S%C3%A9rie%20Os%20Processos%20da%20Sua%20Empresa%20-%20Processos%20transversais%20thumb.png","title":"Série Os Processos da Sua Empresa - Processos transversais","category":"Série de Processos"},{"id":30,"file":"Dheka - thumb Jornada Emocional da Mudança - 1920x1080 (2).png","encodedFile":"Dheka%20-%20thumb%20Jornada%20Emocional%20da%20Mudan%C3%A7a%20-%201920x1080%20(2).png","title":"Jornada Emocional da Mudança -","category":"Criativo Digital"},{"id":31,"file":"dheka - Thumbs do BPM Girls - Júlia e Juliana youtube.png","encodedFile":"dheka%20-%20Thumbs%20do%20BPM%20Girls%20-%20J%C3%BAlia%20e%20Juliana%20youtube.png","title":"s do BPM Girls - Júlia e Juliana youtube","category":"YouTube & Vídeo"},{"id":32,"file":"dheka - Youtube - 5S e BPM - THUMB.png","encodedFile":"dheka%20-%20Youtube%20-%205S%20e%20BPM%20-%20THUMB.png","title":"Youtube - 5S e BPM","category":"YouTube & Vídeo"},{"id":33,"file":"DHEKA - Youtube - Atualização da Cadeia de Valor thumb.png","encodedFile":"DHEKA%20-%20Youtube%20-%20Atualiza%C3%A7%C3%A3o%20da%20Cadeia%20de%20Valor%20thumb.png","title":"Youtube - Atualização da Cadeia de Valor","category":"YouTube & Vídeo"},{"id":34,"file":"Dheka - youtube - auditoria de processos - 1920x1080.png","encodedFile":"Dheka%20-%20youtube%20-%20auditoria%20de%20processos%20-%201920x1080.png","title":"youtube - auditoria de processos -","category":"YouTube & Vídeo"},{"id":35,"file":"dheka -Andresa Sanches e Shirley do Vale bpm girls - thumb.png","encodedFile":"dheka%20-Andresa%20Sanches%20e%20Shirley%20do%20Vale%20bpm%20girls%20-%20thumb.png","title":"Andresa Sanches e Shirley do Vale bpm girls","category":"BPM Girls"},{"id":36,"file":"dheka -Balde na goteira ou obra faraônica - 1920x1080.png","encodedFile":"dheka%20-Balde%20na%20goteira%20ou%20obra%20fara%C3%B4nica%20-%201920x1080.png","title":"Balde na goteira ou obra faraônica -","category":"Criativo Digital"},{"id":37,"file":"dheka -O Segredo para Redução dos Desperdícios - 1920x1080.png","encodedFile":"dheka%20-O%20Segredo%20para%20Redu%C3%A7%C3%A3o%20dos%20Desperd%C3%ADcios%20-%201920x1080.png","title":"O Segredo para Redução dos Desperdícios -","category":"Criativo Digital"},{"id":38,"file":"Dheka -youtube    Benevolência e BPM_ - thumb.png","encodedFile":"Dheka%20-youtube%20%20%20%20Benevol%C3%AAncia%20e%20BPM_%20-%20thumb.png","title":"youtube Benevolência e BPM_","category":"YouTube & Vídeo"},{"id":39,"file":"Dheka -youtube    Comparando os Ciclos BPM - thumb.png","encodedFile":"Dheka%20-youtube%20%20%20%20Comparando%20os%20Ciclos%20BPM%20-%20thumb.png","title":"youtube Comparando os Ciclos BPM","category":"YouTube & Vídeo"},{"id":40,"file":"dheka---dhekacast-160-Sindrome-de-Gabriela---Thumb.png","encodedFile":"dheka---dhekacast-160-Sindrome-de-Gabriela---Thumb.png","title":"dhekacast-160-Sindrome-de-Gabriela","category":"Podcast & Dhekacast"},{"id":41,"file":"dheka---dhekacast-162-cao velho--thumb.png","encodedFile":"dheka---dhekacast-162-cao%20velho--thumb.png","title":"dhekacast-162-cao velho-","category":"Podcast & Dhekacast"},{"id":42,"file":"dheka---dhekacast-163-inspiracao x transpiracao-----thumb.png","encodedFile":"dheka---dhekacast-163-inspiracao%20x%20transpiracao-----thumb.png","title":"dhekacast-163-inspiracao x transpiracao--","category":"Podcast & Dhekacast"},{"id":43,"file":"dheka---dhekacast-164-blits processos--thumb.png","encodedFile":"dheka---dhekacast-164-blits%20processos--thumb.png","title":"dhekacast-164-blits processos-","category":"Podcast & Dhekacast"},{"id":44,"file":"dhekacast - 194# Adeus Profissional, Adeus Conhecimento thumb.png","encodedFile":"dhekacast%20-%20194%23%20Adeus%20Profissional%2C%20Adeus%20Conhecimento%20thumb.png","title":"dhekacast - 194# Adeus Profissional, Adeus Conhecimento","category":"Podcast & Dhekacast"},{"id":45,"file":"dhekacast- 200 Nudging O Poder do Empurrãozinho no BPM - thumb.png","encodedFile":"dhekacast-%20200%20Nudging%20O%20Poder%20do%20Empurr%C3%A3ozinho%20no%20BPM%20-%20thumb.png","title":"dhekacast- 200 Nudging O Poder do Empurrãozinho no BPM","category":"Podcast & Dhekacast"},{"id":46,"file":"flag.png","encodedFile":"flag.png","title":"flag","category":"Criativo Digital"},{"id":47,"file":"n adianta.png","encodedFile":"n%20adianta.png","title":"n adianta","category":"Criativo Digital"},{"id":48,"file":"olho.png","encodedFile":"olho.png","title":"olho","category":"Criativo Digital"},{"id":49,"file":"ovo.png","encodedFile":"ovo.png","title":"ovo","category":"Criativo Digital"},{"id":50,"file":"Podcast - 174# Ouvido Atento podcast.png","encodedFile":"Podcast%20-%20174%23%20Ouvido%20Atento%20podcast.png","title":"Podcast - 174# Ouvido Atento podcast","category":"Podcast & Dhekacast"},{"id":51,"file":"Podcast - 209# BPM Girls - Entrevista com Kate Revoredo e Andréa Magalhães thumb.png","encodedFile":"Podcast%20-%20209%23%20BPM%20Girls%20-%20Entrevista%20com%20Kate%20Revoredo%20e%20Andr%C3%A9a%20Magalh%C3%A3es%20thumb.png","title":"Podcast - 209# BPM Girls - Entrevista com Kate Revoredo e Andréa Magalhães","category":"Podcast & Dhekacast"},{"id":52,"file":"podcast.png","encodedFile":"podcast.png","title":"podcast","category":"Podcast & Dhekacast"},{"id":53,"file":"Thumb---Entrevistando-michael.png","encodedFile":"Thumb---Entrevistando-michael.png","title":"---Entrevistando-michael","category":"Criativo Digital"},{"id":54,"file":"Thumb---Entrevistando-Wil-van-der-Aalst.png","encodedFile":"Thumb---Entrevistando-Wil-van-der-Aalst.png","title":"---Entrevistando-Wil-van-der-Aalst","category":"Criativo Digital"},{"id":55,"file":"thumb.png","encodedFile":"thumb.png","title":"thumb","category":"Criativo Digital"},{"id":56,"file":"Youtube - BPM Tradicional x BPM Ágil Qual é o Futuro thumb.png","encodedFile":"Youtube%20-%20BPM%20Tradicional%20x%20BPM%20%C3%81gil%20Qual%20%C3%A9%20o%20Futuro%20thumb.png","title":"Youtube - BPM Tradicional x BPM Ágil Qual é o Futuro","category":"YouTube & Vídeo"},{"id":57,"file":"Youtube - Como vender um Escritório de Processos thumb (1).png","encodedFile":"Youtube%20-%20Como%20vender%20um%20Escrit%C3%B3rio%20de%20Processos%20thumb%20(1).png","title":"Youtube - Como vender um Escritório de Processos","category":"YouTube & Vídeo"},{"id":58,"file":"Youtube - dheka Academy thumb thumb.png","encodedFile":"Youtube%20-%20dheka%20Academy%20thumb%20thumb.png","title":"Youtube - dheka Academy","category":"YouTube & Vídeo"},{"id":59,"file":"Youtube - Um  Empurrãozinho na Direção Certa do seu Ciclo BPM post thumb.png","encodedFile":"Youtube%20-%20Um%20%20Empurr%C3%A3ozinho%20na%20Dire%C3%A7%C3%A3o%20Certa%20do%20seu%20Ciclo%20BPM%20post%20thumb.png","title":"Youtube - Um Empurrãozinho na Direção Certa do seu Ciclo BPM post","category":"YouTube & Vídeo"}];
+    let currentIndex = 0;
+
+    const modal = document.getElementById('lightbox-modal');
+    const modalImg = document.getElementById('modal-image');
+
+    function renderGrid() {
+      const grid = document.getElementById('gallery-grid');
+      grid.innerHTML = '';
+      itemsData.forEach((item, index) => {
+        const card = document.createElement('article');
+        card.className = 'grid-card group relative rounded-2xl bg-surface-container-low border border-outline-variant/30 overflow-hidden cursor-pointer shadow-lg hover:border-primary/50 transition-all duration-300';
+        card.setAttribute('onclick', `openLightbox(${index})`);
+        card.innerHTML = `
+          <div class="relative w-full aspect-square bg-surface-container-highest overflow-hidden">
+            <img 
+              src="${item.encodedFile}" 
+              alt="${item.title}" 
+              loading="${index < 6 ? 'eager' : 'lazy'}"
+              class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+            />
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function openLightbox(index) {
+      currentIndex = index;
+      updateModal();
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    function updateModal() {
+      const item = itemsData[currentIndex];
+      modalImg.src = item.encodedFile;
+      modalImg.alt = item.title;
+    }
+
+    function nextImage(e) {
+      if (e) e.stopPropagation();
+      currentIndex = (currentIndex + 1) % itemsData.length;
+      updateModal();
+    }
+
+    function prevImage(e) {
+      if (e) e.stopPropagation();
+      currentIndex = (currentIndex - 1 + itemsData.length) % itemsData.length;
+      updateModal();
+    }
+
+    function handleBackdropClick(e) {
+      if (e.target === modal || e.target === document.getElementById('lightbox-dialog')) {
+        closeLightbox();
+      }
+    }
+
+    // Navegação via teclado
+    window.addEventListener('keydown', (e) => {
+      if (!modal.classList.contains('is-open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'ArrowLeft') prevImage();
+    });
+
+    // Inicializar Grade
+    renderGrid();
+  </script>
+
+  <!-- Gerenciador de Reprodução do Vídeo Hero (YouTube Embed + Fallback Local Full HD) -->
+  <script>
+    (function () {
+      var isFile = window.location.protocol === 'file:';
+      var ytWrapper = document.getElementById('hero-yt-wrapper');
+      var localVideo = document.getElementById('hero-local-video');
+
+      function activateLocalFallback() {
+        if (localVideo && ytWrapper) {
+          ytWrapper.style.display = 'none';
+          localVideo.classList.remove('hidden');
+          localVideo.play().catch(function () { });
+        }
+      }
+
+      if (isFile) {
+        activateLocalFallback();
+      } else {
+        window.onYouTubeIframeAPIReady = function () {
+          try {
+            new YT.Player('hero-yt-player', {
+              events: {
+                'onReady': function (event) {
+                  event.target.mute();
+                  event.target.playVideo();
+                  if (typeof event.target.setPlaybackQuality === 'function') {
+                    event.target.setPlaybackQuality('hd1080');
+                  }
+                },
+                'onError': function () {
+                  activateLocalFallback();
+                }
+              }
+            });
+          } catch (e) {
+            activateLocalFallback();
+          }
+        };
+      }
+    })();
+  </script>
+  <script src="https://www.youtube.com/iframe_api" async defer></script>
+</body>
+</html>

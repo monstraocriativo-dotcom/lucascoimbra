@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Portfólio de Vídeos & Reels — Lucas Coimbra</title>
+  <meta name="description" content="Portfólio de vídeos verticais, reels, edição dinâmica e motion design desenvolvidos por Lucas Coimbra."/>
+  <meta name="author" content="Lucas Pereira Coimbra da Silva"/>
+  <meta name="theme-color" content="#131314"/>
+
+  <!-- Favicon SVG -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%232a2a2b'/%3E%3Ctext x='50' y='65' font-family='sans-serif' font-weight='800' font-size='50' fill='%233e90ff' text-anchor='middle'%3ELC%3C/text%3E%3C/svg%3E"/>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-surface-variant": "#c0c6d6",
+            "primary": "#3e90ff",
+            "primary-light": "#aac7ff",
+            "surface-bright": "#3a393a",
+            "surface-container-high": "#2a2a2b",
+            "surface-container-low": "#1c1b1c",
+            "surface-container-lowest": "#0e0e0f",
+            "secondary": "#c2c1ff",
+            "background": "#131314",
+            "tertiary": "#47e266",
+            "outline-variant": "#414754",
+            "outline": "#8b91a0",
+            "on-background": "#e5e2e3",
+            "surface": "#131314",
+            "surface-container-highest": "#353436",
+            "surface-container": "#201f20",
+            "on-surface": "#e5e2e3",
+            "primary-container": "#3e90ff",
+            "instagram-pink": "#E1306C",
+            "instagram-purple": "#833AB4",
+            "instagram-orange": "#F77737"
+          },
+          fontFamily: {
+            "display": ["Hanken Grotesk", "sans-serif"],
+            "mono": ["JetBrains Mono", "monospace"],
+            "body": ["Hanken Grotesk", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Hero Video Container, Masks & Overlay 50% */
+    .hero-video-container {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background-color: #000000;
+    }
+    @media (min-width: 640px) {
+      .hero-video-container {
+        height: 380px;
+      }
+    }
+    @media (min-width: 1024px) {
+      .hero-video-container {
+        height: 440px;
+      }
+    }
+    .hero-youtube-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100vw;
+      height: 56.25vw;
+      min-height: 100%;
+      min-width: 177.78vh;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-youtube-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      pointer-events: none;
+    }
+    .hero-video-element {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-overlay-dark {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 2;
+      pointer-events: none;
+    }
+    .hero-bottom-fade {
+      position: absolute;
+      inset-inline: 0;
+      bottom: 0;
+      height: 40%;
+      min-height: 100px;
+      background: linear-gradient(to top, rgba(19, 19, 20, 0.95) 0%, rgba(19, 19, 20, 0.6) 50%, rgba(0, 0, 0, 0) 100%);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .hero-top-vignette {
+      position: absolute;
+      inset-inline: 0;
+      top: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .hero-title-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 0 1.5rem;
+      pointer-events: none;
+    }
+
+    /* Scrollbar minimalista */
+    .custom-scrollbar::-webkit-scrollbar {
+      height: 8px;
+      width: 8px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(20, 20, 22, 0.6);
+      border-radius: 9999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(62, 144, 255, 0.3);
+      border-radius: 9999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: rgba(62, 144, 255, 0.6);
+    }
+
+    /* Ocultar barra quando desejado */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Gradiente Instagram */
+    .ig-gradient-border {
+      background: linear-gradient(135deg, #833AB4, #FD1D1D, #F77737);
+    }
+    
+    .ig-gradient-text {
+      background: linear-gradient(135deg, #FD1D1D, #F77737, #FFDC80);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Cards e Animações */
+    .reel-card {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .reel-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.9), 0 0 30px rgba(62, 144, 255, 0.25);
+      border-color: rgba(62, 144, 255, 0.5);
+    }
+
+    /* Shimmer Skeleton Loader */
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .skeleton-shimmer {
+      background: linear-gradient(90deg, rgba(32, 31, 32, 0.8) 25%, rgba(58, 57, 58, 0.5) 50%, rgba(32, 31, 32, 0.8) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.8s infinite;
+    }
+  </style>
+</head>
+
+<body class="bg-background text-on-surface font-body antialiased min-h-screen flex flex-col selection:bg-primary selection:text-white">
+
+  <!-- TOPO / HEADER -->
+  <header class="sticky top-0 z-40 backdrop-blur-xl bg-surface-container-lowest/85 border-b border-outline-variant/30 transition-all duration-300">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-center">
+      
+      <!-- Nav Pill Menu Central -->
+      <nav class="flex items-center">
+        <ul class="flex items-center rounded-full bg-neutral-900/85 border border-white/15 text-sm lowercase p-1.5 backdrop-blur-xl shadow-2xl">
+          <li class="min-w-0">
+            <a href="../../index.html" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10">
+              <span>início</span>
+            </a>
+          </li>
+          <li class="min-w-0">
+            <a href="../../curriculo/index.html" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10">
+              <span>sobre</span>
+            </a>
+          </li>
+          <li class="min-w-0">
+            <a href="../index.html" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition bg-white text-black font-semibold">
+              <span>projetos</span>
+            </a>
+          </li>
+          <li class="min-w-0">
+            <a href="https://wa.me/5511940456685?text=Ol%C3%A1%20Lucas,%20vi%20seu%20portfolio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10">
+              <span>contato</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="flex-1 w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 flex flex-col gap-8 sm:gap-10">
+
+    <!-- HERO COM VÍDEO & OVERLAY PRETO 50% -->
+    <section class="relative w-full rounded-3xl overflow-hidden bg-black border border-outline-variant/30 shadow-2xl">
+      <div class="hero-video-container" id="hero-media-box">
+        <!-- Embed YouTube Full HD com referrerpolicy obrigatório -->
+        <div class="hero-youtube-wrapper" id="hero-yt-wrapper">
+          <iframe id="hero-yt-player"
+            src="https://www.youtube-nocookie.com/embed/JXEI_OlVOPg?autoplay=1&mute=1&loop=1&playlist=JXEI_OlVOPg&controls=0&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&modestbranding=1&playsinline=1"
+            title="Lucas Coimbra Hero Video" referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            tabindex="-1" aria-hidden="true" loading="eager">
+          </iframe>
+        </div>
+        <!-- Fallback automático em Full HD para visualização local sem erro 153 do YouTube -->
+        <video id="hero-local-video" class="hero-video-element hidden" autoplay muted loop playsinline
+          preload="auto" tabindex="-1" aria-hidden="true">
+          <source src="../../1 upscale.mp4" type="video/mp4">
+        </video>
+        <!-- Overlay preto de 50% -->
+        <div class="hero-overlay-dark"></div>
+        <!-- Vinhetas e Fade Suave -->
+        <div class="hero-top-vignette"></div>
+        <div class="hero-bottom-fade"></div>
+        <!-- Nome do Projeto em Cima -->
+        <div class="hero-title-content">
+          <h1 class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white uppercase drop-shadow-2xl">
+            Vinci
+          </h1>
+        </div>
+      </div>
+    </section>
+
+        <!-- GRADE DE VÍDEOS (SOMENTE VÍDEOS COM BOTÃO DE PLAY) -->
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-start">
+        <!-- VÍDEO: https://www.instagram.com/p/DdbtRCwOuv8/ -->
+        <article class="reel-card rounded-3xl bg-surface-container-low border border-outline-variant/40 overflow-hidden flex flex-col shadow-xl">
+          <div class="relative w-full bg-black flex items-center justify-center overflow-hidden min-h-[520px]">
+            <div class="absolute inset-0 skeleton-shimmer flex flex-col items-center justify-center gap-2 text-on-surface-variant pointer-events-none">
+              <span class="material-symbols-outlined text-4xl text-primary animate-pulse">play_circle</span>
+              <span class="font-mono text-xs">Carregando Reel...</span>
+            </div>
+
+            <iframe 
+              src="https://www.instagram.com/p/DdbtRCwOuv8/embed/" 
+              class="relative z-10 w-full h-[540px] border-0" 
+              scrolling="no" 
+              allowtransparency="true" 
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              loading="lazy"
+              title="Vídeo Instagram - DdbtRCwOuv8">
+            </iframe>
+          </div>
+        </article>
+
+        <!-- VÍDEO: https://www.instagram.com/p/DdBylidu3Xb/ -->
+        <article class="reel-card rounded-3xl bg-surface-container-low border border-outline-variant/40 overflow-hidden flex flex-col shadow-xl">
+          <div class="relative w-full bg-black flex items-center justify-center overflow-hidden min-h-[520px]">
+            <div class="absolute inset-0 skeleton-shimmer flex flex-col items-center justify-center gap-2 text-on-surface-variant pointer-events-none">
+              <span class="material-symbols-outlined text-4xl text-primary animate-pulse">play_circle</span>
+              <span class="font-mono text-xs">Carregando Reel...</span>
+            </div>
+
+            <iframe 
+              src="https://www.instagram.com/p/DdBylidu3Xb/embed/" 
+              class="relative z-10 w-full h-[540px] border-0" 
+              scrolling="no" 
+              allowtransparency="true" 
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              loading="lazy"
+              title="Vídeo Instagram - DdBylidu3Xb">
+            </iframe>
+          </div>
+        </article>
+
+        <!-- VÍDEO: https://www.instagram.com/p/Dc3mLzuuQq1/ -->
+        <article class="reel-card rounded-3xl bg-surface-container-low border border-outline-variant/40 overflow-hidden flex flex-col shadow-xl">
+          <div class="relative w-full bg-black flex items-center justify-center overflow-hidden min-h-[520px]">
+            <div class="absolute inset-0 skeleton-shimmer flex flex-col items-center justify-center gap-2 text-on-surface-variant pointer-events-none">
+              <span class="material-symbols-outlined text-4xl text-primary animate-pulse">play_circle</span>
+              <span class="font-mono text-xs">Carregando Reel...</span>
+            </div>
+
+            <iframe 
+              src="https://www.instagram.com/p/Dc3mLzuuQq1/embed/" 
+              class="relative z-10 w-full h-[540px] border-0" 
+              scrolling="no" 
+              allowtransparency="true" 
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              loading="lazy"
+              title="Vídeo Instagram - Dc3mLzuuQq1">
+            </iframe>
+          </div>
+        </article>
+
+        <!-- VÍDEO: https://www.instagram.com/p/DctUAQdO1ig/ -->
+        <article class="reel-card rounded-3xl bg-surface-container-low border border-outline-variant/40 overflow-hidden flex flex-col shadow-xl">
+          <div class="relative w-full bg-black flex items-center justify-center overflow-hidden min-h-[520px]">
+            <div class="absolute inset-0 skeleton-shimmer flex flex-col items-center justify-center gap-2 text-on-surface-variant pointer-events-none">
+              <span class="material-symbols-outlined text-4xl text-primary animate-pulse">play_circle</span>
+              <span class="font-mono text-xs">Carregando Reel...</span>
+            </div>
+
+            <iframe 
+              src="https://www.instagram.com/p/DctUAQdO1ig/embed/" 
+              class="relative z-10 w-full h-[540px] border-0" 
+              scrolling="no" 
+              allowtransparency="true" 
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              loading="lazy"
+              title="Vídeo Instagram - DctUAQdO1ig">
+            </iframe>
+          </div>
+        </article>
+
+        <!-- VÍDEO: https://www.instagram.com/p/Dcg4tYLSYVw/ -->
+        <article class="reel-card rounded-3xl bg-surface-container-low border border-outline-variant/40 overflow-hidden flex flex-col shadow-xl">
+          <div class="relative w-full bg-black flex items-center justify-center overflow-hidden min-h-[520px]">
+            <div class="absolute inset-0 skeleton-shimmer flex flex-col items-center justify-center gap-2 text-on-surface-variant pointer-events-none">
+              <span class="material-symbols-outlined text-4xl text-primary animate-pulse">play_circle</span>
+              <span class="font-mono text-xs">Carregando Reel...</span>
+            </div>
+
+            <iframe 
+              src="https://www.instagram.com/p/Dcg4tYLSYVw/embed/" 
+              class="relative z-10 w-full h-[540px] border-0" 
+              scrolling="no" 
+              allowtransparency="true" 
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              loading="lazy"
+              title="Vídeo Instagram - Dcg4tYLSYVw">
+            </iframe>
+          </div>
+        </article>
+    </section>
+
+  </main>
+
+  <!-- Gerenciador de Reprodução do Vídeo Hero (YouTube Embed + Fallback Local Full HD) -->
+  <script>
+    (function () {
+      var isFile = window.location.protocol === 'file:';
+      var ytWrapper = document.getElementById('hero-yt-wrapper');
+      var localVideo = document.getElementById('hero-local-video');
+
+      function activateLocalFallback() {
+        if (localVideo && ytWrapper) {
+          ytWrapper.style.display = 'none';
+          localVideo.classList.remove('hidden');
+          localVideo.play().catch(function () { });
+        }
+      }
+
+      if (isFile) {
+        activateLocalFallback();
+      } else {
+        window.onYouTubeIframeAPIReady = function () {
+          try {
+            new YT.Player('hero-yt-player', {
+              events: {
+                'onReady': function (event) {
+                  event.target.mute();
+                  event.target.playVideo();
+                  if (typeof event.target.setPlaybackQuality === 'function') {
+                    event.target.setPlaybackQuality('hd1080');
+                  }
+                },
+                'onError': function () {
+                  activateLocalFallback();
+                }
+              }
+            });
+          } catch (e) {
+            activateLocalFallback();
+          }
+        };
+      }
+    })();
+  </script>
+  <script src="https://www.youtube.com/iframe_api" async defer></script>
+</body>
+</html>

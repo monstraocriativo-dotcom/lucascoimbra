@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Sobral 2025 — Portfólio Criativo | Lucas Coimbra</title>
+  <meta name="description" content="Portfólio de campanhas, carrosséis de feed, stories e peças publicitárias da Sobral 2025 desenvolvidos por Lucas Coimbra."/>
+  <meta name="author" content="Lucas Pereira Coimbra da Silva"/>
+  <meta name="theme-color" content="#131314"/>
+
+  <!-- Favicon SVG -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%232a2a2b'/%3E%3Ctext x='50' y='65' font-family='sans-serif' font-weight='800' font-size='50' fill='%23aac7ff' text-anchor='middle'%3ELC%3C/text%3E%3C/svg%3E"/>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-surface-variant": "#c0c6d6",
+            "primary": "#aac7ff",
+            "surface-bright": "#3a393a",
+            "surface-container-high": "#2a2a2b",
+            "surface-container-low": "#1c1b1c",
+            "surface-container-lowest": "#0e0e0f",
+            "secondary": "#c2c1ff",
+            "background": "#131314",
+            "tertiary": "#47e266",
+            "outline-variant": "#414754",
+            "outline": "#8b91a0",
+            "on-background": "#e5e2e3",
+            "surface": "#131314",
+            "surface-container-highest": "#353436",
+            "surface-container": "#201f20",
+            "on-surface": "#e5e2e3",
+            "primary-container": "#3e90ff"
+          },
+          fontFamily: {
+            "display": ["Hanken Grotesk", "sans-serif"],
+            "mono": ["JetBrains Mono", "monospace"],
+            "body": ["Hanken Grotesk", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Hero Video Container, Masks & Overlay 50% */
+    .hero-video-container {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background-color: #000000;
+    }
+    @media (min-width: 640px) {
+      .hero-video-container {
+        height: 380px;
+      }
+    }
+    @media (min-width: 1024px) {
+      .hero-video-container {
+        height: 440px;
+      }
+    }
+    .hero-youtube-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100vw;
+      height: 56.25vw;
+      min-height: 100%;
+      min-width: 177.78vh;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-youtube-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      pointer-events: none;
+    }
+    .hero-video-element {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-overlay-dark {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 2;
+      pointer-events: none;
+    }
+    .hero-bottom-fade {
+      position: absolute;
+      inset-inline: 0;
+      bottom: 0;
+      height: 40%;
+      min-height: 100px;
+      background: linear-gradient(to top, rgba(19, 19, 20, 0.95) 0%, rgba(19, 19, 20, 0.6) 50%, rgba(0, 0, 0, 0) 100%);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .hero-top-vignette {
+      position: absolute;
+      inset-inline: 0;
+      top: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .hero-title-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 0 1.5rem;
+      pointer-events: none;
+    }
+
+    /* Ocultar barra de rolagem horizontal nativa com toque limpo */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Trilhas da Galeria */
+    .gallery-track {
+      scroll-behavior: auto;
+      user-select: none;
+      -webkit-user-select: none;
+      cursor: grab;
+    }
+    .gallery-track.is-dragging {
+      cursor: grabbing !important;
+    }
+
+    /* Cards e Animações */
+    .project-card {
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+      will-change: transform;
+    }
+    .project-card:hover {
+      transform: translateY(-5px) scale(1.015);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 24px rgba(170, 199, 255, 0.2);
+      border-color: rgba(170, 199, 255, 0.5);
+    }
+
+    /* Transição suave de slides com cross-fade */
+    .slide-item {
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+      pointer-events: none;
+    }
+    .slide-item.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Modal Fade & Scale */
+    #lightbox-modal {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.28s ease, visibility 0.28s ease;
+    }
+    #lightbox-modal.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+    #lightbox-dialog {
+      transform: scale(0.96);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #lightbox-modal.is-open #lightbox-dialog {
+      transform: scale(1);
+    }
+
+    /* Scrollbar minimalista nos thumbnails do modal */
+    .modal-thumbs::-webkit-scrollbar {
+      height: 4px;
+    }
+    .modal-thumbs::-webkit-scrollbar-thumb {
+      background: rgba(170, 199, 255, 0.3);
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+
+<body class="bg-background text-on-surface font-body antialiased min-h-screen flex flex-col selection:bg-primary-container selection:text-white relative overflow-x-hidden">
+
+  <!-- HEADER -->
+  <header class="shrink-0 z-40 backdrop-blur-xl bg-surface-container-lowest/85 border-b border-outline-variant/30 transition-all duration-300">
+    <div class="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-center">
+      
+      <!-- Nav Pill Menu Central -->
+      <nav class="flex items-center">
+        <ul class="flex items-center rounded-full bg-neutral-900/85 border border-white/15 text-sm lowercase p-1.5 backdrop-blur-xl shadow-2xl">
+          <li class="min-w-0">
+            <a href="../../index.html" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10">
+              <span>início</span>
+            </a>
+          </li>
+          <li class="min-w-0">
+            <a href="../../curriculo/index.html" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10">
+              <span>sobre</span>
+            </a>
+          </li>
+          <li class="min-w-0">
+            <a href="../index.html" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition bg-white text-black font-semibold">
+              <span>projetos</span>
+            </a>
+          </li>
+          <li class="min-w-0">
+            <a href="https://wa.me/5511940456685?text=Ol%C3%A1%20Lucas,%20vi%20seu%20portfolio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10">
+              <span>contato</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- HERO COM VÍDEO & OVERLAY PRETO 50% -->
+  <section class="relative w-full bg-black overflow-hidden border-b border-outline-variant/20 shadow-2xl">
+    <div class="hero-video-container" id="hero-media-box">
+      <!-- Embed YouTube Full HD com referrerpolicy obrigatório -->
+      <div class="hero-youtube-wrapper" id="hero-yt-wrapper">
+        <iframe id="hero-yt-player"
+          src="https://www.youtube-nocookie.com/embed/JXEI_OlVOPg?autoplay=1&mute=1&loop=1&playlist=JXEI_OlVOPg&controls=0&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&modestbranding=1&playsinline=1"
+          title="Lucas Coimbra Hero Video" referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          tabindex="-1" aria-hidden="true" loading="eager">
+        </iframe>
+      </div>
+      <!-- Fallback automático em Full HD para visualização local sem erro 153 do YouTube -->
+      <video id="hero-local-video" class="hero-video-element hidden" autoplay muted loop playsinline
+        preload="auto" tabindex="-1" aria-hidden="true">
+        <source src="../../1 upscale.mp4" type="video/mp4">
+      </video>
+      <!-- Overlay preto de 50% -->
+      <div class="hero-overlay-dark"></div>
+      <!-- Vinhetas e Fade Suave -->
+      <div class="hero-top-vignette"></div>
+      <div class="hero-bottom-fade"></div>
+      <!-- Nome do Projeto em Cima -->
+      <div class="hero-title-content">
+        <h1 class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white uppercase drop-shadow-2xl">
+          Sobral 2025
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÁREA PRINCIPAL DA GALERIA (2 LINHAS PARALELAS COM SCROLL HORIZONTAL EM TELA CHEIA) -->
+  <main class="w-full py-6 sm:py-8 overflow-hidden relative flex flex-col justify-center gap-4" id="gallery-container">
+    
+    <!-- Linha 1 -->
+    <div class="relative w-full h-[260px] sm:h-[300px] group/row flex items-center">
+      <div class="gallery-track no-scrollbar w-full h-full flex items-center gap-3 sm:gap-4 px-4 sm:px-6 lg:px-8 overflow-x-auto py-1" id="track-row-0">
+        <!-- Renderizado dinamicamente via JS -->
+      </div>
+    </div>
+
+    <!-- Linha 2 -->
+    <div class="relative w-full h-[260px] sm:h-[300px] group/row flex items-center">
+      <div class="gallery-track no-scrollbar w-full h-full flex items-center gap-3 sm:gap-4 px-4 sm:px-6 lg:px-8 overflow-x-auto py-1" id="track-row-1">
+        <!-- Renderizado dinamicamente via JS -->
+      </div>
+    </div>
+
+  </main>
+
+
+  <!-- MODAL LIGHTBOX EM TELA CHEIA (EXPANDE E AMPLIA SEM CORTAR) -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/94 backdrop-blur-2xl p-2 sm:p-4 md:p-6" role="dialog" aria-modal="true">
+    
+    <!-- Botão Fechar (X) no Canto Superior Direito -->
+    <button id="lightbox-close" class="absolute top-4 right-4 sm:top-6 sm:right-6 z-50 w-12 h-12 rounded-full bg-surface-container-high/90 hover:bg-primary hover:text-background text-on-surface border border-outline-variant/50 flex items-center justify-center transition-all duration-200 focus:outline-none shadow-2xl cursor-pointer" aria-label="Fechar galeria">
+      <span class="material-symbols-outlined text-[28px]">close</span>
+    </button>
+
+    <!-- Navegação Esquerda -->
+    <button id="modal-prev-btn" class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-50 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-surface-container-high/85 hover:bg-primary hover:text-background text-on-surface border border-outline-variant/50 flex items-center justify-center transition-all duration-200 shadow-2xl focus:outline-none cursor-pointer" aria-label="Slide anterior">
+      <span class="material-symbols-outlined text-[32px]">arrow_back_ios_new</span>
+    </button>
+
+    <!-- Navegação Direita -->
+    <button id="modal-next-btn" class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-50 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-surface-container-high/85 hover:bg-primary hover:text-background text-on-surface border border-outline-variant/50 flex items-center justify-center transition-all duration-200 shadow-2xl focus:outline-none cursor-pointer" aria-label="Próximo slide">
+      <span class="material-symbols-outlined text-[32px]">arrow_forward_ios</span>
+    </button>
+
+    <!-- Caixa Central de Exibição -->
+    <div id="lightbox-dialog" class="relative w-full h-full max-w-[96vw] max-h-[92vh] flex items-center justify-center select-none p-1">
+      <div id="modal-media-wrapper" class="w-full h-full flex items-center justify-center overflow-hidden rounded-2xl">
+        <!-- Renderizado dinamicamente via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- DADOS DOS PROJETOS (SOBRAL 2025) -->
+  <script src="portfolio_data.js"></script>
+
+  <!-- LÓGICA DA GALERIA, SLIDERS DE 3.5S E MODAL -->
+  <script>
+    (function () {
+      if (typeof PORTFOLIO_PROJECTS === 'undefined' || !PORTFOLIO_PROJECTS.length) {
+        console.error('PORTFOLIO_PROJECTS não carregado');
+        return;
+      }
+
+      // Atualizar badge de estatísticas automaticamente
+      const statsBadge = document.getElementById('project-stats');
+      if (statsBadge) {
+        const totalItemsCount = PORTFOLIO_PROJECTS.reduce((sum, p) => sum + (p.items ? p.items.length : 0), 0);
+        statsBadge.textContent = `${PORTFOLIO_PROJECTS.length} Projetos • ${totalItemsCount} Peças`;
+      }
+
+      let filteredProjects = [...PORTFOLIO_PROJECTS];
+      let appendBatchesCount = 0;
+
+      // Referências do DOM (2 Linhas)
+      const trackRows = [
+        document.getElementById('track-row-0'),
+        document.getElementById('track-row-1')
+      ];
+
+      // 1. RENDERIZAR PROJETOS DISTRIBUÍDOS NAS 2 LINHAS
+      function renderGallery(projects, isAppend = false) {
+        if (!isAppend) {
+          trackRows.forEach(t => t.innerHTML = '');
+          appendBatchesCount = 0;
+        }
+
+        projects.forEach((proj, index) => {
+          const absoluteIndex = isAppend ? (appendBatchesCount * filteredProjects.length) + index : index;
+          const rowIndex = absoluteIndex % 2;
+          const card = createProjectCard(proj, index);
+          trackRows[rowIndex].appendChild(card);
+        });
+
+        if (isAppend) {
+          appendBatchesCount++;
+        }
+
+        // Iniciar auto-slide para os cards criados
+        initAutoSliders();
+      }
+
+      // Normalizador de caminho de mídia
+      function fixSrc(src) {
+        if (!src) return '';
+        return src.replace(/^(\.\.\/)*portfolio\/sobral 2025\//, '');
+      }
+
+      // 2. CRIAR ELEMENTO DO CARD DO PROJETO COM ASPECT RATIO DINÂMICO
+      function createProjectCard(proj, projIndex) {
+        const card = document.createElement('article');
+        // Altura 100% da linha para caber em tela única sem nenhum scroll vertical
+        card.className = 'project-card flex-shrink-0 relative h-full rounded-2xl bg-surface-container-low border border-outline-variant/30 overflow-hidden group cursor-pointer select-none shadow-md';
+        
+        // Define o aspect ratio exato para que a largura se adapte perfeitamente
+        card.style.aspectRatio = proj.aspectRatio || '9/16';
+        card.setAttribute('data-project-index', projIndex);
+        card.setAttribute('data-item-count', proj.items.length);
+
+        // Container de Mídias (Slider Interno)
+        const mediaContainer = document.createElement('div');
+        mediaContainer.className = 'relative w-full h-full overflow-hidden bg-surface-container-highest';
+
+        proj.items.forEach((item, slideIdx) => {
+          const slide = document.createElement('div');
+          slide.className = `slide-item absolute inset-0 w-full h-full flex items-center justify-center ${slideIdx === 0 ? 'active' : ''}`;
+          slide.setAttribute('data-slide-index', slideIdx);
+
+          if (item.isVideo) {
+            slide.innerHTML = `
+              <video src="${fixSrc(item.src)}" muted playsinline loop autoplay class="w-full h-full object-cover pointer-events-none"></video>
+              
+            `;
+          } else {
+            slide.innerHTML = `<img src="${fixSrc(item.src)}" alt="${proj.title}" loading="lazy" class="w-full h-full object-cover"/>`;
+          }
+          mediaContainer.appendChild(slide);
+        });
+
+        // Badge contador de lâminas se tiver mais de 1
+        if (proj.items.length > 1) {
+          const counterBadge = document.createElement('div');
+          counterBadge.className = 'absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/30 text-[10px] font-mono text-on-surface-variant flex items-center gap-1';
+          counterBadge.innerHTML = `<span class="material-symbols-outlined text-[12px] text-primary">view_carousel</span> <span class="card-counter-text">1/${proj.items.length}</span>`;
+          card.appendChild(counterBadge);
+        }
+
+        card.appendChild(mediaContainer);
+
+        // Click para abrir Lightbox
+        card.addEventListener('click', (e) => {
+          if (card.getAttribute('data-prevent-click') === 'true') return;
+          openLightbox(projIndex);
+        });
+
+        return card;
+      }
+
+      // 3. AUTO-SLIDER CONTÍNUO (CROSS-FADE A CADA 3.5 SEGUNDOS)
+      let autoSliderTimer = null;
+      function initAutoSliders() {
+        if (autoSliderTimer) clearInterval(autoSliderTimer);
+
+        autoSliderTimer = setInterval(() => {
+          document.querySelectorAll('.project-card').forEach(card => {
+            const count = parseInt(card.getAttribute('data-item-count'), 10);
+            if (count <= 1) return;
+
+            const slides = card.querySelectorAll('.slide-item');
+            let currentIdx = -1;
+            slides.forEach((s, idx) => {
+              if (s.classList.contains('active')) currentIdx = idx;
+            });
+
+            if (currentIdx !== -1) {
+              slides[currentIdx].classList.remove('active');
+              const nextIdx = (currentIdx + 1) % count;
+              slides[nextIdx].classList.add('active');
+
+              const counterText = card.querySelector('.card-counter-text');
+              if (counterText) {
+                counterText.textContent = `${nextIdx + 1}/${count}`;
+              }
+            }
+          });
+        }, 3500);
+      }
+
+      // 4. CONTROLE DE SCROLL SUAVE NAS 2 LINHAS
+      const galleryContainer = document.getElementById('gallery-container');
+      let isHoverPaused = false;
+      let isGlobalDragging = false;
+      let startX = 0;
+      let startScrollPositions = [0, 0];
+      let hasDragged = false;
+      const autoScrollSpeed = 0.45;
+      let interactionPauseTimer = null;
+
+      function pauseAutoScrollTemporarily(ms = 2500) {
+        isHoverPaused = true;
+        if (interactionPauseTimer) clearTimeout(interactionPauseTimer);
+        interactionPauseTimer = setTimeout(() => {
+          isHoverPaused = false;
+        }, ms);
+      }
+
+      function checkInfiniteScroll() {
+        trackRows.forEach(track => {
+          if (!track) return;
+          const maxScroll = track.scrollWidth - track.clientWidth;
+          if (track.scrollLeft > maxScroll - 600) {
+            renderGallery(filteredProjects, true);
+          }
+        });
+      }
+
+      function setupTrackScrolling() {
+        // Inicializa loop com mais cópias para ter scroll contínuo e fluido
+        renderGallery(filteredProjects, true);
+        renderGallery(filteredProjects, true);
+
+        function autoScrollLoop() {
+          if (!isHoverPaused && !isGlobalDragging) {
+            trackRows.forEach(t => {
+              if (t) t.scrollLeft += autoScrollSpeed;
+            });
+            checkInfiniteScroll();
+          }
+          requestAnimationFrame(autoScrollLoop);
+        }
+        requestAnimationFrame(autoScrollLoop);
+
+        // Pausa no hover para permitir que o usuário analise e clique confortavelmente
+        galleryContainer.addEventListener('mouseenter', () => {
+          isHoverPaused = true;
+          if (interactionPauseTimer) clearTimeout(interactionPauseTimer);
+        });
+
+        galleryContainer.addEventListener('mouseleave', () => {
+          if (!isGlobalDragging) {
+            isHoverPaused = false;
+          }
+        });
+
+        // Suporte a toque em telas touch
+        galleryContainer.addEventListener('touchstart', () => {
+          isHoverPaused = true;
+        }, { passive: true });
+
+        galleryContainer.addEventListener('touchend', () => {
+          pauseAutoScrollTemporarily(1800);
+        }, { passive: true });
+
+        // Drag to scroll na área da galeria
+        galleryContainer.addEventListener('mousedown', (e) => {
+          if (e.target.closest('button')) return;
+
+          isGlobalDragging = true;
+          isHoverPaused = true;
+          hasDragged = false;
+          startX = e.pageX;
+          startScrollPositions = trackRows.map(t => t.scrollLeft);
+          trackRows.forEach(t => t.classList.add('is-dragging'));
+        });
+
+        window.addEventListener('mouseup', () => {
+          if (!isGlobalDragging) return;
+          isGlobalDragging = false;
+          trackRows.forEach(t => t.classList.remove('is-dragging'));
+          pauseAutoScrollTemporarily(1200);
+          setTimeout(() => {
+            document.querySelectorAll('.project-card').forEach(c => c.removeAttribute('data-prevent-click'));
+          }, 60);
+        });
+
+        window.addEventListener('mousemove', (e) => {
+          if (!isGlobalDragging) return;
+          const dx = e.pageX - startX;
+          if (Math.abs(dx) > 5) {
+            hasDragged = true;
+            document.querySelectorAll('.project-card').forEach(c => c.setAttribute('data-prevent-click', 'true'));
+          }
+          trackRows.forEach((t, i) => {
+            t.scrollLeft = startScrollPositions[i] - dx;
+          });
+        });
+
+        // Conversão de scroll da roda do mouse em rolagem horizontal sincronizada
+        galleryContainer.addEventListener('wheel', (e) => {
+          if (e.deltaY !== 0 && !e.shiftKey) {
+            e.preventDefault();
+            const delta = e.deltaY * 1.3;
+            trackRows.forEach(t => t.scrollLeft += delta);
+            checkInfiniteScroll();
+            pauseAutoScrollTemporarily(2000);
+          }
+        }, { passive: false });
+      }
+
+      // 5. MODAL LIGHTBOX EXPANSÍVEL EM TELA CHEIA
+      const modal = document.getElementById('lightbox-modal');
+      const modalCloseBtn = document.getElementById('lightbox-close');
+      const modalPrevBtn = document.getElementById('modal-prev-btn');
+      const modalNextBtn = document.getElementById('modal-next-btn');
+      const modalTitle = document.getElementById('modal-project-title');
+      const modalCategory = document.getElementById('modal-category-badge');
+      const modalCounter = document.getElementById('modal-slide-counter');
+      const modalWrapper = document.getElementById('modal-media-wrapper');
+      const modalThumbnailsBar = document.getElementById('modal-thumbnails-bar');
+
+      let curProjectIdx = 0;
+      let curSlideIdx = 0;
+      let isModalOpen = false;
+
+      function openLightbox(projIndex) {
+        curProjectIdx = projIndex;
+        curSlideIdx = 0;
+        isModalOpen = true;
+        isHoverPaused = true;
+        modal.classList.add('is-open');
+        document.body.classList.add('overflow-hidden');
+        updateModalContent();
+      }
+
+      function closeLightbox() {
+        isModalOpen = false;
+        isHoverPaused = false;
+        modal.classList.remove('is-open');
+        document.body.classList.remove('overflow-hidden');
+        const vid = modalWrapper.querySelector('video');
+        if (vid) vid.pause();
+        modalWrapper.innerHTML = '';
+      }
+
+      function updateModalContent() {
+        const proj = filteredProjects[curProjectIdx];
+        if (!proj) return;
+
+        if (modalTitle) modalTitle.textContent = proj.title;
+        modalCategory.textContent = proj.category || 'Sobral 2025';
+
+        const total = proj.items.length;
+        if (curSlideIdx < 0) curSlideIdx = total - 1;
+        if (curSlideIdx >= total) curSlideIdx = 0;
+
+        if (modalCounter) modalCounter.textContent = `${curSlideIdx + 1} / ${total}`;
+        const curItem = proj.items[curSlideIdx];
+
+        // Mídia ampliada em tela cheia com aspect ratio preservado
+        modalWrapper.innerHTML = '';
+        if (curItem.isVideo) {
+          const video = document.createElement('video');
+          video.src = fixSrc(curItem.src);
+          video.controls = true;
+          video.autoplay = true;
+          video.playsInline = true;
+          video.className = 'max-w-full max-h-full object-contain rounded-xl shadow-2xl';
+          modalWrapper.appendChild(video);
+        } else {
+          const img = document.createElement('img');
+          img.src = fixSrc(curItem.src);
+          img.className = 'max-w-full max-h-full object-contain rounded-xl shadow-2xl transition-opacity duration-200';
+          modalWrapper.appendChild(img);
+        }
+
+        // Barra de miniaturas
+        if (modalThumbnailsBar) modalThumbnailsBar.innerHTML = '';
+        if (total > 1) {
+          modalPrevBtn.style.display = 'flex';
+          modalNextBtn.style.display = 'flex';
+
+          proj.items.forEach((item, idx) => {
+            const thumb = document.createElement('button');
+            thumb.className = `w-11 h-11 sm:w-12 sm:h-12 rounded-lg border-2 overflow-hidden shrink-0 transition-all cursor-pointer ${idx === curSlideIdx ? 'border-primary scale-110 shadow-lg' : 'border-outline-variant/40 opacity-50 hover:opacity-100'}`;
+            if (item.isVideo) {
+              thumb.innerHTML = `<div class="w-full h-full bg-surface-container flex items-center justify-center text-primary text-xs"><span class="material-symbols-outlined text-[16px]">play_circle</span></div>`;
+            } else {
+              thumb.innerHTML = `<img src="${fixSrc(item.src)}" class="w-full h-full object-cover"/>`;
+            }
+            thumb.addEventListener('click', () => {
+              curSlideIdx = idx;
+              updateModalContent();
+            });
+            if (modalThumbnailsBar) modalThumbnailsBar.appendChild(thumb);
+          });
+        } else {
+          modalPrevBtn.style.display = 'none';
+          modalNextBtn.style.display = 'none';
+        }
+      }
+
+      function nextModalSlide() {
+        curSlideIdx++;
+        updateModalContent();
+      }
+
+      function prevModalSlide() {
+        curSlideIdx--;
+        updateModalContent();
+      }
+
+      // Eventos do modal
+      modalCloseBtn.addEventListener('click', closeLightbox);
+      modalNextBtn.addEventListener('click', nextModalSlide);
+      modalPrevBtn.addEventListener('click', prevModalSlide);
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal || e.target.id === 'lightbox-dialog') {
+          closeLightbox();
+        }
+      });
+
+      // Atalhos de teclado
+      window.addEventListener('keydown', (e) => {
+        if (!isModalOpen) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') nextModalSlide();
+        if (e.key === 'ArrowLeft') prevModalSlide();
+      });
+
+      // Inicialização
+      renderGallery(filteredProjects, false);
+      setupTrackScrolling();
+
+    })();
+  </script>
+  <!-- Gerenciador de Reprodução do Vídeo Hero (YouTube Embed + Fallback Local Full HD) -->
+  <script>
+    (function () {
+      var isFile = window.location.protocol === 'file:';
+      var ytWrapper = document.getElementById('hero-yt-wrapper');
+      var localVideo = document.getElementById('hero-local-video');
+
+      function activateLocalFallback() {
+        if (localVideo && ytWrapper) {
+          ytWrapper.style.display = 'none';
+          localVideo.classList.remove('hidden');
+          localVideo.play().catch(function () { });
+        }
+      }
+
+      if (isFile) {
+        activateLocalFallback();
+      } else {
+        window.onYouTubeIframeAPIReady = function () {
+          try {
+            new YT.Player('hero-yt-player', {
+              events: {
+                'onReady': function (event) {
+                  event.target.mute();
+                  event.target.playVideo();
+                  if (typeof event.target.setPlaybackQuality === 'function') {
+                    event.target.setPlaybackQuality('hd1080');
+                  }
+                },
+                'onError': function () {
+                  activateLocalFallback();
+                }
+              }
+            });
+          } catch (e) {
+            activateLocalFallback();
+          }
+        };
+      }
+    })();
+  </script>
+  <script src="https://www.youtube.com/iframe_api" async defer></script>
+</body>
+</html>

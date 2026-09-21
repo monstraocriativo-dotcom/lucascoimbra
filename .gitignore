@@ -1,0 +1,7 @@
+*.psd
+*.aep
+*.mov
+*.bak
+node_modules
+.vite
+dist

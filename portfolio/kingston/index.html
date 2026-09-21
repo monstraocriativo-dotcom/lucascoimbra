@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Kingston — Portfólio Criativo | Lucas Coimbra</title>
+  <meta name="description" content="Peças publicitárias, campanhas e criativos digitais desenvolvidos para Kingston Technology por Lucas Coimbra."/>
+  <meta name="author" content="Lucas Pereira Coimbra da Silva"/>
+  <meta name="theme-color" content="#131314"/>
+
+  <!-- Favicon SVG -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%232a2a2b'/%3E%3Ctext x='50' y='65' font-family='sans-serif' font-weight='800' font-size='50' fill='%23e31837' text-anchor='middle'%3ELC%3C/text%3E%3C/svg%3E"/>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-surface-variant": "#c0c6d6",
+            "primary": "#aac7ff",
+            "primary-container": "#3e90ff",
+            "brand-red": "#e31837",
+            "surface-bright": "#3a393a",
+            "surface-container-high": "#2a2a2b",
+            "surface-container-low": "#1c1b1c",
+            "surface-container-lowest": "#0e0e0f",
+            "secondary": "#c2c1ff",
+            "background": "#131314",
+            "tertiary": "#47e266",
+            "outline-variant": "#414754",
+            "outline": "#8b91a0",
+            "on-background": "#e5e2e3",
+            "surface": "#131314",
+            "surface-container-highest": "#353436",
+            "surface-container": "#201f20",
+            "on-surface": "#e5e2e3"
+          },
+          fontFamily: {
+            "display": ["Hanken Grotesk", "sans-serif"],
+            "mono": ["JetBrains Mono", "monospace"],
+            "body": ["Hanken Grotesk", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Hero Video Container, Masks & Overlay 50% */
+    .hero-video-container {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background-color: #000000;
+    }
+    @media (min-width: 640px) {
+      .hero-video-container {
+        height: 380px;
+      }
+    }
+    @media (min-width: 1024px) {
+      .hero-video-container {
+        height: 440px;
+      }
+    }
+    .hero-youtube-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100vw;
+      height: 56.25vw;
+      min-height: 100%;
+      min-width: 177.78vh;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-youtube-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      pointer-events: none;
+    }
+    .hero-video-element {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-overlay-dark {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 2;
+      pointer-events: none;
+    }
+    .hero-bottom-fade {
+      position: absolute;
+      inset-inline: 0;
+      bottom: 0;
+      height: 40%;
+      min-height: 100px;
+      background: linear-gradient(to top, rgba(19, 19, 20, 0.95) 0%, rgba(19, 19, 20, 0.6) 50%, rgba(0, 0, 0, 0) 100%);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .hero-top-vignette {
+      position: absolute;
+      inset-inline: 0;
+      top: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .hero-title-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 0 1.5rem;
+      pointer-events: none;
+    }
+
+    /* Card Hover & Transições */
+    .grid-card {
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.32s ease, border-color 0.32s ease;
+      will-change: transform;
+    }
+    .grid-card:hover {
+      transform: translateY(-6px) scale(1.015);
+      box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(227, 24, 55, 0.25);
+      border-color: rgba(227, 24, 55, 0.5);
+    }
+
+    /* Modal Lightbox */
+    #lightbox-modal {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+    #lightbox-modal.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+    #lightbox-dialog {
+      transform: scale(0.95);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #lightbox-modal.is-open #lightbox-dialog {
+      transform: scale(1);
+    }
+
+    /* Scrollbar personalizada nas miniaturas */
+    .modal-thumbs::-webkit-scrollbar {
+      height: 4px;
+    }
+    .modal-thumbs::-webkit-scrollbar-thumb {
+      background: rgba(227, 24, 55, 0.4);
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+
+<body class="bg-background text-on-surface font-body antialiased min-h-screen flex flex-col selection:bg-brand-red selection:text-white relative">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-40 backdrop-blur-xl bg-surface-container-lowest/85 border-b border-outline-variant/30 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-center">
+      
+      <!-- Nav Pill Menu Central -->
+      <nav class="flex items-center">
+        <ul class="flex items-center rounded-full bg-neutral-900/85 border border-white/15 text-sm lowercase p-1.5 backdrop-blur-xl shadow-2xl">
+          <li class="min-w-0">
+            <a href="../../index.html" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10">
+              <span>início</span>
+            </a>
+          </li>
+          <li class="min-w-0">
+            <a href="../../curriculo/index.html" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10">
+              <span>sobre</span>
+            </a>
+          </li>
+          <li class="min-w-0">
+            <a href="../index.html" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition bg-white text-black font-semibold">
+              <span>projetos</span>
+            </a>
+          </li>
+          <li class="min-w-0">
+            <a href="https://wa.me/5511940456685?text=Ol%C3%A1%20Lucas,%20vi%20seu%20portfolio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" class="flex justify-center items-center h-7 rounded-full px-2.5 sm:px-4 pb-0.5 transition text-neutral-300 hover:text-white hover:bg-white/10">
+              <span>contato</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- HERO COM VÍDEO & OVERLAY PRETO 50% -->
+  <section class="relative w-full bg-black overflow-hidden border-b border-outline-variant/20 shadow-2xl">
+    <div class="hero-video-container" id="hero-media-box">
+      <!-- Embed YouTube Full HD com referrerpolicy obrigatório -->
+      <div class="hero-youtube-wrapper" id="hero-yt-wrapper">
+        <iframe id="hero-yt-player"
+          src="https://www.youtube-nocookie.com/embed/JXEI_OlVOPg?autoplay=1&mute=1&loop=1&playlist=JXEI_OlVOPg&controls=0&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&modestbranding=1&playsinline=1"
+          title="Lucas Coimbra Hero Video" referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          tabindex="-1" aria-hidden="true" loading="eager">
+        </iframe>
+      </div>
+      <!-- Fallback automático em Full HD para visualização local sem erro 153 do YouTube -->
+      <video id="hero-local-video" class="hero-video-element hidden" autoplay muted loop playsinline
+        preload="auto" tabindex="-1" aria-hidden="true">
+        <source src="../../1 upscale.mp4" type="video/mp4">
+      </video>
+      <!-- Overlay preto de 50% -->
+      <div class="hero-overlay-dark"></div>
+      <!-- Vinhetas e Fade Suave -->
+      <div class="hero-top-vignette"></div>
+      <div class="hero-bottom-fade"></div>
+      <!-- Nome do Projeto em Cima -->
+      <div class="hero-title-content">
+        <h1 class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white uppercase drop-shadow-2xl">
+          Kingston
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRID DE 3 IMAGENS POR LINHA -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" id="gallery-grid">
+      <!-- Injetado dinamicamente via JavaScript -->
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="w-full border-t border-outline-variant/20 bg-surface-container-lowest/80 py-6 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-on-surface-variant">
+      <div>
+        <span>Lucas Coimbra © 2026 • Portfólio Kingston</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="../../index.html" class="hover:text-primary transition-colors">Currículo</a>
+        <span>•</span>
+        <a href="../index.html" class="hover:text-primary transition-colors">Portfólio Hub</a>
+        <span>•</span>
+        <a href="../Casapatri/index.html" class="hover:text-primary transition-colors">Casapatri</a>
+        <span>•</span>
+        <a href="../sobral/index.html" class="hover:text-primary transition-colors">Sobral 2026</a>
+        <span>•</span>
+        <a href="../vinci/videos.html" class="hover:text-primary transition-colors">Vídeos</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL LIGHTBOX EXPANSÍVEL -->
+  <!-- MODAL LIGHTBOX EXPANSÍVEL: SOMENTE IMAGEM E UM X PRA FECHAR -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-2xl p-2 sm:p-4" role="dialog" aria-modal="true" aria-label="Visualizador de Imagem">
+    
+    <!-- Botão Fechar (X) -->
+    <button id="lightbox-close" class="absolute top-4 right-4 sm:top-6 sm:right-6 z-50 w-12 h-12 rounded-full bg-surface-container-high/90 hover:bg-brand-red hover:text-white text-on-surface border border-outline-variant/50 flex items-center justify-center transition-all duration-200 focus:outline-none shadow-2xl cursor-pointer" aria-label="Fechar galeria">
+      <span class="material-symbols-outlined text-[28px]">close</span>
+    </button>
+
+    <!-- Navegação Esquerda (Anterior) -->
+    <button id="modal-prev-btn" class="absolute left-3 sm:left-6 z-40 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-surface-container-high/85 hover:bg-brand-red hover:text-white text-on-surface border border-outline-variant/50 flex items-center justify-center transition-all duration-200 shadow-2xl focus:outline-none cursor-pointer" aria-label="Imagem anterior">
+      <span class="material-symbols-outlined text-[32px]">arrow_back_ios_new</span>
+    </button>
+
+    <!-- Caixa Central da Imagem Ampliada -->
+    <div id="lightbox-dialog" class="relative w-full h-full max-w-[96vw] max-h-[92vh] flex items-center justify-center select-none p-1">
+      <div id="modal-media-wrapper" class="w-full h-full flex items-center justify-center overflow-hidden rounded-2xl">
+        <!-- Injetado dinamicamente via JS -->
+      </div>
+    </div>
+
+    <!-- Navegação Direita (Próxima) -->
+    <button id="modal-next-btn" class="absolute right-3 sm:right-6 z-40 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-surface-container-high/85 hover:bg-brand-red hover:text-white text-on-surface border border-outline-variant/50 flex items-center justify-center transition-all duration-200 shadow-2xl focus:outline-none cursor-pointer" aria-label="Próxima imagem">
+      <span class="material-symbols-outlined text-[32px]">arrow_forward_ios</span>
+    </button>
+
+  </div>
+
+  <!-- SCRIPT DA GALERIA & LIGHTBOX -->
+  <script>
+    (function () {
+      // 12 imagens da pasta kingston
+      const KINGSTON_ITEMS = [
+        { id: 1, src: '1.jpg', title: 'Kingston Technology — Peça 01' },
+        { id: 2, src: '2.jpg', title: 'Kingston Technology — Peça 02' },
+        { id: 3, src: '3.jpg', title: 'Kingston Technology — Peça 03' },
+        { id: 4, src: '4.jpg', title: 'Kingston Technology — Peça 04' },
+        { id: 5, src: '5.jpg', title: 'Kingston Technology — Peça 05' },
+        { id: 6, src: '6.jpg', title: 'Kingston Technology — Peça 06' },
+        { id: 7, src: '7.jpg', title: 'Kingston Technology — Peça 07' },
+        { id: 8, src: '8.jpg', title: 'Kingston Technology — Peça 08' },
+        { id: 9, src: '9.jpg', title: 'Kingston Technology — Peça 09' },
+        { id: 10, src: '10.jpg', title: 'Kingston Technology — Peça 10' },
+        { id: 11, src: '11.jpg', title: 'Kingston Technology — Peça 11' },
+        { id: 12, src: '12.jpg', title: 'Kingston Technology — Peça 12' }
+      ];
+
+      const galleryGrid = document.getElementById('gallery-grid');
+      const modal = document.getElementById('lightbox-modal');
+      const modalClose = document.getElementById('lightbox-close');
+      const modalPrev = document.getElementById('modal-prev-btn');
+      const modalNext = document.getElementById('modal-next-btn');
+      const modalWrapper = document.getElementById('modal-media-wrapper');
+
+      let currentIndex = 0;
+      let isModalOpen = false;
+
+      // Renderizar o Grid de 3 colunas — SOMENTE AS IMAGENS
+      function renderGrid() {
+        galleryGrid.innerHTML = '';
+
+        KINGSTON_ITEMS.forEach((item, index) => {
+          const card = document.createElement('article');
+          card.className = 'grid-card group relative rounded-2xl bg-surface-container-low border border-outline-variant/30 overflow-hidden cursor-pointer flex flex-col shadow-md';
+          
+          card.innerHTML = `
+            <div class="relative w-full aspect-square bg-surface-container-highest overflow-hidden">
+              <img 
+                src="${item.src}" 
+                alt="${item.title}" 
+                loading="lazy"
+                class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div class="w-14 h-14 rounded-full bg-brand-red/90 text-white flex items-center justify-center shadow-2xl transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                  <span class="material-symbols-outlined text-[30px]">zoom_in</span>
+                </div>
+              </div>
+            </div>
+          `;
+
+          card.addEventListener('click', () => {
+            openModal(index);
+          });
+
+          galleryGrid.appendChild(card);
+        });
+      }
+
+      // Abrir Lightbox
+      function openModal(index) {
+        currentIndex = index;
+        isModalOpen = true;
+        modal.classList.add('is-open');
+        document.body.classList.add('overflow-hidden');
+        updateModal();
+      }
+
+      // Fechar Lightbox
+      function closeModal() {
+        isModalOpen = false;
+        modal.classList.remove('is-open');
+        document.body.classList.remove('overflow-hidden');
+        modalWrapper.innerHTML = '';
+      }
+
+      // Atualizar Conteúdo do Lightbox
+      function updateModal() {
+        const item = KINGSTON_ITEMS[currentIndex];
+        if (!item) return;
+
+        modalWrapper.innerHTML = `
+          <img 
+            src="${item.src}" 
+            alt="${item.title}" 
+            class="max-w-[94vw] max-h-[92vh] w-auto h-auto object-contain rounded-xl shadow-2xl transition-opacity duration-200 select-none"
+          />
+        `;
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % KINGSTON_ITEMS.length;
+        updateModal();
+      }
+
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + KINGSTON_ITEMS.length) % KINGSTON_ITEMS.length;
+        updateModal();
+      }
+
+      // Eventos
+      modalClose.addEventListener('click', closeModal);
+      modalNext.addEventListener('click', nextSlide);
+      modalPrev.addEventListener('click', prevSlide);
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal || e.target.id === 'lightbox-dialog') {
+          closeModal();
+        }
+      });
+
+      // Teclado
+      window.addEventListener('keydown', (e) => {
+        if (!isModalOpen) return;
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowRight') nextSlide();
+        if (e.key === 'ArrowLeft') prevSlide();
+      });
+
+      // Inicializar
+      renderGrid();
+    })();
+  </script>
+  <!-- Gerenciador de Reprodução do Vídeo Hero (YouTube Embed + Fallback Local Full HD) -->
+  <script>
+    (function () {
+      var isFile = window.location.protocol === 'file:';
+      var ytWrapper = document.getElementById('hero-yt-wrapper');
+      var localVideo = document.getElementById('hero-local-video');
+
+      function activateLocalFallback() {
+        if (localVideo && ytWrapper) {
+          ytWrapper.style.display = 'none';
+          localVideo.classList.remove('hidden');
+          localVideo.play().catch(function () { });
+        }
+      }
+
+      if (isFile) {
+        activateLocalFallback();
+      } else {
+        window.onYouTubeIframeAPIReady = function () {
+          try {
+            new YT.Player('hero-yt-player', {
+              events: {
+                'onReady': function (event) {
+                  event.target.mute();
+                  event.target.playVideo();
+                  if (typeof event.target.setPlaybackQuality === 'function') {
+                    event.target.setPlaybackQuality('hd1080');
+                  }
+                },
+                'onError': function () {
+                  activateLocalFallback();
+                }
+              }
+            });
+          } catch (e) {
+            activateLocalFallback();
+          }
+        };
+      }
+    })();
+  </script>
+  <script src="https://www.youtube.com/iframe_api" async defer></script>
+</body>
+</html>
